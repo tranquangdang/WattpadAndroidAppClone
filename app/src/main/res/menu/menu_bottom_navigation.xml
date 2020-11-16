@@ -17,11 +17,6 @@
 
     <item
         android:title=""
-        android:id="@+id/edit_bottom_navigation"
-        android:icon="@drawable/ic_baseline_edit_24"/>
-
-    <item
-        android:title=""
         android:id="@+id/noti_bottom_navigation"
         android:icon="@drawable/ic_baseline_notifications_none_24"/>
 </menu>

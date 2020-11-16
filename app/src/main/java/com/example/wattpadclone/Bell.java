@@ -31,7 +31,19 @@ public class Bell extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bell);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_noti);
+        setSupportActionBar(toolbar);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId()==R.id.toolbar_noti_add)
+                {
+                    // do something
+                }
+                return false;
+            }
+        });
         btn1 = (ImageButton) findViewById(R.id.btnlogo);
         btn2 = (ImageButton) findViewById(R.id.btnadd);
 
@@ -73,7 +85,7 @@ public class Bell extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar_home,menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar_noti,menu);
         return true;
     }
 

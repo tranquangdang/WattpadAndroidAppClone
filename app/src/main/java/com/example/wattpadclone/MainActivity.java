@@ -102,9 +102,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_toolbar_home,menu);
         return true;
     }
-    public void open(View view) {
-        startActivity(new Intent(getApplicationContext(),lv_topic.class));
-    }
 
     private void completedBookAdd() {
         ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();

@@ -18,6 +18,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_noti"
+            android:background="#ffffff"
+            app:titleTextColor="#000000"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Các cập nhật"
+            app:titleMarginStart="40dp"
+            app:logo="@drawable/ic_wattpad"/>
+
         <include layout="@layout/toolbar"
             android:id="@+id/toolbar"
             />

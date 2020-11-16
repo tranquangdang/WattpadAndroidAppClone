@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Library">
+
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_lib"
+            android:background="#ffffff"
+            app:titleTextColor="#000000"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Thư Viện"
+            app:titleMarginStart="40dp"
+            app:logo="@drawable/ic_wattpad"/>
         <TabHost
             android:background="#FBFBFB"
             android:theme="@style/TabText"

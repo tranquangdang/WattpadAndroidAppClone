@@ -124,10 +124,8 @@ public class Library extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.option_menu,menu);
-        getMenuInflater().inflate(R.menu.menu_toolbar_home,menu);
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar_lib,menu);
+        return true;
     }
     private void loadTab() {
         final TabHost tab=(TabHost) findViewById (android.R.id.tabhost);
