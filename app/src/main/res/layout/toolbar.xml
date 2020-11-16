@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/xamnhe"
+    android:elevation="8dp">
+    <LinearLayout
+        android:background="@color/xamnhe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageButton
+            android:id="@+id/btnlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="5px"
+            android:layout_weight="1"
+            android:background="@color/trongsuot"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/acme"
+            android:text="Các  Cập  Nhật"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/trongsuot"
+            android:src="@drawable/add" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

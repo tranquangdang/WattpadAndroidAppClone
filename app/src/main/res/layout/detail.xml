@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detail"
+    >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_bottom_navigation"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/tr3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+            <ImageView
+                android:src="@drawable/tr3"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:outlineAmbientShadowColor="@android:color/darker_gray"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="@string/cauchuyen"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tacgia"
+            android:drawableStart="@drawable/person"
+            android:drawableLeft="@drawable/person"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:weightSum="3"
+            >
+            <TextView
+                android:drawableStart="@drawable/ic_baseline_remove_red_eye_24"
+                android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
+                android:drawablePadding="8dp"
+                android:id="@+id/luotdoc"
+                android:text="@string/doc"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/binhchon"
+                android:drawableStart="@drawable/vote"
+                android:drawableLeft="@drawable/vote"
+                android:drawablePadding="8dp"
+                android:layout_weight="1"
+                android:text="@string/xem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:drawableStart="@drawable/phan"
+                android:drawableLeft="@drawable/phan"
+                android:drawablePadding="8dp"
+                android:layout_weight="1"
+                android:text="@string/sophan"
+                android:id="@+id/phan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+            <Button
+                android:id="@+id/tieptuc"
+                android:textSize="20dp"
+                android:text="Tiếp Tục"
+                android:textColor="#fff"
+                android:background="@drawable/btntieptuc"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_marginLeft="15dp"
+                android:id="@+id/cong"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="30dp"
+                android:background="@drawable/btncong"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taolao"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mota" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            >
+            <TextView
+                android:drawableLeft="@drawable/ic_baseline_local_florist_24"
+                android:drawableStart="@drawable/ic_baseline_local_florist_24"
+                android:drawablePadding="5dp"
+                android:text="@string/bangxephang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/hoanthanh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:elevation="@dimen/cardview_default_elevation"
+            android:layout_marginTop="15dp"
+            android:id="@+id/recycler"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

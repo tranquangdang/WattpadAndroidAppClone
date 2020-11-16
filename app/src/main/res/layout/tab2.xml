@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gửi tin nhắn cá nhân cho thành \n viên mà bạn đang kết nối"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:textColor="#FF5722"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chi sẻ truyện bạn thích với bạn bè, và gửi \nlời tán dương tới nhà văn bạn yêu thích"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tin nhắn mới"
+        android:background="@drawable/buttontinnhan"
+       />
+</LinearLayout>

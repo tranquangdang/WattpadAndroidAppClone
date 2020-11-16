@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bạn không có thông báo nào \n tại thời điểm này"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:textColor="#FF5722"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Các cập nhật truyện trong thư viện của bạn và từ\n người mà bạn theo dõi sẽ xuất hiện ở đây"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+</LinearLayout>
