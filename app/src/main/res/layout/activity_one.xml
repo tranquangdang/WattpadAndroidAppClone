@@ -21,9 +21,10 @@
         android:layout_marginTop="60dp"
         android:textColor="#6f6f6f"
         android:textSize="15sp" />
-    <TextView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="bt_return"
         android:background="@drawable/ic_back"/>
     <TextView
         android:layout_width="match_parent"

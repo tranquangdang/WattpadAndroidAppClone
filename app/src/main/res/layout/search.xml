@@ -34,20 +34,12 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"/>
 
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/radius2"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Tìm kiếm truyện hoặc người"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"/>
+        <SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/toolbar_search"
+            android:id="@+id/timkiem"/>
 
         <GridView
             android:id="@+id/grid"

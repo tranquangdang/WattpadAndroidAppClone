@@ -1,6 +1,8 @@
 package com.example.wattpadclone;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,5 +39,9 @@ public class one extends AppCompatActivity {
                 "cổ điển"));
         adapter=new ListViewBaseAdapter(arr_bean,this);
         lv.setAdapter(adapter);
+    }
+
+    public void bt_return(View view) {
+        startActivity(new Intent(getApplicationContext(),Search.class));
     }
 }
