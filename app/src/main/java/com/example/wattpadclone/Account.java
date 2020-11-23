@@ -14,7 +14,7 @@ import android.view.View;
 import com.example.wattpadclone.Adapters.SectionsPageAdapter;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
-//trường đệp trait 1232354124
+
 public class Account extends AppCompatActivity {
     private BottomSheetBehavior mBottomSheetBehavior;
     private SectionsPageAdapter mSectionsPageAdapter;
