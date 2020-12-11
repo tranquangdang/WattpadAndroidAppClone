@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Adapters;
+package com.example.wattpadclone.Home.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

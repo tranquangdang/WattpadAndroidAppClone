@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#383838"
     android:orientation="vertical"
-    tools:context=".Account">
+    tools:context=".Home.Account">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"

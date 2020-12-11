@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Chung;
 
 import android.os.Bundle;
 
@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.wattpadclone.R;
+import com.example.wattpadclone.story;
+import com.example.wattpadclone.storyAdapter;
 
 import java.util.ArrayList;
 

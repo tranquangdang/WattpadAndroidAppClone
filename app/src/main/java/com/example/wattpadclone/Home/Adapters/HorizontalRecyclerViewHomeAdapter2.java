@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Adapters;
+package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Detail;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
+import com.example.wattpadclone.Chung.Detail;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;

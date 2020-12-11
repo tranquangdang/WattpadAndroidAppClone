@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Search;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,12 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wattpadclone.Bell.Bell;
+import com.example.wattpadclone.Library.Library;
+import com.example.wattpadclone.MainActivity;
+import com.example.wattpadclone.MainAdapter;
+import com.example.wattpadclone.R;
+import com.example.wattpadclone.one;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Search extends AppCompatActivity {
@@ -33,10 +39,10 @@ public class Search extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if(position==0) {
-                    Intent intent = new Intent(Search.this,one.class);
+                    Intent intent = new Intent(Search.this, one.class);
                     startActivity(intent);
                 }else if(position==1){
-                    Intent intent = new Intent(Search.this,two.class);
+                    Intent intent = new Intent(Search.this, two.class);
                     startActivity(intent);
                 }
             }

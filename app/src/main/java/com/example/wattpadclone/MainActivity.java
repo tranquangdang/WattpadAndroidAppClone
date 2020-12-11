@@ -5,26 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SnapHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Adapters.Beans.VerticalRecyclerViewHomeBean;
-import com.example.wattpadclone.Adapters.HorizontalRecyclerViewHomeAdapter1;
-import com.example.wattpadclone.Adapters.VerticalRecyclerViewHomeAdapter;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.example.wattpadclone.Bell.Bell;
+import com.example.wattpadclone.Home.Account;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
+import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
+import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
+import com.example.wattpadclone.Library.Library;
+import com.example.wattpadclone.Search.Search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.internal.NavigationMenuItemView;
-import com.google.android.material.internal.NavigationMenuView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

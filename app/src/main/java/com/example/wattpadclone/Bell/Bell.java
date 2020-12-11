@@ -1,5 +1,5 @@
 
-package com.example.wattpadclone;
+package com.example.wattpadclone.Bell;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +18,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.wattpadclone.Library.Library;
+import com.example.wattpadclone.MainActivity;
+import com.example.wattpadclone.R;
+import com.example.wattpadclone.Search.Search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 

@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Adapters;
+package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,15 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
-import com.example.wattpadclone.Detail;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
+import com.example.wattpadclone.Chung.Detail;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -35,7 +33,6 @@ public class HorizontalRecyclerViewHomeAdapter1 extends RecyclerView.Adapter<Hor
     public HorizontalRVViewHolder1 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_rv_home_adapter1,parent,false);
         return new HorizontalRVViewHolder1(view);
-
 
     }
 

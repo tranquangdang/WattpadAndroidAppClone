@@ -7,6 +7,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wattpadclone.Search.Search;
+
 import java.util.ArrayList;
 
 public class one extends AppCompatActivity {
@@ -42,6 +44,6 @@ public class one extends AppCompatActivity {
     }
 
     public void bt_return(View view) {
-        startActivity(new Intent(getApplicationContext(),Search.class));
+        startActivity(new Intent(getApplicationContext(), Search.class));
     }
 }

@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Adapters;
+package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
-import com.example.wattpadclone.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Adapters.Beans.VerticalRecyclerViewHomeBean;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
+import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.StartSnapHelper;
 

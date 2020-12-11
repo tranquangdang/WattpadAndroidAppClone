@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Adapters.Beans;
+package com.example.wattpadclone.Home.Adapters.Beans;
 
 import java.util.ArrayList;
 
