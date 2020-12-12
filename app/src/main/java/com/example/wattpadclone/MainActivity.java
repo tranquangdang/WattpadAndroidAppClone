@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.wattpadclone.Bell.Bell;
 import com.example.wattpadclone.Home.Account;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
@@ -19,6 +18,7 @@ import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean
 import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
 import com.example.wattpadclone.Library.Library;
 import com.example.wattpadclone.Search.Search;
+import com.example.wattpadclone.Truong.Bell.Bell;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

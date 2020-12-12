@@ -6,11 +6,9 @@
     android:gravity="center">
 
     <ImageView
-
-        android:background="@drawable/border"
         android:id="@+id/hinh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
         />
 
     <TextView

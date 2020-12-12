@@ -1,5 +1,5 @@
 
-package com.example.wattpadclone.Bell;
+package com.example.wattpadclone.Truong.Bell;
 
 import android.content.Intent;
 import android.graphics.Color;
