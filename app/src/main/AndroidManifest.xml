@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".one"/>
         <activity android:name=".Search.two"/>
-        <activity android:name=".Bell.Bell"/>
+        <activity android:name=".Truong.Bell.Bell"/>
         <activity android:name=".Chung.Detail"/>
         <activity android:name=".MainActivity">
             <intent-filter>

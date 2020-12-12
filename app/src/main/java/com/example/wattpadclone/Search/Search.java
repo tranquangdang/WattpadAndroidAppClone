@@ -11,7 +11,7 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wattpadclone.Bell.Bell;
+import com.example.wattpadclone.Truong.Bell.Bell;
 import com.example.wattpadclone.Library.Library;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.MainAdapter;

@@ -15,7 +15,7 @@ import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBe
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.StartSnapHelper;
+import com.example.wattpadclone.Truong.UIdoc.StartSnapHelper;
 
 import java.util.ArrayList;
 
