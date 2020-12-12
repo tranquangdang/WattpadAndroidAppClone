@@ -17,16 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.wattpadclone.Bell.Bell;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.ReadingList;
-import com.example.wattpadclone.ReadingListAdapter;
 import com.example.wattpadclone.Search.Search;
-import com.example.wattpadclone.lv_topic;
-import com.example.wattpadclone.offline;
-import com.example.wattpadclone.offlineAdapter;
-import com.example.wattpadclone.offlineAdapter_2;
-import com.example.wattpadclone.offline_2;
-import com.example.wattpadclone.watpad;
-import com.example.wattpadclone.watpadAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -36,7 +27,7 @@ import java.util.ArrayList;
 public class Library extends AppCompatActivity {
     ListView lv_readinglist;
     GridView gr_watpad,gr_Current_off,gr_Current_off_2;
-    com.example.wattpadclone.offlineAdapter_2 offlineAdapter_2;
+    com.example.wattpadclone.Library.offlineAdapter_2 offlineAdapter_2;
     ArrayList<offline_2> offline_2ArrayList;
     offlineAdapter offlineAdapterr;
     ArrayList<offline> offlineArrayList;

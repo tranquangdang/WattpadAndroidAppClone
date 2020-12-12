@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Library;
 
 public class lv_topic_content {
     int lv_topic_anh;

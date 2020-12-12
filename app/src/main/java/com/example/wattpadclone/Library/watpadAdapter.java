@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Library;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.wattpadclone.Library.watpad;
+import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 import java.util.List;

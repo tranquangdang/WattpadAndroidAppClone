@@ -1,9 +1,10 @@
-package com.example.wattpadclone;
-import android.graphics.drawable.ColorDrawable;
+package com.example.wattpadclone.Library;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 public class lv_topic extends AppCompatActivity {

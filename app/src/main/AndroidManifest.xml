@@ -13,7 +13,7 @@
         <activity android:name=".Home.Account"></activity>
         <activity android:name=".Search.Search" />
         <activity android:name=".Library.Library" />
-        <activity android:name=".lv_topic"
+        <activity android:name=".Library.lv_topic"
             android:parentActivityName=".Library.Library">
         </activity>
         <activity android:name=".one"/>
