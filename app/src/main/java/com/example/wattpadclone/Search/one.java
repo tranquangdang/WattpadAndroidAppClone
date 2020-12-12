@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Search;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wattpadclone.ListViewBaseAdapter;
+import com.example.wattpadclone.ListViewBean;
+import com.example.wattpadclone.R;
 import com.example.wattpadclone.Search.Search;
 
 import java.util.ArrayList;

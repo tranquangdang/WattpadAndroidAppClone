@@ -14,9 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.wattpadclone.Truong.Bell.Bell;
 import com.example.wattpadclone.Library.Library;
 import com.example.wattpadclone.MainActivity;
-import com.example.wattpadclone.MainAdapter;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.one;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Search extends AppCompatActivity {
