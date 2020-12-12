@@ -16,7 +16,7 @@
         <activity android:name=".lv_topic"
             android:parentActivityName=".Library.Library">
         </activity>
-        <activity android:name=".one"/>
+        <activity android:name=".Search.one"/>
         <activity android:name=".Search.two"/>
         <activity android:name=".Bell.Bell"/>
         <activity android:name=".Chung.Detail"/>
