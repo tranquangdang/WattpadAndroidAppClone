@@ -13,7 +13,8 @@
         <ImageView
             android:id="@+id/lv_topic_anh"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="fitCenter"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
