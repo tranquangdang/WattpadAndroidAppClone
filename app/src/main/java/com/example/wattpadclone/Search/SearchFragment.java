@@ -1,5 +1,6 @@
 package com.example.wattpadclone.Search;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
+import com.example.wattpadclone.Home.HomeFragment;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
@@ -49,7 +52,8 @@ public class SearchFragment extends BaseFragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                mActivity.pushFragments(MainActivity.SEARCH_FRAGMENT, new FragmentSearchList(), true);
+                Intent intent = new Intent(getContext(), SearchListActivity.class);
+                startActivity(intent);
             }
         });
 

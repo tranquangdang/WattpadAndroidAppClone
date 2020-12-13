@@ -1,6 +1,7 @@
 package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wattpadclone.Chung.FragmentBookDetails;
+import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
@@ -47,7 +48,8 @@ public class HorizontalRecyclerViewHomeAdapter1 extends RecyclerView.Adapter<Hor
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)context).pushFragments("HOME_FRAGMENT", new FragmentBookDetails(),true);
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
             }
         });
     }

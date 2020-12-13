@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Chung.FragmentBookDetails;
+import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
@@ -40,7 +40,8 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)context).pushFragments("HOME_FRAGMENT", new FragmentBookDetails(),true);
+                Intent intent = new Intent(context, ActivityBookDetails.class);
+                context.startActivity(intent);
             }
         });
 

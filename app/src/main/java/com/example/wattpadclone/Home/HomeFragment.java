@@ -1,5 +1,7 @@
 package com.example.wattpadclone.Home;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
-import com.example.wattpadclone.Home.Account.FragmentAccount;
+import com.example.wattpadclone.Home.Account.AccountActivity;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
@@ -47,7 +49,8 @@ public class HomeFragment extends BaseFragment {
                 }
                 else if(item.getItemId()== R.id.toolbar_home_account)
                 {
-                    mActivity.pushFragments(MainActivity.HOME_FRAGMENT, new FragmentAccount(), true);
+                    Intent intent = new Intent(getActivity(), AccountActivity.class);
+                    startActivity(intent);
                 }
                 return false;
             }

@@ -30,6 +30,7 @@ import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
 
     public static HashMap<String, Stack<Fragment>> mStacks;
+    public static final String STACK = "STACK";
     public static final String HOME_FRAGMENT = "HOME_FRAGMENT";
     public static final String SEARCH_FRAGMENT = "SEARCH_FRAGMENT";
     public static final String LIBRARY_FRAGMENT = "LIBRARY_FRAGMENT";
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationViewEx.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mStacks = new HashMap<String, Stack<Fragment>>();
+        mStacks.put(STACK, new Stack<Fragment>());
         mStacks.put(HOME_FRAGMENT, new Stack<Fragment>());
         mStacks.put(SEARCH_FRAGMENT, new Stack<Fragment>());
         mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectedTab(String tabId) {
-        mCurrentTab = tabId;
+        mCurrentTab = STACK;
 
         if (mStacks.get(tabId).size() == 0) {
             if (tabId.equals(HOME_FRAGMENT)) {
@@ -106,17 +108,18 @@ public class MainActivity extends AppCompatActivity {
                 pushFragments(tabId, new BellFragment(), true);
             }
         } else {
-            pushFragments(tabId, mStacks.get(tabId).lastElement(), false);
+            pushFragments(STACK, mStacks.get(STACK).lastElement(), false);
         }
     }
 
     public void pushFragments(String tag, Fragment fragment, boolean shouldAdd) {
         if (shouldAdd)
-            mStacks.get(tag).push(fragment);
+            mStacks.get(STACK).push(fragment);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         ft.replace(R.id.main_container, fragment);
         ft.commit();
+
     }
 
     public void popFragments() {
@@ -137,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
             gotoFragment(new HomeFragment());
             return;
         }
-
         popFragments();
     }
 

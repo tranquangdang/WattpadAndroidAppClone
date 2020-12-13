@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#383838"
     android:orientation="vertical"
-    tools:context=".Home.Account.FragmentAccount">
+    tools:context=".Home.Account.AccountActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

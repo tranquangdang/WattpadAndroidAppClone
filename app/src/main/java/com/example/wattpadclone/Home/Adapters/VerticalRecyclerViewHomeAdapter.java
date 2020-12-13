@@ -1,6 +1,7 @@
 package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.wattpadclone.Chung.FragmentBookDetails;
+import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
@@ -67,7 +68,8 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         holder.home_more_rv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)context).pushFragments("HOME_FRAGMENT", new FragmentBookDetails(),true);
+                Intent intent = new Intent(context, ActivityBookDetails.class);
+                context.startActivity(intent);
             }
         });
         SnapHelper startSnapHelper = new StartSnapHelper();
