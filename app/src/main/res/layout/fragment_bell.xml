@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Truong.Bell.Bell"
+    tools:context=".Bell.BellFragment"
     >
 
-    <include
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_bell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/layout_bottom_navigation"
-        android:layout_alignParentBottom="true"/>
+        android:paddingLeft="15dp"
+        app:titleTextColor="@color/black"
+        app:title="Các cập nhật"
+        app:titleMarginStart="15dp"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbar_noti"
-            android:background="#ffffff"
-            app:titleTextColor="#000000"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Các cập nhật"
-            app:titleMarginStart="40dp"
-            app:logo="@drawable/ic_wattpad"/>
-
-        <include layout="@layout/toolbar"
-            android:id="@+id/toolbar"
-            />
+        android:layout_marginTop="?android:attr/actionBarSize"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingBottom="50dp">
 
         <TabHost
             android:id="@+id/tabHost"
@@ -50,7 +40,6 @@
                     android:layout_height="wrap_content"
                     android:background="@color/xam"
                     android:divider="@color/trongsuot"
-
                     />
 
                 <FrameLayout
@@ -77,8 +66,8 @@
                 </FrameLayout>
             </LinearLayout>
         </TabHost>
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
-</RelativeLayout>
+</FrameLayout>

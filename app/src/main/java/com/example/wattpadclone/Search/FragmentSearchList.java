@@ -2,27 +2,43 @@ package com.example.wattpadclone.Search;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
-import com.example.wattpadclone.ListViewBaseAdapter;
-import com.example.wattpadclone.ListViewBean;
+import com.example.wattpadclone.Chung.Bean.BaseFragment;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Search.Search;
 
 import java.util.ArrayList;
 
-public class one extends AppCompatActivity {
+public class FragmentSearchList extends BaseFragment {
     ListView lv;
     ListViewBaseAdapter adapter;
     ArrayList<ListViewBean> arr_bean;
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one);
-        lv=findViewById(R.id.listview);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_search_list, container, false);
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar_search_list);
+        toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_arrow_back_24));
+        View logoView = toolbar.getChildAt(1);
+        logoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mActivity.popFragments();
+            }
+        });
+
+        lv=view.findViewById(R.id.listview);
         arr_bean=new ArrayList<ListViewBean>();
         arr_bean.add(new ListViewBean(R.drawable.a1,"Đối lập","239 K","1.7 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","phiêu lưu",
@@ -42,11 +58,8 @@ public class one extends AppCompatActivity {
         arr_bean.add(new ListViewBean(R.drawable.a6,"Cucho cậu bé hiếu thảo","899 K","6.9 K",
                 "24","\"Want to be something nobody can do, you need to more try\"","cucho","thơ ca",
                 "cổ điển"));
-        adapter=new ListViewBaseAdapter(arr_bean,this);
+        adapter=new ListViewBaseAdapter(arr_bean,getContext());
         lv.setAdapter(adapter);
-    }
-
-    public void bt_return(View view) {
-        startActivity(new Intent(getApplicationContext(), Search.class));
+        return view;
     }
 }

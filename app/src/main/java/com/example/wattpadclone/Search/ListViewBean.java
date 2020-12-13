@@ -1,4 +1,4 @@
-package com.example.wattpadclone;
+package com.example.wattpadclone.Search;
 
 public class ListViewBean {
     int Lv_topic_anh;

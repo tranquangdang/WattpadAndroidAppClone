@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity">
 
+    <include layout="@layout/content_main" />
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/layout_bottom_navigation"
-        android:layout_alignParentBottom="true"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar_home"
-        android:background="#ffffff"
-        app:titleTextColor="#000000"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="Trang chủ"
-        app:titleMarginStart="40dp"
-        app:logo="@drawable/ic_wattpad"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dfdfdf"
+            android:layout_above="@+id/bottom_navigation_main"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/home_recyclerViewMain"
-        android:layout_below="@+id/toolbar_home"
-        android:layout_marginBottom="50dp"/>
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+            android:id="@+id/bottom_navigation_main"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@color/icon_selected_color"
+            app:itemTextColor="@color/icon_selected_color"
+            app:labelVisibilityMode="selected"
+            app:itemBackground="@color/bottom_nav_tab_background"/>
+    </RelativeLayout>
 
-
-
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

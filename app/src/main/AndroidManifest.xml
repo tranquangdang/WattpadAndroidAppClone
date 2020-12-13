@@ -10,15 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
-        <activity android:name=".Home.Account"></activity>
-        <activity android:name=".Search.Search" />
+        <activity android:name=".Home.Account.FragmentAccount"></activity>
+        <activity android:name=".Search.SearchFragment" />
         <activity android:name=".Library.Library" />
         <activity android:name=".Library.lv_topic"
             android:parentActivityName=".Library.Library">
         </activity>
-        <activity android:name=".Search.one"/>
+        <activity android:name=".Search.FragmentSearchList"/>
         <activity android:name=".Search.two"/>
-        <activity android:name=".Truong.Bell.Bell"/>
+        <activity android:name=".Bell.Bell"/>
         <activity android:name=".Chung.Detail"/>
         <activity android:name=".MainActivity">
             <intent-filter>

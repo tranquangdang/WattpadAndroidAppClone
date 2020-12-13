@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Home;
+package com.example.wattpadclone.Home.Account;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

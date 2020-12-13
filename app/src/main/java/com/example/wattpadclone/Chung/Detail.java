@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Truong.UIdoc.story;
-import com.example.wattpadclone.Truong.UIdoc.storyAdapter;
+import com.example.wattpadclone.Bell.UIdoc.story;
+import com.example.wattpadclone.Bell.UIdoc.storyAdapter;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ public class Detail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail);
+        setContentView(R.layout.detail_book);
 
         recyclerView = findViewById(R.id.recycler);
         arrayList = new ArrayList<>();

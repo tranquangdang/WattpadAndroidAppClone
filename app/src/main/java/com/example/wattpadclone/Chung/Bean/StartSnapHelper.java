@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Truong.UIdoc;
+package com.example.wattpadclone.Chung.Bean;
 
 
 import android.view.View;

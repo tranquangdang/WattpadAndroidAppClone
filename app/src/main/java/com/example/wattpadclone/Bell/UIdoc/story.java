@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Truong.UIdoc;
+package com.example.wattpadclone.Bell.UIdoc;
 
 public class story {
     String name;

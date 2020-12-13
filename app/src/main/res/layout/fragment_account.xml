@@ -6,21 +6,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#383838"
     android:orientation="vertical"
-    tools:context=".Home.Account">
+    tools:context=".Home.Account.FragmentAccount">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#383838">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:id="@+id/toolbar_account"
             app:titleTextColor="#ffffff"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:logo="@drawable/ic_baseline_arrow_back_white_24"
             app:title=" "/>
 
     </com.google.android.material.appbar.AppBarLayout>

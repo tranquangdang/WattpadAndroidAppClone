@@ -1,203 +1,187 @@
 package com.example.wattpadclone;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.Menu;
+import android.provider.Settings;
 import android.view.MenuItem;
 
-import com.example.wattpadclone.Home.Account;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
-import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
-import com.example.wattpadclone.Library.Library;
-import com.example.wattpadclone.Search.Search;
-import com.example.wattpadclone.Truong.Bell.Bell;
+import com.example.wattpadclone.Home.HomeFragment;
+import com.example.wattpadclone.Library.LibraryFragment;
+import com.example.wattpadclone.Search.SearchFragment;
+import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import java.util.HashMap;
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView verticalRecyclerView;
-    VerticalRecyclerViewHomeAdapter vAdapter;
-    ArrayList<VerticalRecyclerViewHomeBean> arrayListVertical;
-    
+    public static HashMap<String, Stack<Fragment>> mStacks;
+    public static final String HOME_FRAGMENT = "HOME_FRAGMENT";
+    public static final String SEARCH_FRAGMENT = "SEARCH_FRAGMENT";
+    public static final String LIBRARY_FRAGMENT = "LIBRARY_FRAGMENT";
+    public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
+    public static BottomNavigationViewEx bottomNavigationViewEx;
+
+    FirebaseUser firebaseUser;
+
+    private String mCurrentTab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_home);
-        setSupportActionBar(toolbar);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottom_navigation_main);
+        bottomNavigationViewEx.setTextVisibility(false);
+        bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableShiftingMode(false);
+        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        arrayListVertical = new ArrayList<>();
+        mStacks = new HashMap<String, Stack<Fragment>>();
+        mStacks.put(HOME_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(SEARCH_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(BELL_FRAGMENT, new Stack<Fragment>());
 
-        verticalRecyclerView = (RecyclerView)findViewById(R.id.home_recyclerViewMain);
-        verticalRecyclerView.setHasFixedSize(true);
-        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
+        bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
+    }
 
-        vAdapter = new VerticalRecyclerViewHomeAdapter(this,arrayListVertical);
-        verticalRecyclerView.setAdapter(vAdapter);
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-
-        completedBookAdd();
-        test2();
-        test3();
-        test4();
-
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.toolbar_home_setting)
-                {
-                    // do something
-                }
-                else if(item.getItemId()== R.id.toolbar_home_account)
-                {
-                    startActivity(new Intent(getApplicationContext(), Account.class));
-                }
-                return false;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.action_home:
+                    selectedTab(HOME_FRAGMENT);
+                    return true;
+                case R.id.action_search:
+                    selectedTab(SEARCH_FRAGMENT);
+                    return true;
+                case R.id.action_library:
+                    selectedTab(LIBRARY_FRAGMENT);
+                    return true;
+                case R.id.action_bell:
+                    selectedTab(BELL_FRAGMENT);
+                    return true;
             }
-        });
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.home_bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home_bottom_navigation:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.lib_bottom_navigation:
-                        startActivity(new Intent(getApplicationContext(), Library.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.search_bottom_navigation:
-                        startActivity(new Intent(getApplicationContext(), Search.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.noti_bottom_navigation:
-                        startActivity(new Intent(getApplicationContext(), Bell.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
+            return false;
+        }
+
+    };
+
+    public void gotoFragment(Fragment selectedFragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, selectedFragment);
+        fragmentTransaction.commit();
+    }
+
+    private void selectedTab(String tabId) {
+        mCurrentTab = tabId;
+
+        if (mStacks.get(tabId).size() == 0) {
+            if (tabId.equals(HOME_FRAGMENT)) {
+                pushFragments(tabId, new HomeFragment(), true);
+            } else if (tabId.equals(SEARCH_FRAGMENT)) {
+                pushFragments(tabId, new SearchFragment(), true);
+            } else if (tabId.equals(LIBRARY_FRAGMENT)) {
+                pushFragments(tabId, new LibraryFragment(), true);
+            } else if (tabId.equals(BELL_FRAGMENT)) {
+                pushFragments(tabId, new BellFragment(), true);
             }
-        });
+        } else {
+            pushFragments(tabId, mStacks.get(tabId).lastElement(), false);
+        }
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar_home,menu);
-        return true;
+    public void pushFragments(String tag, Fragment fragment, boolean shouldAdd) {
+        if (shouldAdd)
+            mStacks.get(tag).push(fragment);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.replace(R.id.main_container, fragment);
+        ft.commit();
     }
 
-    private void completedBookAdd() {
-        ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book4, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book5, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book8, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
+    public void popFragments() {
+        Fragment fragment = mStacks.get(mCurrentTab).elementAt(mStacks.get(mCurrentTab).size() - 2);
 
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book9));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book1));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Truyện đã Hoàn Thành", "Đọc say sưa từ đầu đến cuối",
-                "Truyện được thảo luận nhiều", "Các truyện có nhiều bình luận nhất", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
+        mStacks.get(mCurrentTab).pop();
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.replace(R.id.main_container, fragment);
+        ft.commit();
     }
 
-    private void test2() {
-        ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book5, "aaaaaaaaaaaaaaa", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book8, "bbbbbbbbbbbbbbbb", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book9, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
+    @Override
+    public void onBackPressed() {
+        if (mStacks.get(mCurrentTab).size() == 1) {
+            bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
+            gotoFragment(new HomeFragment());
+            return;
+        }
 
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book1));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Truyện đã Hoàn Thành", "Đọc say sưa từ đầu đến cuối",
-                "Truyện được thảo luận nhiều", "Các truyện có nhiều bình luận nhất", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
+        popFragments();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(!isInternetAvailable()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Please connect to the internet")
+                    .setCancelable(false)
+                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            onStart();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        if(firebaseUser != null) {
+            bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
+        }
     }
 
 
-    private void test3() {
-        ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book5, "aaaaaaaaaaaaaaa", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book8, "bbbbbbbbbbbbbbbb", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book9, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book1));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Xu huớng", "Xu hướng trong tuần qua",
-                "Có thể bạn cũng thích", "Có thể bạn sẽ thích truyện này", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
-    }
-
-    private void test4() {
-        ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book5, "aaaaaaaaaaaaaaa", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book8, "bbbbbbbbbbbbbbbb", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book9, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book1));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.drawable.book2));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Truyện hay nhất trong tuần", "Được chọn lọc",
-                "Có cùng chủ đề", "Có cùng chủ đề với nội dung", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
+    public boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if ((connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+                || (connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+                .getState() == NetworkInfo.State.CONNECTED)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
