@@ -50,6 +50,7 @@ public class LibraryFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_library, container, false);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar_library);
+        toolbar.inflateMenu(R.menu.menu_toolbar_lib);
         toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
         View logoView = toolbar.getChildAt(1);
         logoView.setOnClickListener(new View.OnClickListener() {

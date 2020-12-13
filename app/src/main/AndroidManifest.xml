@@ -19,7 +19,7 @@
         <activity android:name=".Search.FragmentSearchList"/>
         <activity android:name=".Search.two"/>
         <activity android:name=".Bell.Bell"/>
-        <activity android:name=".Chung.Detail"/>
+        <activity android:name=".Chung.FragmentBookDetails"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

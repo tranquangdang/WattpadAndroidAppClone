@@ -47,7 +47,7 @@ public class BellFragment extends BaseFragment {
         Toolbar toolbar = view.findViewById(R.id.toolbar_bell);
         toolbar.inflateMenu(R.menu.menu_toolbar_noti);
         toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
-        View logoView = toolbar.getChildAt(2);
+        View logoView = toolbar.getChildAt(1);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,6 @@ public class BellFragment extends BaseFragment {
         });
 
         //Tab Selector
-        mActivity.setSupportActionBar(toolbar);
         addTabSelector(view);
 
 
