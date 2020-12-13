@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Bell.UIdoc;
+package com.example.wattpadclone.Bell.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

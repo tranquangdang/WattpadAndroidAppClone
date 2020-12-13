@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Library;
+package com.example.wattpadclone.Library.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

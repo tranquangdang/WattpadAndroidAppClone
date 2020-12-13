@@ -1,6 +1,5 @@
 package com.example.wattpadclone.Search;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +44,7 @@ public class SearchFragment extends BaseFragment {
                 R.drawable.fanfic};
 
         gridView = view.findViewById(R.id.grid);
-        MainAdapter adapter = new MainAdapter(getActivity(), name, img);
+        Adapter.MainAdapter adapter = new Adapter.MainAdapter(getActivity(), name, img);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

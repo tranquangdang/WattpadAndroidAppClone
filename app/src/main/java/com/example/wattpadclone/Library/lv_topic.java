@@ -4,12 +4,13 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wattpadclone.Library.Adapter.lv_topic_content;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 public class lv_topic extends AppCompatActivity {
     ListView lv_topic_item;
-    lv_topic_content_adapter adapter;
+    LibraryFragment.lv_topic_content_adapter adapter;
     ArrayList<lv_topic_content> arr_topic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class lv_topic extends AppCompatActivity {
         arr_topic.add(new lv_topic_content(R.drawable.elish3,"Unexpectedly Angel fall from heaven.","205 K","10.9 K",
                 "39","\"This was my first whole book so don't be too harsh\"","eilish","famous",
                 "singer"));
-        adapter=new lv_topic_content_adapter(arr_topic,this);
+        adapter=new LibraryFragment.lv_topic_content_adapter(arr_topic,this);
         lv_topic_item.setAdapter(adapter);
     }
 }

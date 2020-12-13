@@ -1,11 +1,11 @@
-package com.example.wattpadclone.Search;
+package com.example.wattpadclone.Library.Adapter;
 
-public class ListViewBean {
-    int Lv_topic_anh;
+public class lv_topic_content {
+    int lv_topic_anh;
     String lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt, lv_topic_more_1,lv_topic_more_2,lv_topic_more_3;
 
-    public ListViewBean(int Lv_topic_anh, String lv_topic_title, String lv_topic_eye, String lv_topic_star, String lv_topic_menu, String lv_topic_contentt, String lv_topic_more_1, String lv_topic_more_2, String lv_topic_more_3) {
-        this.Lv_topic_anh = Lv_topic_anh;
+    public lv_topic_content(int lv_topic_anh, String lv_topic_title, String lv_topic_eye, String lv_topic_star, String lv_topic_menu, String lv_topic_contentt, String lv_topic_more_1, String lv_topic_more_2, String lv_topic_more_3) {
+        this.lv_topic_anh = lv_topic_anh;
         this.lv_topic_title = lv_topic_title;
         this.lv_topic_eye = lv_topic_eye;
         this.lv_topic_star = lv_topic_star;
@@ -17,11 +17,11 @@ public class ListViewBean {
     }
 
     public int getLv_topic_anh() {
-        return Lv_topic_anh;
+        return lv_topic_anh;
     }
 
-    public void setLv_topic_anh(int image) {
-        this.Lv_topic_anh = Lv_topic_anh;
+    public void setLv_topic_anh(int lv_topic_anh) {
+        this.lv_topic_anh = lv_topic_anh;
     }
 
     public String getLv_topic_title() {

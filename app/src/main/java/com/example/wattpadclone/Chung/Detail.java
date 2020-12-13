@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Bell.UIdoc.story;
-import com.example.wattpadclone.Bell.UIdoc.storyAdapter;
+import com.example.wattpadclone.Bell.Adapter.story;
+import com.example.wattpadclone.Bell.Adapter.storyAdapter;
 
 import java.util.ArrayList;
 

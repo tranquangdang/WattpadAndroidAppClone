@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Bell.UIdoc;
+package com.example.wattpadclone.Bell.Adapter;
 
 public class story {
     String name;
