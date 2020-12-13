@@ -31,7 +31,7 @@ public class Adapter {
         public class ViewHolder {
 
             ImageView lv_topic_anh;
-            TextView lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt,lv_topic_more_1,lv_topic_more_2,lv_topic_more_3;
+            TextView lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt,lv_topic_more,lv_topic_sum_tag;
 
         }
 
@@ -62,9 +62,8 @@ public class Adapter {
                 holder.lv_topic_star=view.findViewById(R.id.lv_topic_star);
                 holder.lv_topic_menu=view.findViewById(R.id.lv_topic_menu);
                 holder.lv_topic_contentt=view.findViewById(R.id.lv_topic_contentt);
-                holder.lv_topic_more_1=view.findViewById(R.id.lv_topic_more_1);
-                holder.lv_topic_more_2=view.findViewById(R.id.lv_topic_more_2);
-                holder.lv_topic_more_3=view.findViewById(R.id.lv_topic_more_3);
+                holder.lv_topic_more=view.findViewById(R.id.lv_topic_more);
+                holder.lv_topic_sum_tag=view.findViewById(R.id.lv_topic_sum_tag);
                 view.setTag(holder);
             } else {
                 holder = (ViewHolder) view.getTag();
@@ -77,9 +76,8 @@ public class Adapter {
                 holder.lv_topic_star.setText(mListenerList.get(i).getLv_topic_star());
                 holder.lv_topic_menu.setText(mListenerList.get(i).getLv_topic_menu());
                 holder.lv_topic_contentt.setText(mListenerList.get(i).getLv_topic_contentt());
-                holder.lv_topic_more_1.setText(mListenerList.get(i).getLv_topic_more_1());
-                holder.lv_topic_more_2.setText(mListenerList.get(i).getLv_topic_more_2());
-                holder.lv_topic_more_3.setText(mListenerList.get(i).getLv_topic_more_3());
+                holder.lv_topic_more=view.findViewById(R.id.lv_topic_more);
+                holder.lv_topic_sum_tag=view.findViewById(R.id.lv_topic_sum_tag);
             }catch (Exception ex){
 
             }
@@ -133,26 +131,25 @@ public class Adapter {
 
     public static class ListViewBean {
         int Lv_topic_anh;
-        String lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt, lv_topic_more_1,lv_topic_more_2,lv_topic_more_3;
+        String lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt, lv_topic_more, lv_topic_sum_tag;
 
-        public ListViewBean(int Lv_topic_anh, String lv_topic_title, String lv_topic_eye, String lv_topic_star, String lv_topic_menu, String lv_topic_contentt, String lv_topic_more_1, String lv_topic_more_2, String lv_topic_more_3) {
-            this.Lv_topic_anh = Lv_topic_anh;
+        public ListViewBean(int lv_topic_anh, String lv_topic_title, String lv_topic_eye, String lv_topic_star, String lv_topic_menu, String lv_topic_contentt, String lv_topic_more, String lv_topic_sum_tag) {
+            Lv_topic_anh = lv_topic_anh;
             this.lv_topic_title = lv_topic_title;
             this.lv_topic_eye = lv_topic_eye;
             this.lv_topic_star = lv_topic_star;
             this.lv_topic_menu = lv_topic_menu;
             this.lv_topic_contentt = lv_topic_contentt;
-            this.lv_topic_more_1 = lv_topic_more_1;
-            this.lv_topic_more_2 = lv_topic_more_2;
-            this.lv_topic_more_3 = lv_topic_more_3;
+            this.lv_topic_more = lv_topic_more;
+            this.lv_topic_sum_tag = lv_topic_sum_tag;
         }
 
         public int getLv_topic_anh() {
             return Lv_topic_anh;
         }
 
-        public void setLv_topic_anh(int image) {
-            this.Lv_topic_anh = Lv_topic_anh;
+        public void setLv_topic_anh(int lv_topic_anh) {
+            Lv_topic_anh = lv_topic_anh;
         }
 
         public String getLv_topic_title() {
@@ -195,28 +192,20 @@ public class Adapter {
             this.lv_topic_contentt = lv_topic_contentt;
         }
 
-        public String getLv_topic_more_1() {
-            return lv_topic_more_1;
+        public String getLv_topic_more() {
+            return lv_topic_more;
         }
 
-        public void setLv_topic_more_1(String lv_topic_more_1) {
-            this.lv_topic_more_1 = lv_topic_more_1;
+        public void setLv_topic_more(String lv_topic_more) {
+            this.lv_topic_more = lv_topic_more;
         }
 
-        public String getLv_topic_more_2() {
-            return lv_topic_more_2;
+        public String getLv_topic_sum_tag() {
+            return lv_topic_sum_tag;
         }
 
-        public void setLv_topic_more_2(String lv_topic_more_2) {
-            this.lv_topic_more_2 = lv_topic_more_2;
-        }
-
-        public String getLv_topic_more_3() {
-            return lv_topic_more_3;
-        }
-
-        public void setLv_topic_more_3(String lv_topic_more_3) {
-            this.lv_topic_more_3 = lv_topic_more_3;
+        public void setLv_topic_sum_tag(String lv_topic_sum_tag) {
+            this.lv_topic_sum_tag = lv_topic_sum_tag;
         }
     }
 }

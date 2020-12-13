@@ -1,138 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <ImageView
-        android:id="@+id/lv_topic_anh"
-        android:layout_width="101dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/mystery" />
 
-    <TextView
-        android:id="@+id/lv_topic_contentt"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="88dp"
-        android:text='"Cucho là một cậu bé nghèo.Cậu sống với bà... "'
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="284dp"
-        android:layout_marginLeft="284dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_menu"
-        tools:ignore="VectorDrawableCompat" />
-    <TextView
-        android:id="@+id/lv_topic_eye"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="60dp"
-        android:text="129 K"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_eye"
-        tools:ignore="VectorDrawableCompat" />
-    <TextView
-        android:id="@+id/lv_topic_title"
-        android:layout_width="192dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="15dp"
-        android:text="Cucho cậu bé hiếu thảo"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:background="@drawable/border"
-        android:id="@+id/lv_topic_more_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginLeft="268dp"
-        android:layout_marginTop="130dp"
-        android:text="hài hước"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_topic_contentt" />
-    <TextView
-        android:id="@+id/lv_topic_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="312dp"
-        android:layout_marginLeft="312dp"
-        android:layout_marginTop="60dp"
-        android:text="39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:background="@drawable/border"
-        android:id="@+id/lv_topic_more_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginLeft="188dp"
-        android:layout_marginTop="130dp"
-        android:text="Thiếu nhi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_topic_contentt" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/lv_topic_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="60dp"
-        android:text="10.7 K"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/lv_topic_anh"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/mystery" />
+    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginLeft="204dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_star"
-        tools:ignore="VectorDrawableCompat" />
+    <LinearLayout
+        android:paddingRight="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:background="@drawable/border"
-        android:id="@+id/lv_topic_more_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="130dp"
-        android:text="Truyện"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_topic_contentt" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/lv_topic_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textSize="11sp"
+                android:id="@+id/lv_topic_eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_eye"
+                android:text="239 K"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"/>
+
+            <TextView
+                android:textSize="11sp"
+                android:id="@+id/lv_topic_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_star"
+                android:text="239 K"
+                android:gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:drawablePadding="5dp"/>
+
+            <TextView
+                android:textSize="11sp"
+                android:id="@+id/lv_topic_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_list_24"
+                android:text="239 K"
+                android:gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:drawablePadding="5dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lv_topic_contentt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:id="@+id/lv_topic_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="tag"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/lv_topic_sum_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="+ 3 thẻ khác"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+</LinearLayout>

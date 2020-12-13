@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,9 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.wattpadclone.Chung.FragmentBookDetails;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Chung.Bean.StartSnapHelper;
 
@@ -60,6 +63,13 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
 
         holder.recyclerView.setAdapter(horizontalRecyclerViewHomeAdapter1);
         holder.recyclerView2.setAdapter(horizontalRecyclerViewHomeAdapter2);
+
+        holder.home_more_rv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)context).pushFragments("HOME_FRAGMENT", new FragmentBookDetails(),true);
+            }
+        });
         SnapHelper startSnapHelper = new StartSnapHelper();
         startSnapHelper.attachToRecyclerView(holder.recyclerView);
         SnapHelper startSnapHelper2 = new StartSnapHelper();
@@ -75,6 +85,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
 
         RecyclerView recyclerView, recyclerView2;
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
+        Button home_more_rv2;
         public VerticalRVHomeViewHolder(@NonNull View itemView) {
             super(itemView);
             recyclerView = (RecyclerView)itemView.findViewById(R.id.home_recyclerView1);
@@ -84,6 +95,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
             recyclerView2 = (RecyclerView)itemView.findViewById(R.id.home_recyclerView2);
             categoryTitle2 = (TextView)itemView.findViewById(R.id.home_category_title2);
             categoryContent2 = (TextView)itemView.findViewById(R.id.home_category_content2);
+            home_more_rv2 = itemView.findViewById(R.id.home_more_rv2);
         }
     }
 }
