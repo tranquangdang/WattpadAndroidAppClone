@@ -2,6 +2,7 @@ package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.wattpadclone.Chung.ActivityBookDetails;
+import com.example.wattpadclone.Chung.Bean.CenterZoomLayoutManager;
+import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
@@ -59,8 +63,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
 
         holder.recyclerView.setHasFixedSize(true);
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
-        holder.recyclerView2.setHasFixedSize(true);
-        holder.recyclerView2.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+        holder.recyclerView2.setLayoutManager(new FirstZoomHorizontalLayoutManager(context,FirstZoomHorizontalLayoutManager.HORIZONTAL,false));
 
         holder.recyclerView.setAdapter(horizontalRecyclerViewHomeAdapter1);
         holder.recyclerView2.setAdapter(horizontalRecyclerViewHomeAdapter2);
@@ -72,8 +75,8 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
                 context.startActivity(intent);
             }
         });
-        SnapHelper startSnapHelper = new StartSnapHelper();
-        startSnapHelper.attachToRecyclerView(holder.recyclerView);
+        PagerSnapHelper mPagerSnapHelper = new PagerSnapHelper();
+        mPagerSnapHelper.attachToRecyclerView(holder.recyclerView);
         SnapHelper startSnapHelper2 = new StartSnapHelper();
         startSnapHelper2.attachToRecyclerView(holder.recyclerView2);
     }

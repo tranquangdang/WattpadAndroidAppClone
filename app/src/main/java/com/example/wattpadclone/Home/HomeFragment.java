@@ -73,6 +73,7 @@ public class HomeFragment extends BaseFragment {
         return view;
     }
 
+
     private void completedBookAdd() {
         ArrayList<HorizontalRecyclerViewHomeBean1> arrayListHorizontal1 = new ArrayList<>();
         arrayListHorizontal1.add(new HorizontalRecyclerViewHomeBean1(R.drawable.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
