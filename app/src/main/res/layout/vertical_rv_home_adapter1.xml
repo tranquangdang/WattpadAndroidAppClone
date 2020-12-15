@@ -33,11 +33,13 @@
             android:layout_marginLeft="10dp"/>
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/home_recyclerView1"
+        android:id="@+id/home_viewPager1"
         android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
         android:background="@drawable/home_horizontal_rv_gradient"/>
 
     <RelativeLayout

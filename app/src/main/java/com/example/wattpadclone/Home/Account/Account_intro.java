@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.wattpadclone.R;
 
-public class Account_tab2 extends Fragment {
+public class Account_intro extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.account_tab2,container,false);
+        View view = inflater.inflate(R.layout.activity_account_intro,container,false);
         return view;
     }
 }

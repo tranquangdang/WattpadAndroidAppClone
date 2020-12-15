@@ -1,6 +1,5 @@
 package com.example.wattpadclone.Home.Account;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,13 +9,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
-import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
@@ -25,6 +22,7 @@ public class AccountActivity extends AppCompatActivity {
     private BottomSheetBehavior mBottomSheetBehavior;
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
+    private RelativeLayout hasReadLayout, followersLayout;
     Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +49,6 @@ public class AccountActivity extends AppCompatActivity {
 
         View bottomSheet = findViewById(R.id.acc_bottom_sheet);
         mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
@@ -63,12 +60,22 @@ public class AccountActivity extends AppCompatActivity {
 
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#000000"));
+
+        hasReadLayout = findViewById(R.id.hasRead);
+        followersLayout = findViewById(R.id.followers);
+
+        hasReadLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Account_tab1(), "Giới thiệu");
-        adapter.addFragment(new Account_tab2(), "Cuộc hội thoại");
+        adapter.addFragment(new Account_intro(), "Giới thiệu");
+        adapter.addFragment(new Account_message(), "Cuộc hội thoại");
         viewPager.setAdapter(adapter);
     }
 }

@@ -41,10 +41,10 @@ public class SearchFragment extends BaseFragment {
         String[] name = {"Bí ẩn", "Cổ điển", "Hài hước", "Hành động", "Khoa Học Viễn Tưởng", "Kinh dị", "Lãng mạn",
                 "Người sói", "Ngẫu nhiên", "Phi tiểu thuyết", "Phiêu lưu", "Siêu nhiên", "Thơ ca", "TT chung",
                 "Thriller", "TT lịch sử", "TT thiếu niên", "Truyện ngắn", "Truyện tâm linh", "Viễn tưởng"};
-        int[] img = {R.drawable.mystery, R.drawable.newadult, R.drawable.humor, R.drawable.action, R.drawable.scifi, R.drawable.horror,
-                R.drawable.romance, R.drawable.werewolf, R.drawable.random, R.drawable.nonfiction, R.drawable.adventure, R.drawable.paranormal,
-                R.drawable.poetry, R.drawable.urban, R.drawable.thriller, R.drawable.historicalfic, R.drawable.teenfic, R.drawable.shortstory, R.drawable.diverselit,
-                R.drawable.fanfic};
+        int[] img = {R.mipmap.mystery, R.mipmap.newadult, R.mipmap.humor, R.mipmap.action, R.mipmap.scifi, R.mipmap.horror,
+                R.mipmap.romance, R.mipmap.werewolf, R.mipmap.random, R.mipmap.nonfiction, R.mipmap.adventure, R.mipmap.paranormal,
+                R.mipmap.poetry, R.mipmap.urban, R.mipmap.thriller, R.mipmap.historicalfic, R.mipmap.teenfic, R.mipmap.shortstory, R.mipmap.diverselit,
+                R.mipmap.fanfic};
 
         gridView = view.findViewById(R.id.grid);
         Adapter.MainAdapter adapter = new Adapter.MainAdapter(getActivity(), name, img);

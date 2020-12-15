@@ -42,12 +42,12 @@ public class ActivityBookDetails extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler);
         arrayList = new ArrayList<>();
-        arrayList.add(new story("Yêu Thương Và Friendzone",R.drawable.truyen2));
-        arrayList.add(new story("Nếu Như Yêu",R.drawable.tr3));
-        arrayList.add(new story("Buông Tay Ra Là Ăn Đấm Đấy",R.drawable.tr4));
-        arrayList.add(new story("Phượng Hoàng",R.drawable.tr5));
-        arrayList.add(new story("Con Rồng Cháu Tiên",R.drawable.tr6));
-        arrayList.add(new story("SaberTooth Là Nơi Tôi Thuộc Về",R.drawable.truyen1));
+        arrayList.add(new story("Yêu Thương Và Friendzone",R.mipmap.truyen2));
+        arrayList.add(new story("Nếu Như Yêu",R.mipmap.tr3));
+        arrayList.add(new story("Buông Tay Ra Là Ăn Đấm Đấy",R.mipmap.tr4));
+        arrayList.add(new story("Phượng Hoàng",R.mipmap.tr5));
+        arrayList.add(new story("Con Rồng Cháu Tiên",R.mipmap.tr6));
+        arrayList.add(new story("SaberTooth Là Nơi Tôi Thuộc Về",R.mipmap.truyen1));
         adapter = new storyAdapter(this,arrayList);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

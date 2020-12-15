@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#383838"
-    android:orientation="vertical"
     tools:context=".Home.Account.AccountActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -23,148 +22,158 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/acc_avatar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/grey_test"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:id="@+id/acc_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Trần Quang Đăng"
-            android:textColor="#ffffff"
-            android:layout_marginTop="7dp"
-            android:layout_below="@+id/acc_avatar"
-            android:textSize="23sp"/>
-
-        <TextView
-            android:id="@+id/acc_iduser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="\@user029473282"
-            android:textColor="#ffffff"
-            android:layout_marginTop="7dp"
-            android:layout_below="@+id/acc_name"
-            android:textSize="16sp"/>
-
-        <LinearLayout
-            android:id="@+id/linlay1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/acc_iduser"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="1"
-                        android:textSize="25sp"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:textAllCaps="true"
-                        android:text="DANH SÁCH ĐÃ ĐỌC"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textSize="25sp"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:textAllCaps="true"
-                        android:text="NGƯỜI THEO DÕI"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-            </RelativeLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
-
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/acc_bottom_sheet"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:paddingTop="?attr/actionBarSize"
-        app:layout_behavior = "@string/bottom_sheet_behavior"
-        app:behavior_peekHeight ="400dp">
+        android:background="#383838"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">
 
-        <LinearLayout
-            android:id="@+id/lyt_linear"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#ffffff">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/acc_tabs"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/acc_avatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/grey_test"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/acc_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Trần Quang Đăng"
+                android:textColor="#ffffff"
+                android:layout_marginTop="7dp"
+                android:layout_below="@+id/acc_avatar"
+                android:textSize="23sp"/>
+
+            <TextView
+                android:id="@+id/acc_iduser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="\@user029473282"
+                android:textColor="#ffffff"
+                android:layout_marginTop="7dp"
+                android:layout_below="@+id/acc_name"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:id="@+id/linlay1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#f5f5f5"/>
+                android:layout_below="@id/acc_iduser"
+                android:orientation="horizontal">
 
-            <androidx.viewpager.widget.ViewPager
-            android:id="@+id/acc_viewPager"
+                <RelativeLayout
+                    android:background="@drawable/ripple_effect"
+                    android:clickable="true"
+                    android:id="@+id/hasRead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="1"
+                            android:textSize="25sp"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:textAllCaps="true"
+                            android:text="DANH SÁCH ĐÃ ĐỌC"
+                            android:textSize="13sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:clickable="true"
+                    android:id="@+id/followers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="0"
+                            android:textSize="25sp"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:textAllCaps="true"
+                            android:text="NGƯỜI THEO DÕI"
+                            android:textSize="13sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/acc_bottom_sheet"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior = "@string/bottom_sheet_behavior"
+            app:behavior_peekHeight="350dp">
 
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lyt_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#ffffff">
 
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/acc_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#f5f5f5"/>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/acc_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

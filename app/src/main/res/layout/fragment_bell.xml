@@ -6,15 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Bell.BellFragment"
     >
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_bell"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        app:titleTextColor="@color/black"
-        app:title="Các cập nhật"
-        app:titleMarginStart="15dp"/>
+        android:background="#ffffff">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_bell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            app:titleTextColor="@color/black"
+            app:title="Các cập nhật"
+            app:titleMarginStart="15dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

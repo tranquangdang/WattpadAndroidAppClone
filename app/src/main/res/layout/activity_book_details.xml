@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/trongsuot">
+        android:background="#ffffff">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_book_details"
@@ -43,11 +43,11 @@
 
                     <ImageView
                         android:scaleType="centerCrop"
-                        android:src="@drawable/tr3"
+                        android:src="@mipmap/tr3"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"/>
                     <ImageView
-                        android:src="@drawable/tr3"
+                        android:src="@mipmap/tr3"
                         android:layout_width="150dp"
                         android:layout_height="200dp"
                         android:layout_centerInParent="true"

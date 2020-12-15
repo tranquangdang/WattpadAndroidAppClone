@@ -10,18 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.wattpadclone.Chung.ActivityBookDetails;
-import com.example.wattpadclone.Chung.Bean.CenterZoomLayoutManager;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
+import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
-import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Chung.Bean.StartSnapHelper;
 
@@ -51,22 +48,21 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         String content1 = verticalRecyclerViewHomeBean.getContent1();
         String title2 = verticalRecyclerViewHomeBean.getTitle2();
         String content2 = verticalRecyclerViewHomeBean.getContent2();
-        ArrayList<HorizontalRecyclerViewHomeBean1> singleItem = verticalRecyclerViewHomeBean.getArrayList1();
+        ArrayList<HorizontalViewPagerHomeBean1> singleItem1 = verticalRecyclerViewHomeBean.getArrayList1();
         ArrayList<HorizontalRecyclerViewHomeBean2> singleItem2 = verticalRecyclerViewHomeBean.getArrayList2();
 
         holder.categoryTitle.setText(title1);
         holder.categoryContent.setText(content1);
         holder.categoryTitle2.setText(title2);
         holder.categoryContent2.setText(content2);
-        HorizontalRecyclerViewHomeAdapter1 horizontalRecyclerViewHomeAdapter1 = new HorizontalRecyclerViewHomeAdapter1(context,singleItem);
-        HorizontalRecyclerViewHomeAdapter2 horizontalRecyclerViewHomeAdapter2 = new HorizontalRecyclerViewHomeAdapter2(context,singleItem2);
+        HorizontalViewPagerHomeAdapter1 horizontalViewPagerHomeAdapter1 = new HorizontalViewPagerHomeAdapter1(singleItem1,context);
 
-        holder.recyclerView.setHasFixedSize(true);
-        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+        HorizontalRecyclerViewHomeAdapter2 horizontalRecyclerViewHomeAdapter2 = new HorizontalRecyclerViewHomeAdapter2(context,singleItem2);
+        holder.recyclerView2.setHasFixedSize(false);
         holder.recyclerView2.setLayoutManager(new FirstZoomHorizontalLayoutManager(context,FirstZoomHorizontalLayoutManager.HORIZONTAL,false));
 
-        holder.recyclerView.setAdapter(horizontalRecyclerViewHomeAdapter1);
         holder.recyclerView2.setAdapter(horizontalRecyclerViewHomeAdapter2);
+        holder.viewPager1.setAdapter(horizontalViewPagerHomeAdapter1);
 
         holder.home_more_rv2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +71,6 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
                 context.startActivity(intent);
             }
         });
-        PagerSnapHelper mPagerSnapHelper = new PagerSnapHelper();
-        mPagerSnapHelper.attachToRecyclerView(holder.recyclerView);
         SnapHelper startSnapHelper2 = new StartSnapHelper();
         startSnapHelper2.attachToRecyclerView(holder.recyclerView2);
     }
@@ -88,12 +82,13 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
 
     public class VerticalRVHomeViewHolder extends RecyclerView.ViewHolder {
 
-        RecyclerView recyclerView, recyclerView2;
+        RecyclerView  recyclerView, recyclerView2;
+        ViewPager viewPager1;
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
         Button home_more_rv2;
         public VerticalRVHomeViewHolder(@NonNull View itemView) {
             super(itemView);
-            recyclerView = (RecyclerView)itemView.findViewById(R.id.home_recyclerView1);
+            viewPager1 = itemView.findViewById(R.id.home_viewPager1);
             categoryTitle = (TextView)itemView.findViewById(R.id.home_category_title);
             categoryContent = (TextView)itemView.findViewById(R.id.home_category_content);
 
@@ -101,6 +96,9 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
             categoryTitle2 = (TextView)itemView.findViewById(R.id.home_category_title2);
             categoryContent2 = (TextView)itemView.findViewById(R.id.home_category_content2);
             home_more_rv2 = itemView.findViewById(R.id.home_more_rv2);
+
+            viewPager1.setPadding(40, 0, 40,0);
         }
+
     }
 }

@@ -7,8 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#DF751E</color>
+    <color name="colorPrimaryDark">#DF751E</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="coloractionabr">#FAF9F9</color>
     <color name="colorBlack">#0B0B0B</color>
@@ -17,4 +17,5 @@
     <color name="xam">#33F8F8F8</color>
     <color name="den">#000</color>
     <color name="trongsuot">#00000000</color>
+    <color name="colorRipple">#A9A9F5</color>
 </resources>

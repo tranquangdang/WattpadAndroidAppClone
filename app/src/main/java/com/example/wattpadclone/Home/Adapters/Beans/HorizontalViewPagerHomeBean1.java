@@ -1,10 +1,10 @@
 package com.example.wattpadclone.Home.Adapters.Beans;
 
-public class HorizontalRecyclerViewHomeBean1 {
+public class HorizontalViewPagerHomeBean1 {
     int img;
     String title, content, tag;
 
-    public HorizontalRecyclerViewHomeBean1(int img, String title, String content, String tag) {
+    public HorizontalViewPagerHomeBean1(int img, String title, String content, String tag) {
         this.img = img;
         this.title = title;
         this.content = content;

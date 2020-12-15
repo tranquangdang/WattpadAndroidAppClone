@@ -42,17 +42,17 @@ public class SearchListActivity extends AppCompatActivity {
 
         lv = findViewById(R.id.listview);
         arr_bean=new ArrayList<Adapter.ListViewBean>();
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a1,"Đối lập","239 K","1.7 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a1,"Đối lập","239 K","1.7 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a2,"Gun fire at the dock","120 K","9.7 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a2,"Gun fire at the dock","120 K","9.7 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a3,"Collins","81 K","10.6 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a3,"Collins","81 K","10.6 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a4,"Con đường hồi giáo","740 K","5.2 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a4,"Con đường hồi giáo","740 K","5.2 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a5,"Xóm trọ","19 K","3.5 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a5,"Xóm trọ","19 K","3.5 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
-        arr_bean.add(new Adapter.ListViewBean(R.drawable.a6,"Cucho cậu bé hiếu thảo","899 K","6.9 K",
+        arr_bean.add(new Adapter.ListViewBean(R.mipmap.a6,"Cucho cậu bé hiếu thảo","899 K","6.9 K",
                 "39","\"Want to be something nobody can do, you need to more try\"","truyện","+ 3 tag"));
         adapter=new Adapter.ListViewBaseAdapter(arr_bean,this);
         lv.setAdapter(adapter);

@@ -81,7 +81,7 @@ public class LibraryFragment extends BaseFragment {
     public void addCurrent_off_2(View view) {
         GridView gr_Current_off_2= view.findViewById(R.id.gr_current_off_2);
         ArrayList<offline_2> offline_2ArrayList=new ArrayList<offline_2>();
-        offline_2ArrayList.add(new offline_2(R.drawable.mtp,"Sky for us","M-TP"));
+        offline_2ArrayList.add(new offline_2(R.mipmap.mtp,"Sky for us","M-TP"));
 //        offline_2ArrayList.add(new offline_2(R.drawable.mtp,"Sky for us","M-TP"));
 //        offline_2ArrayList.add(new offline_2(R.drawable.mtp,"Sky for us","M-TP"));
         offlineAdapter_2 offlineAdapter_2=new offlineAdapter_2(offline_2ArrayList,getContext());
@@ -90,28 +90,28 @@ public class LibraryFragment extends BaseFragment {
     private void addCurrent_off(View view) {
         GridView gr_Current_off= view.findViewById(R.id.gr_current_off);
         ArrayList<offline> offlineArrayList=new ArrayList<offline>();
-        offlineArrayList.add(new offline(R.drawable.elish,"Billie Eilish","The Best"));
-        offlineArrayList.add(new offline(R.drawable.shawn,"Shawn Mendes","Imagines"));
-        offlineArrayList.add(new offline(R.drawable.shawn2,"Shawn Mendes","Imagines"));
+        offlineArrayList.add(new offline(R.mipmap.elish,"Billie Eilish","The Best"));
+        offlineArrayList.add(new offline(R.mipmap.shawn,"Shawn Mendes","Imagines"));
+        offlineArrayList.add(new offline(R.mipmap.shawn2,"Shawn Mendes","Imagines"));
         offlineAdapter offlineAdapterr=new offlineAdapter(offlineArrayList,getContext());
         gr_Current_off.setAdapter(offlineAdapterr);
     }
     private void addRedingList(View view) {
         ListView lv_readinglist= view.findViewById(R.id.lv_reading);
         ArrayList<ReadingList> readingArrayList=new ArrayList<ReadingList>();
-        readingArrayList.add(new ReadingList(R.drawable.mtp,R.drawable.shawn,R.drawable.badboy,"Thang's List","5 stories"));
-        readingArrayList.add(new ReadingList(R.drawable.bccmerlin,R.drawable.shawn2,R.drawable.thelove,"List for day","3 stories"));
-        readingArrayList.add(new ReadingList(R.drawable.thelove,R.drawable.badboy,R.drawable.mtp,"For Happy'List","6 stories"));
+        readingArrayList.add(new ReadingList(R.mipmap.mtp,R.mipmap.shawn,R.mipmap.badboy,"Thang's List","5 stories"));
+        readingArrayList.add(new ReadingList(R.mipmap.bccmerlin,R.mipmap.shawn2,R.mipmap.thelove,"List for day","3 stories"));
+        readingArrayList.add(new ReadingList(R.mipmap.thelove,R.mipmap.badboy,R.mipmap.mtp,"For Happy'List","6 stories"));
         ReadingListAdapter readingadapter=new ReadingListAdapter(readingArrayList,getContext());
         lv_readinglist.setAdapter(readingadapter);
     }
     private void addArchive(View view) {
         GridView gr_watpad= view.findViewById(R.id.gr_watpad);
         ArrayList<watpad> watpadArrayList=new ArrayList<watpad>();
-        watpadArrayList.add(new watpad(R.drawable.bccmerlin, "Jacob","King Of Element"));
-        watpadArrayList.add(new watpad(R.drawable.badboy, "Tim Hand","Bad Boy"));
-        watpadArrayList.add(new watpad(R.drawable.sweetoflife, "Han Sara","Sweet Of Life"));
-        watpadArrayList.add(new watpad(R.drawable.thelove, "Julie Tran","The Love"));
+        watpadArrayList.add(new watpad(R.mipmap.bccmerlin, "Jacob","King Of Element"));
+        watpadArrayList.add(new watpad(R.mipmap.badboy, "Tim Hand","Bad Boy"));
+        watpadArrayList.add(new watpad(R.mipmap.sweetoflife, "Han Sara","Sweet Of Life"));
+        watpadArrayList.add(new watpad(R.mipmap.thelove, "Julie Tran","The Love"));
         watpadAdapter adapter =new watpadAdapter(watpadArrayList,getContext());
         gr_watpad.setAdapter(adapter);
     }

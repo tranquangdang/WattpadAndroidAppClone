@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class VerticalRecyclerViewHomeBean {
     String title1, content1, title2,content2;
-    ArrayList<HorizontalRecyclerViewHomeBean1> arrayList1;
+    ArrayList<HorizontalViewPagerHomeBean1> arrayList1;
     ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2;
 
-    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<HorizontalRecyclerViewHomeBean1> arrayList1, ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2) {
+    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<HorizontalViewPagerHomeBean1> arrayList1, ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2) {
         this.title1 = title1;
         this.content1 = content1;
         this.title2 = title2;
@@ -48,11 +48,11 @@ public class VerticalRecyclerViewHomeBean {
         this.content2 = content2;
     }
 
-    public ArrayList<HorizontalRecyclerViewHomeBean1> getArrayList1() {
+    public ArrayList<HorizontalViewPagerHomeBean1> getArrayList1() {
         return arrayList1;
     }
 
-    public void setArrayList1(ArrayList<HorizontalRecyclerViewHomeBean1> arrayList1) {
+    public void setArrayList1(ArrayList<HorizontalViewPagerHomeBean1> arrayList1) {
         this.arrayList1 = arrayList1;
     }
 
