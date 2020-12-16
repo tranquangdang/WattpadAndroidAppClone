@@ -3,6 +3,7 @@ package com.example.wattpadclone.Home.Account;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
@@ -11,6 +12,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
@@ -28,6 +31,8 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
+        RelativeLayout relativeLayout = findViewById(R.id.relaAccount);
 
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
@@ -49,6 +54,14 @@ public class AccountActivity extends AppCompatActivity {
 
         View bottomSheet = findViewById(R.id.acc_bottom_sheet);
         mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+
+        coordinatorLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                coordinatorLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mBottomSheetBehavior.setPeekHeight(coordinatorLayout.getHeight()- relativeLayout.getHeight());
+            }
+        });
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 

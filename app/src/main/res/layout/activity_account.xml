@@ -23,6 +23,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#383838"
@@ -30,6 +31,7 @@
         android:layout_marginTop="?attr/actionBarSize">
 
         <RelativeLayout
+            android:id="@+id/relaAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -143,16 +145,13 @@
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
-
         </RelativeLayout>
-
         <androidx.core.widget.NestedScrollView
             android:id="@+id/acc_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
-            app:layout_behavior = "@string/bottom_sheet_behavior"
-            app:behavior_peekHeight="350dp">
+            app:layout_behavior = "@string/bottom_sheet_behavior">
 
             <LinearLayout
                 android:id="@+id/lyt_linear"
@@ -170,7 +169,7 @@
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/acc_viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"/>
 
             </LinearLayout>
 
