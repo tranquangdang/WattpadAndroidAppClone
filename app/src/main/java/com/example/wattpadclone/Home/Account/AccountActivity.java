@@ -31,9 +31,12 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+<<<<<<< HEAD
         CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
         RelativeLayout relativeLayout = findViewById(R.id.relaAccount);
 
+=======
+>>>>>>> 5f8cda46cc3fd5ef0704a529710e433a77723760
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
         toolbar.setLogo(ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_white_24));
