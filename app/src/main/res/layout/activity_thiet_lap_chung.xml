@@ -12,7 +12,7 @@
         android:background="#ffffff">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_search_list"
+        android:id="@+id/toolbar_thiet_lap_chung"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#f5f5f5"
@@ -47,7 +47,7 @@
                     android:textSize="18dp" />
                 <TextView
                     android:clickable="true"
-                    android:id="@+id/txtThietLap"
+                    android:id="@+id/txtThietLapTK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -59,7 +59,7 @@
                 <View
                     android:id="@+id/viewThietLap"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtThietLap"/>
@@ -77,7 +77,7 @@
                 <View
                     android:id="@+id/viewThongBao"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtThongBao"/>
@@ -96,7 +96,7 @@
                 <View
                     android:id="@+id/viewThietLapDoc"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtThietLapDoc"/>
@@ -115,7 +115,7 @@
                 <View
                     android:id="@+id/viewDangKi"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtDangKi"/>
@@ -135,7 +135,7 @@
                 <View
                     android:id="@+id/viewTuyChinh"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtTuyChinh"/>
@@ -183,7 +183,7 @@
                 <View
                     android:id="@+id/viewTKBiChan"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtTKBiChan"/>
@@ -242,7 +242,7 @@
                 <View
                     android:id="@+id/viewWattpad"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtWattpad"/>
@@ -260,7 +260,7 @@
                 <View
                     android:id="@+id/viewTroGiup"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtTroGiup"/>
@@ -279,7 +279,7 @@
                 <View
                     android:id="@+id/viewDangXuat"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtDangXuat"/>

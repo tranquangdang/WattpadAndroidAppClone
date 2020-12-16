@@ -12,7 +12,7 @@
         android:background="#ffffff">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_search_list"
+            android:id="@+id/toolbar_thiet_lap_tk"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#f5f5f5"
