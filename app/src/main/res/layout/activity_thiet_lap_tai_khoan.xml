@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.Account.Thietlap.ThietLapTaiKhoan">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_search_list"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Thiết lập Tài Khoản "
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp">
+                <TextView
+                    android:id="@+id/txtHoSo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Hồ Sơ"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/den"
+                    android:textSize="18dp" />
+                <ImageView
+                    android:id="@+id/img_Anh"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/txtHoSo"
+                    android:src="@drawable/ic_round_account"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/txtAnhDD"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Ảnh Đại Diện"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:layout_below="@id/txtHoSo"
+                    android:layout_toRightOf="@+id/img_Anh"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Nhấn Để Thay Đổi"
+                    android:layout_below="@id/txtAnhDD"
+                    android:clickable="true"
+                    android:layout_toRightOf="@+id/img_Anh"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+                <View
+                    android:id="@+id/viewAnh"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_below="@id/txtAnhDD"
+                    android:background="#dfdfdf"/>
+                <ImageView
+                    android:id="@+id/img_Nen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/viewAnh"
+                    android:src="@mipmap/grey_test"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/txtAnhNen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Ảnh Nền"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/viewAnh"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16dp"
+                    android:layout_toRightOf="@+id/img_Nen"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Nhấn Để Thay Đổi"
+                    android:clickable="true"
+                    android:layout_below="@id/txtAnhNen"
+                    android:layout_toRightOf="@+id/img_Nen"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+                <View
+                    android:id="@+id/viewNen"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/txtAnhNen"
+                    android:layout_marginTop="50dp"
+                    android:background="#dfdfdf"/>
+                <TextView
+                    android:id="@+id/txtGioiThieu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Giới Thiệu"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/viewNen"/>
+                <TextView
+                    android:id="@+id/txtTaiKhoan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Tài Khoản Wattpad"
+                    android:layout_below="@+id/txtGioiThieu"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/den"
+                    android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/txtUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/txtTaiKhoan"
+                    android:layout_marginTop="20dp"
+                    android:text="Tên Đăng Nhập"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="user25110200"
+                    android:layout_below="@+id/txtUser"/>
+                <View
+                    android:id="@+id/viewUser"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtUser"/>
+                <TextView
+                    android:id="@+id/txtGioi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewUser"
+                    android:layout_marginTop="20dp"
+                    android:text="Giới Tính"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Nam"
+                    android:layout_below="@+id/txtGioi"/>
+                <View
+                    android:id="@+id/viewGioi"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtGioi"/>
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewGioi"
+                    android:layout_marginTop="20dp"
+                    android:text="Ngày Sinh"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="25/11/2000"
+                    android:layout_below="@+id/txtDate"/>
+                <View
+                    android:id="@+id/viewDate"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtDate"/>
+                <TextView
+                    android:id="@+id/txtViTri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewDate"
+                    android:layout_marginTop="20dp"
+                    android:text="Vị Trí"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Đặt một vị trí mới"
+                    android:layout_below="@+id/txtViTri"/>
+                <View
+                    android:id="@+id/viewViTri"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtViTri"/>
+                <TextView
+                    android:id="@+id/txtWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewViTri"
+                    android:layout_marginTop="20dp"
+                    android:text="Trang Web"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Thiết lập trang web"
+                    android:layout_below="@+id/txtWeb"/>
+                <View
+                    android:id="@+id/viewWeb"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtWeb"/>
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewWeb"
+                    android:layout_marginTop="20dp"
+                    android:text="Email"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="wattpad@gmail.com"
+                    android:layout_below="@+id/txtEmail"/>
+                <View
+                    android:id="@+id/viewEmail"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtEmail"/>
+                <TextView
+                    android:id="@+id/txtPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewEmail"
+                    android:layout_marginTop="20dp"
+                    android:text="Mật Khẩu"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Đặt một mật khẩu"
+                    android:layout_below="@+id/txtPass"/>
+                <View
+                    android:id="@+id/viewPass"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtPass"/>
+                <TextView
+                    android:id="@+id/txtQuenPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewPass"
+                    android:layout_marginTop="20dp"
+                    android:text="Quên Mật Khẩu?"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/txtXaHoi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Mạng Xã Hội"
+                    android:layout_below="@+id/txtQuenPass"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/den"
+                    android:textSize="18dp" />
+                <RadioGroup
+                    android:layout_below="@+id/txtXaHoi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <CheckBox
+                        android:id="@+id/checkboxGG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Google"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:text="Kết nối tài khoản Google của bạn"
+                        android:layout_below="@+id/checkboxGG"/>
+                    <View
+                        android:id="@+id/viewGG"
+                        android:layout_width="350dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkboxGG"/>
+
+                    <CheckBox
+                        android:id="@+id/checkboxFB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Facebook"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:text="Kết nối tài khoản Facebook của bạn"
+                        android:layout_below="@+id/checkboxFB"/>
+                    <View
+                        android:id="@+id/viewFB"
+                        android:layout_width="350dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkboxFB"/>
+
+                    <CheckBox
+                        android:id="@+id/checkboxTW"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Twitter"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:text="Kết nối tài khoản Twitter của bạn"
+                        android:layout_below="@+id/checkboxTW"/>
+                    <View
+                        android:id="@+id/viewTW"
+                        android:layout_width="350dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkboxTW"/>
+                    <CheckBox
+                        android:id="@+id/checkboxIS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Instagram"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:text="Kết nối tài khoản Instagram của bạn"
+                        android:layout_below="@+id/checkboxIS"/>
+                    <View
+                        android:id="@+id/viewIS"
+                        android:layout_width="350dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkboxIS"/>
+                </RadioGroup>
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

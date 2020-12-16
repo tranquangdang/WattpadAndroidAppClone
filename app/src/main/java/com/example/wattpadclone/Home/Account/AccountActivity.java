@@ -28,7 +28,6 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
         toolbar.setLogo(ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_white_24));
