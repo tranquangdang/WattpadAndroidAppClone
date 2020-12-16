@@ -28,6 +28,12 @@
         <activity android:name=".Home.Account.AccountActivity" />
         <activity android:name=".Chung.ActivityBookDetails" />
         <activity android:name=".Search.SearchListActivity" />
+<<<<<<< HEAD
+=======
+        <activity android:name=".Base.Login"/>
+        <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
+        <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
+>>>>>>> eb80896a8562eb2261e1f3ef82b66cf2c91bf0f8
     </application>
 
 </manifest>

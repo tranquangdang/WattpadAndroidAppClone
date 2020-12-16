@@ -85,7 +85,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         RecyclerView  recyclerView, recyclerView2;
         ViewPager viewPager1;
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
-        Button home_more_rv2;
+        TextView home_more_rv2;
         public VerticalRVHomeViewHolder(@NonNull View itemView) {
             super(itemView);
             viewPager1 = itemView.findViewById(R.id.home_viewPager1);
