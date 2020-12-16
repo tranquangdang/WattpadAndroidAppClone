@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Bell.BellFragment"
+    tools:context=".thembanbe.addfriendFragment"
+    android:orientation="vertical"
     >
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_bell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            app:titleTextColor="@color/black"
-            app:title="Các cập nhật"
-            app:titleMarginStart="15dp"/>
-    </com.google.android.material.appbar.AppBarLayout>
 
+        <androidx.appcompat.widget.Toolbar
+            app:title="Tìm Bạn Bè"
+            android:id="@+id/toolbar_thembanbe"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="16dp"
+            >
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:paddingBottom="50dp">
+        android:paddingBottom="50dp"
+        >
 
         <TabHost
             android:id="@+id/tabHost"
@@ -39,13 +39,12 @@
                 android:orientation="vertical">
 
                 <TabWidget
-                    android:elevation="5dp"
                     android:id="@android:id/tabs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/xam"
                     android:divider="@color/trongsuot"
-                    />
+                    android:elevation="5dp" />
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
@@ -57,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <include layout="@layout/tab1"/>
+                        <include layout="@layout/thembanbe_tab1" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -65,7 +64,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <include layout="@layout/tab2"/>
+                        <include layout="@layout/thembanbe_tab2" />
                     </LinearLayout>
 
                 </FrameLayout>
@@ -74,4 +73,5 @@
     </RelativeLayout>
 
 
-</FrameLayout>
+
+</LinearLayout>

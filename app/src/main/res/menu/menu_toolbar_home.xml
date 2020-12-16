@@ -11,7 +11,7 @@
         android:title=""
         android:id="@+id/toolbar_home_account"
         android:icon="@drawable/ic_round_account"
-        app:showAsAction="always"/>
-
+        app:showAsAction="always"
+        />
 
 </menu>
