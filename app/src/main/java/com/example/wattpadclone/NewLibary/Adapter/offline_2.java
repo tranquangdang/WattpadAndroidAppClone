@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Library.Adapter;
+package com.example.wattpadclone.NewLibary.Adapter;
 
 public class offline_2 {
     int gr_anh_off_2;
