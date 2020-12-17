@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Không tìm thấy bạn bè của bạn trên  Wattpad?\n Mời họ tham gia"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/twitter"
+            android:gravity="left|center"
+            android:text="   Twitter"
+            android:textColorHint="#fff"
+            android:textSize="16dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#D8D8D8"/>
+        <Button
+
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light"
+            android:drawableLeft="@mipmap/sms"
+            android:gravity="left|center"
+            android:text="   SMS"
+            android:textAllCaps="false"
+            android:textColorHint="#FAFBFB"
+            android:textSize="16dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#D8D8D8"/>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light"
+            android:drawableLeft="@mipmap/saocheplienket"
+            android:gravity="left|center"
+            android:text="    Sao chép liên kết"
+            android:textAllCaps="false"
+            android:textColorHint="#FAFBFB"
+            android:textSize="16dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#D8D8D8"/>
+        <Button
+            android:gravity="left|center"
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light"
+            android:drawableLeft="@mipmap/chiaseungdung"
+            android:text="    Ứng dụng"
+            android:textAllCaps="false"
+            android:textColorHint="#FAFBFB"
+            android:textSize="16dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#D8D8D8"/>
+
+    </LinearLayout>
+
+</LinearLayout>

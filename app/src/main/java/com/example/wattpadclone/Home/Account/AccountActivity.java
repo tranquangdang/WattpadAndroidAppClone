@@ -1,5 +1,4 @@
 package com.example.wattpadclone.Home.Account;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,7 +21,6 @@ import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
 import com.example.wattpadclone.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
-
 public class AccountActivity extends AppCompatActivity {
     private BottomSheetBehavior mBottomSheetBehavior;
     private SectionsPageAdapter mSectionsPageAdapter;
@@ -33,9 +31,12 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+<<<<<<< HEAD
+=======
         CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
         RelativeLayout relativeLayout = findViewById(R.id.relaAccount);
 
+>>>>>>> e60429fe3e3bb5cd42b14cfeec16d288f75783ce
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
 

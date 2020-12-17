@@ -1,5 +1,4 @@
 package com.example.wattpadclone.Library;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,34 +20,30 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
-import com.example.wattpadclone.Library.Adapter.ReadingList;
-import com.example.wattpadclone.Library.Adapter.ReadingListAdapter;
-import com.example.wattpadclone.Library.Adapter.lv_topic_content;
-import com.example.wattpadclone.Library.Adapter.offline;
-import com.example.wattpadclone.Library.Adapter.offlineAdapter;
-import com.example.wattpadclone.Library.Adapter.offlineAdapter_2;
-import com.example.wattpadclone.Library.Adapter.offline_2;
-import com.example.wattpadclone.Library.Adapter.watpad;
-import com.example.wattpadclone.Library.Adapter.watpadAdapter;
+import com.example.wattpadclone.NewLibary.Adapter.ReadingList;
+import com.example.wattpadclone.NewLibary.Adapter.ReadingListAdapter;
+import com.example.wattpadclone.NewLibary.Adapter.lv_topic_content;
+import com.example.wattpadclone.NewLibary.Adapter.offline;
+import com.example.wattpadclone.NewLibary.Adapter.offlineAdapter;
+import com.example.wattpadclone.NewLibary.Adapter.offlineAdapter_2;
+import com.example.wattpadclone.NewLibary.Adapter.offline_2;
+import com.example.wattpadclone.NewLibary.Adapter.watpad;
+import com.example.wattpadclone.NewLibary.Adapter.watpadAdapter;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 //import android.widget.TabHost;
-
 public class LibraryFragment extends BaseFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_library, container, false);
-
         Toolbar toolbar = view.findViewById(R.id.toolbar_library);
         toolbar.inflateMenu(R.menu.menu_toolbar_lib);
         toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
@@ -58,7 +53,6 @@ public class LibraryFragment extends BaseFragment {
             public void onClick(View v) {
             }
         });
-
         addArchive(view);
         addRedingList(view);
         addCurrent_off(view);
@@ -70,11 +64,8 @@ public class LibraryFragment extends BaseFragment {
         registerForContextMenu(view);
         //getSupportActionBar().setTitle("  Library");
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.coloractionabr)));
-
-
         return view;
     }
-
     public void openTopic() {
         startActivity(new Intent(getActivity(), lv_topic.class));
     }
@@ -153,8 +144,6 @@ public class LibraryFragment extends BaseFragment {
             }
         });
     }
-
-
     public static class lv_topic_content_adapter extends BaseAdapter {
         public ArrayList<lv_topic_content> arraylistListener;
         private List<lv_topic_content> mListenerList;
@@ -174,17 +163,14 @@ public class LibraryFragment extends BaseFragment {
         public int getCount() {
             return mListenerList.size();
         }
-
         @Override
         public Object getItem(int position) {
             return mListenerList.get(position);
         }
-
         @Override
         public long getItemId(int position) {
             return position;
         }
-
         @Override
         public View getView(final int i, View view, ViewGroup parent) {
             final ViewHolder holder;

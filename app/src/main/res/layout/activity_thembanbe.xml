@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Bell.BellFragment"
+    tools:context=".thembanbe"
+    android:orientation="vertical"
     >
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff">
+
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_bell"
+            app:title="Thêm Bạn Bè"
+            android:id="@+id/toolbar_thembanbe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            app:titleTextColor="@color/black"
-            app:title="Các cập nhật"
-            app:titleMarginStart="15dp"/>
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="16dp"
+            >
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+
 
 
         <LinearLayout
@@ -26,17 +29,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#ffffff"
-            android:layout_marginTop="?attr/actionBarSize">
+            android:background="#ffffff">
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/bell_tabs"
+                android:id="@+id/addfr_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#f5f5f5"/>
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/bell_viewpaper"
+                android:id="@+id/addfr_viewpaper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -44,4 +46,5 @@
 
 
 
-</FrameLayout>
+
+</LinearLayout>
