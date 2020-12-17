@@ -1,6 +1,7 @@
 
 package com.example.wattpadclone.Bell;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -20,11 +21,16 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
+import com.example.wattpadclone.Home.Account.AccountActivity;
+import com.example.wattpadclone.Library.LibraryFragment;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Search.SearchFragment;
+import com.example.wattpadclone.thembanbe.thembanbe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -59,7 +65,9 @@ public class BellFragment extends BaseFragment {
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.toolbar_noti_add)
                 {
-                    // do something
+
+                   Intent intent = new Intent(getActivity(), thembanbe.class);
+                    startActivity(intent);
                 }
                 return false;
             }
@@ -85,15 +93,15 @@ public class BellFragment extends BaseFragment {
         tab1.setContent(R.id.tab1);
         tab1.setIndicator("THÔNG BÁO");
         tabHost.addTab(tab1);
-
         TabHost.TabSpec tab2 = tabHost.newTabSpec("t2");
         tab2.setIndicator("TIN NHẮN");
         tab2.setContent(R.id.tab2);
         tabHost.addTab(tab2);
-        
+
 
         tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.parseColor("#FF5722"), PorterDuff.Mode.MULTIPLY);
 
-        
     }
+
+
 }
