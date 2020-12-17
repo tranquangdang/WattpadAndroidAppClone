@@ -3,8 +3,10 @@ package com.example.wattpadclone.thembanbe;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -13,9 +15,19 @@ import android.widget.ImageButton;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.wattpadclone.Bell.BellFragment;
+import com.example.wattpadclone.Home.Account.AccountActivity;
+import com.example.wattpadclone.Home.Account.Account_intro;
+import com.example.wattpadclone.Home.Account.Account_message;
+import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
 import com.example.wattpadclone.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.tabs.TabLayout;
 
 public class thembanbe extends AppCompatActivity {
+    private BottomSheetBehavior mBottomSheetBehavior;
+    private SectionsPageAdapter mSectionsPageAdapter;
+    private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,37 +41,29 @@ public class thembanbe extends AppCompatActivity {
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             }
         });
 
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-        //Tab Selector
-        setSupportActionBar(toolbar);
-        addTabSelector();
+        mViewPager = findViewById(R.id.addfr_viewpaper);
+        setupViewPager(mViewPager);
+
+        TabLayout tabLayout = findViewById(R.id.addfr_tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
+        tabLayout.setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#000000"));
+
 
 
     }
 
-
-
-
-    public void addTabSelector() {
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
-        tabHost.setup();
-
-        TabHost.TabSpec tab1 = tabHost.newTabSpec("t1");
-        tab1.setContent(R.id.tab1);
-        tab1.setIndicator("Tìm Bạn Bè");
-        tabHost.addTab(tab1);
-
-        TabHost.TabSpec tab2 = tabHost.newTabSpec("t2");
-        tab2.setIndicator("Mời Bạn Bè");
-        tab2.setContent(R.id.tab2);
-        tabHost.addTab(tab2);
-
-
-        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.parseColor("#FF5722"), PorterDuff.Mode.MULTIPLY);
-
-
+    private void setupViewPager(ViewPager viewPager){
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new thembanbe_tab1(), "Giới thiệu");
+        adapter.addFragment(new thembanbe_tab2(), "Cuộc hội thoại");
+        viewPager.setAdapter(adapter);
     }
 }
