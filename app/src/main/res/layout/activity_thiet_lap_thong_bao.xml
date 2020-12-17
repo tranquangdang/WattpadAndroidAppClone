@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Home.Account.Thietlap.ThietLapThongBao">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_thiet_lap_tb"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Thông Báo "
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+            <TextView
+                android:id="@+id/txtTinNhan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Tin Nhắn"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/den"
+                android:textSize="18dp" />
+            <LinearLayout
+                android:id="@+id/relativeTinNhan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@id/txtTinNhan">
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <CheckedTextView
+                        android:id="@+id/checkviewThu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:checked="true"
+                        android:text="Hộp thư"
+                        android:textSize="20dp" />
+                    <View
+                        android:id="@+id/viewThu"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkviewThu"/>
+
+                    <CheckedTextView
+                        android:id="@+id/checkviewTin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:layout_marginTop="10dp"
+                        android:checked="true"
+                        android:text="Bảng tin"
+                        android:textSize="20dp" />
+                    <View
+                        android:id="@+id/viewTin"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkviewTin"/>
+
+                    <CheckedTextView
+                        android:id="@+id/checkviewBinhLuan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="true"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:text="Bình luận mới về truyện của tôi"
+                        android:textSize="20dp" />
+                    <View
+                        android:id="@+id/viewBinhLuan"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkviewBinhLuan"/>
+                    <CheckedTextView
+                        android:id="@+id/checkviewTraLoi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:layout_marginTop="10dp"
+                        android:checked="true"
+                        android:text="Trả lời cho bình luận của tôi"
+                        android:textSize="20dp" />
+                    <View
+                        android:id="@+id/viewTraLoi"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#dfdfdf"
+                        android:layout_below="@+id/checkviewTraLoi"/>
+                </RadioGroup>
+                <TextView
+                    android:id="@+id/txtKhac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/viewTraLoi"
+                    android:layout_marginTop="10dp"
+                    android:text="Khác"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/den"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/txtKhac">
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <CheckedTextView
+                            android:id="@+id/checkviewThuVien"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:checked="true"
+                            android:text="Thư viện"
+                            android:textSize="20dp" />
+                        <View
+                            android:id="@+id/viewThuVien"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewThuVien"/>
+
+                        <CheckedTextView
+                            android:id="@+id/checkviewTheoDoi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="10dp"
+                            android:checked="true"
+                            android:text="Người theo dõi mới"
+                            android:textSize="20dp" />
+                        <View
+                            android:id="@+id/viewTheoDoi"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewTheoDoi"/>
+
+                        <CheckedTextView
+                            android:id="@+id/checkviewBinhChon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="5dp"
+                            android:checked="true"
+                            android:text="Bình chọn cho truyện của tôi"
+                            android:textSize="20dp" />
+                        <View
+                            android:id="@+id/viewBinhChon"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkboxTW"/>
+                        <CheckedTextView
+                            android:id="@+id/checkviewCapNhat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="5dp"
+                            android:checked="true"
+                            android:text="Trả lời cho bình luận của tôi"
+                            android:textSize="20dp" />
+                        <View
+                            android:id="@+id/viewCapNhat"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewCapNhat"/>
+                    </RadioGroup>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

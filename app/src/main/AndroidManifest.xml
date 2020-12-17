@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
+        <activity android:name=".Home.Account.Thietlap.ThietLapThongBao"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +28,9 @@
         <activity android:name=".Home.Account.AccountActivity" />
         <activity android:name=".Chung.ActivityBookDetails" />
         <activity android:name=".Search.SearchListActivity" />
-        <activity android:name=".Base.Login"/>
-        <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
-        <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
+        <activity android:name=".Base.Login" />
+        <activity android:name=".Home.Account.Thietlap.thiet_lap_chung" />
+        <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan" />
     </application>
 
 </manifest>

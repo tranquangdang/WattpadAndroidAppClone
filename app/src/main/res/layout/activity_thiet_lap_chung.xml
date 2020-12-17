@@ -34,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:paddingRight="20dp"
                 android:layout_marginLeft="20dp">
                 <TextView
                     android:id="@+id/txtThietLapUD"
@@ -58,8 +59,8 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewThietLap"
-                    android:layout_width="350dp"
                     android:layout_height="1dp"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtThietLap"/>
@@ -76,7 +77,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewThongBao"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -95,7 +96,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewThietLapDoc"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -114,7 +115,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewDangKi"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -134,7 +135,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewTuyChinh"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -182,7 +183,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewTKBiChan"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -241,7 +242,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewWattpad"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -259,7 +260,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewTroGiup"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
@@ -278,7 +279,7 @@
                     android:textSize="16dp" />
                 <View
                     android:id="@+id/viewDangXuat"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
