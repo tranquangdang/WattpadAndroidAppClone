@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Library.Adapter;
+package com.example.wattpadclone.NewLibary.Adapter;
 
 public class ReadingList {
     int anh1,anh2,anh3;

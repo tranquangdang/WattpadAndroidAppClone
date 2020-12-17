@@ -17,7 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
+<<<<<<< HEAD
+        <activity android:name=".NewLibary.Main.LibaryFragement"></activity>
+        <activity android:name=".NewLibary.Main.ReadingListFragment" />
+        <activity android:name=".NewLibary.Main.CurrentReadFragment" />
+        <activity android:name=".NewLibary.Main.ArchiveFragment" />
+        <activity android:name=".NewLibary.Adapter.CurrentReadsFragment" />
+=======
         <activity android:name=".thembanbe.thembanbe"></activity>
+>>>>>>> e60429fe3e3bb5cd42b14cfeec16d288f75783ce
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +36,21 @@
         <activity android:name=".Home.Account.AccountActivity" />
         <activity android:name=".Chung.ActivityBookDetails" />
         <activity android:name=".Search.SearchListActivity" />
+<<<<<<< HEAD
         <activity android:name=".Base.Login"/>
         <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
         <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <activity android:name=".Base.Login"/>
+        <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
+        <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
+>>>>>>> eb80896a8562eb2261e1f3ef82b66cf2c91bf0f8
+>>>>>>> e60429fe3e3bb5cd42b14cfeec16d288f75783ce
+>>>>>>> 366425ecdce7a3f675d4c6491c86011ee4136b36
     </application>
 
 </manifest>
