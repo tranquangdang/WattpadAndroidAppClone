@@ -1,4 +1,4 @@
-package com.example.wattpadclone.NewLibary.Main;
+package com.example.wattpadclone.Libary.Main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ListView;
 
-import com.example.wattpadclone.NewLibary.Adapter.ReadingList;
-import com.example.wattpadclone.NewLibary.Adapter.ReadingListAdapter;
-import com.example.wattpadclone.NewLibary.Adapter.offline;
-import com.example.wattpadclone.NewLibary.Adapter.offlineAdapter;
-import com.example.wattpadclone.NewLibary.Adapter.offline_2;
-import com.example.wattpadclone.NewLibary.Adapter.watpad;
-import com.example.wattpadclone.NewLibary.Adapter.watpadAdapter;
+import com.example.wattpadclone.Libary.Adapter.ReadingList;
+import com.example.wattpadclone.Libary.Adapter.ReadingListAdapter;
+import com.example.wattpadclone.Libary.Adapter.offline;
+import com.example.wattpadclone.Libary.Adapter.offlineAdapter;
+import com.example.wattpadclone.Libary.Adapter.offline_2;
+import com.example.wattpadclone.Libary.Adapter.watpad;
+import com.example.wattpadclone.Libary.Adapter.watpadAdapter;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ArchiveFragment extends Fragment {
     ListView lv_readinglist;
     GridView gr_watpad,gr_Current_off,gr_Current_off_2;
-    com.example.wattpadclone.NewLibary.Adapter.offlineAdapter_2 offlineAdapter_2;
+    com.example.wattpadclone.Libary.Adapter.offlineAdapter_2 offlineAdapter_2;
     ArrayList<offline_2> offline_2ArrayList;
     offlineAdapter offlineAdapterr;
     ArrayList<offline> offlineArrayList;

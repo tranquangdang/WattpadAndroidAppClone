@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.wattpadclone.Home.HomeFragment;
-import com.example.wattpadclone.NewLibary.Main.LibaryFragement;
+import com.example.wattpadclone.Libary.Main.LibaryFragement;
 import com.example.wattpadclone.Search.SearchFragment;
 import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

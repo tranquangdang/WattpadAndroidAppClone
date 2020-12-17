@@ -1,4 +1,4 @@
-package com.example.wattpadclone.NewLibary.Main;
+package com.example.wattpadclone.Libary.Main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.example.wattpadclone.NewLibary.Adapter.offline;
-import com.example.wattpadclone.NewLibary.Adapter.offlineAdapter;
-import com.example.wattpadclone.NewLibary.Adapter.offlineAdapter_2;
-import com.example.wattpadclone.NewLibary.Adapter.offline_2;
+import com.example.wattpadclone.Libary.Adapter.offline;
+import com.example.wattpadclone.Libary.Adapter.offlineAdapter;
+import com.example.wattpadclone.Libary.Adapter.offlineAdapter_2;
+import com.example.wattpadclone.Libary.Adapter.offline_2;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
