@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.wattpadclone">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
+        <activity android:name=".thembanbe.thembanbe">
+
+        </activity>
         <activity android:name=".Base.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

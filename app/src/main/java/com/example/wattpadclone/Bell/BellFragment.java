@@ -35,7 +35,6 @@ import com.example.wattpadclone.Home.Account.AccountActivity;
 import com.example.wattpadclone.Home.Account.Account_intro;
 import com.example.wattpadclone.Home.Account.Account_message;
 import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
-import com.example.wattpadclone.Library.LibraryFragment;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Search.SearchFragment;

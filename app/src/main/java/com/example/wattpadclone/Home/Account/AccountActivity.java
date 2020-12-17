@@ -46,6 +46,7 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
         CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
         RelativeLayout relativeLayout = findViewById(R.id.relaAccount);
+
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
 

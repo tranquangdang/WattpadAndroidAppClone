@@ -1,7 +1,4 @@
-package com.example.wattpadclone.NewLibary.Adapter;
-
-import android.widget.GridView;
-import android.widget.ListView;
+package com.example.wattpadclone.Libary.Adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
