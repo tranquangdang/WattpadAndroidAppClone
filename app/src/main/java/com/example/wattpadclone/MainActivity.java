@@ -1,5 +1,4 @@
 package com.example.wattpadclone;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,7 @@ import android.view.MenuItem;
 
 import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Home.HomeFragment;
-import com.example.wattpadclone.Library.LibraryFragment;
+import com.example.wattpadclone.NewLibary.Main.LibaryFragement;
 import com.example.wattpadclone.Search.SearchFragment;
 import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.util.HashMap;
 import java.util.Stack;
-
 public class MainActivity extends AppCompatActivity {
 
     public static HashMap<String, Stack<Fragment>> mStacks;
@@ -37,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String HOME_FRAGMENT = "HOME_FRAGMENT";
     public static final String SEARCH_FRAGMENT = "SEARCH_FRAGMENT";
     public static final String LIBRARY_FRAGMENT = "LIBRARY_FRAGMENT";
+    public static final String NEW_LIBRARY_FRAGMENT = "NEW_LIBRARY_FRAGMENT";
     public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
     public static BottomNavigationViewEx bottomNavigationViewEx;
-
     private String mCurrentTab;
 
     @Override
@@ -58,15 +56,14 @@ public class MainActivity extends AppCompatActivity {
         mStacks.put(STACK, new Stack<Fragment>());
         mStacks.put(HOME_FRAGMENT, new Stack<Fragment>());
         mStacks.put(SEARCH_FRAGMENT, new Stack<Fragment>());
-        mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
+        //mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(NEW_LIBRARY_FRAGMENT, new Stack<Fragment>());
         mStacks.put(BELL_FRAGMENT, new Stack<Fragment>());
-
         bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedTab(SEARCH_FRAGMENT);
                     return true;
                 case R.id.action_library:
-                    selectedTab(LIBRARY_FRAGMENT);
+                    selectedTab(NEW_LIBRARY_FRAGMENT);
                     return true;
                 case R.id.action_bell:
                     selectedTab(BELL_FRAGMENT);
@@ -85,25 +82,21 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         }
-
     };
-
     public void gotoFragment(Fragment selectedFragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, selectedFragment);
         fragmentTransaction.commit();
     }
-
     private void selectedTab(String tabId) {
         mCurrentTab = STACK;
-
         if (mStacks.get(tabId).size() == 0) {
             if (tabId.equals(HOME_FRAGMENT)) {
                 pushFragments(tabId, new HomeFragment(), true);
             } else if (tabId.equals(SEARCH_FRAGMENT)) {
                 pushFragments(tabId, new SearchFragment(), true);
-            } else if (tabId.equals(LIBRARY_FRAGMENT)) {
-                pushFragments(tabId, new LibraryFragment(), true);
+            } else if (tabId.equals(NEW_LIBRARY_FRAGMENT)) {
+                pushFragments(tabId, new LibaryFragement(), true);
             } else if (tabId.equals(BELL_FRAGMENT)) {
                 pushFragments(tabId, new BellFragment(), true);
             }
@@ -166,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public boolean isInternetAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -178,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
                 .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
                 .getState() == NetworkInfo.State.CONNECTED)) {
             return true;
-        } else {
+      } else {
             return false;
-        }
+      }
     }
 }

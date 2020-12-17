@@ -4,7 +4,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wattpadclone.Library.Adapter.lv_topic_content;
+import com.example.wattpadclone.NewLibary.Adapter.lv_topic_content;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;

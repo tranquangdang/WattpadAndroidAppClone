@@ -32,6 +32,7 @@
         <activity android:name=".Base.SignUpActivity"/>
         <activity android:name=".Home.Account.Thietlap.thiet_lap_chung" />
         <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan" />
+        <activity android:name=".Home.Account.Thietlap.ThietLapThongBao"/>
     </application>
 
 </manifest>

@@ -32,7 +32,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 public class AccountActivity extends AppCompatActivity {
     private BottomSheetBehavior mBottomSheetBehavior;
     private SectionsPageAdapter mSectionsPageAdapter;
@@ -47,7 +46,6 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
         CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
         RelativeLayout relativeLayout = findViewById(R.id.relaAccount);
-
         Toolbar toolbar = findViewById(R.id.toolbar_account);
         toolbar.inflateMenu(R.menu.menu_toolbar_account);
 

@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="20dp">
+
                 <TextView
                     android:id="@+id/txtThietLapUD"
                     android:layout_width="match_parent"
@@ -58,8 +59,8 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewThietLap"
-                    android:layout_width="350dp"
                     android:layout_height="1dp"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
                 <TextView
@@ -75,7 +76,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewThongBao"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -93,7 +94,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewThietLapDoc"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -111,7 +112,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewDangKi"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -130,7 +131,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewTuyChinh"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -175,7 +176,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewTKBiChan"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -230,7 +231,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewWattpad"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -247,7 +248,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewTroGiup"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"/>
@@ -265,7 +266,7 @@
                     android:focusable="true" />
                 <View
                     android:id="@+id/viewDangXuat"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
