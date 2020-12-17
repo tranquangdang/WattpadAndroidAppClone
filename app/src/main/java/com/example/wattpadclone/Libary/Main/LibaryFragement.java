@@ -26,18 +26,9 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class LibaryFragement extends BaseFragment {
-    ListView lv_readinglist;
-    GridView gr_watpad,gr_Current_off,gr_Current_off_2;
-    com.example.wattpadclone.Libary.Adapter.offlineAdapter_2 offlineAdapter_2;
-    ArrayList<offline_2> offline_2ArrayList;
-    offlineAdapter offlineAdapterr;
-    ArrayList<offline> offlineArrayList;
-    ReadingListAdapter readingadapter;
-    ArrayList<ReadingList> readingArrayList;
-    watpadAdapter adapter;
-    ArrayList<watpad> watpadArrayList;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    View myFragment;
+    TabLayout tabLayout;
+    ViewPager viewPager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,19 +36,39 @@ public class LibaryFragement extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.libary_fragement, container, false);
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-        setupViewPager();
-        tabLayout.setupWithViewPager(viewPager);
-        return view;
+        myFragment = inflater.inflate(R.layout.libary_fragement, container, false);
+        viewPager = (ViewPager) myFragment.findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) myFragment.findViewById(R.id.tabs);
+        return myFragment;
     }
-    private void setupViewPager() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new CurrentReadFragment(), "Đọc gần đây");
-        adapter.addFragment(new ArchiveFragment(), "Lưu trữ");
-        adapter.addFragment(new ReadingListFragment(), "Danh sách ");
+        adapter.addFragment(new ArchiveFragment(), "Kho lưu trữ");
+        adapter.addFragment(new ReadingListFragment(), "Danh sách");
         viewPager.setAdapter(adapter);
+
     }
 
 }
