@@ -7,10 +7,15 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Home.Account.AccountActivity;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class thiet_lap_chung extends AppCompatActivity {
     TextView txtThietLapTK;
@@ -36,6 +41,16 @@ public class thiet_lap_chung extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(thiet_lap_chung.this, ThietLapTaiKhoan.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.txtLogOut).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(thiet_lap_chung.this, IntroActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

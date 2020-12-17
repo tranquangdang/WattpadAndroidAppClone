@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.MenuItem;
 
+import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Home.HomeFragment;
 import com.example.wattpadclone.Library.LibraryFragment;
 import com.example.wattpadclone.Search.SearchFragment;
@@ -23,6 +24,8 @@ import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.util.HashMap;
 import java.util.Stack;
@@ -37,10 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
     public static BottomNavigationViewEx bottomNavigationViewEx;
 
-    FirebaseUser firebaseUser;
-
     private String mCurrentTab;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if(!isInternetAvailable()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setMessage("Please connect to the internet")
@@ -164,9 +163,6 @@ public class MainActivity extends AppCompatActivity {
                     });
             AlertDialog alert = builder.create();
             alert.show();
-        }
-        if(firebaseUser != null) {
-            bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
         }
     }
 

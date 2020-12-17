@@ -40,7 +40,7 @@
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/den"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
                 <ImageView
                     android:id="@+id/img_Anh"
                     android:layout_width="50dp"
@@ -59,7 +59,8 @@
                     android:layout_marginTop="10dp"
                     android:textSize="16dp"
                     android:layout_below="@id/txtHoSo"
-                    android:layout_toRightOf="@+id/img_Anh"/>
+                    android:layout_toRightOf="@+id/img_Anh"
+                    android:focusable="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -72,7 +73,7 @@
                 <View
                     android:id="@+id/viewAnh"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="50dp"
                     android:layout_below="@id/txtAnhDD"
                     android:background="#dfdfdf"/>
@@ -107,7 +108,7 @@
                 <View
                     android:id="@+id/viewNen"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_below="@id/txtAnhNen"
                     android:layout_marginTop="50dp"
                     android:background="#dfdfdf"/>
@@ -133,7 +134,7 @@
                     android:textColor="@color/den"
                     android:textSize="18dp" />
                 <TextView
-                    android:id="@+id/txtUser"
+                    android:id="@+id/txtUserTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
@@ -144,23 +145,48 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/txtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="user25110200"
-                    android:layout_below="@+id/txtUser"/>
+                    android:text="loading..."
+                    android:layout_below="@+id/txtUserTitle"/>
                 <View
                     android:id="@+id/viewUser"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
-                    android:layout_below="@+id/txtUser"/>
+                    android:layout_below="@+id/txtUsername"/>
+                <TextView
+                    android:id="@+id/txtNametitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewUser"
+                    android:layout_marginTop="20dp"
+                    android:text="Tên Đầy đủ"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="loading..."
+                    android:layout_below="@+id/txtNametitle"/>
+                <View
+                    android:id="@+id/viewName"
+                    android:layout_width="350dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtName"/>
                 <TextView
                     android:id="@+id/txtGioi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:layout_below="@id/viewUser"
+                    android:layout_below="@id/viewName"
                     android:layout_marginTop="20dp"
                     android:text="Giới Tính"
                     android:textAllCaps="false"
@@ -169,12 +195,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Nam"
+                    android:text="loading..."
                     android:layout_below="@+id/txtGioi"/>
                 <View
                     android:id="@+id/viewGioi"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtGioi"/>
@@ -190,14 +216,15 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/txtDob"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="25/11/2000"
+                    android:text="loading..."
                     android:layout_below="@+id/txtDate"/>
                 <View
                     android:id="@+id/viewDate"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtDate"/>
@@ -215,12 +242,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Đặt một vị trí mới"
+                    android:text="loading..."
                     android:layout_below="@+id/txtViTri"/>
                 <View
                     android:id="@+id/viewViTri"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtViTri"/>
@@ -238,12 +265,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Thiết lập trang web"
+                    android:text="loading..."
                     android:layout_below="@+id/txtWeb"/>
                 <View
                     android:id="@+id/viewWeb"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtWeb"/>
@@ -259,14 +286,15 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/emailProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="wattpad@gmail.com"
+                    android:text="loading..."
                     android:layout_below="@+id/txtEmail"/>
                 <View
                     android:id="@+id/viewEmail"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtEmail"/>
@@ -289,7 +317,7 @@
                 <View
                     android:id="@+id/viewPass"
                     android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtPass"/>
@@ -337,7 +365,7 @@
                     <View
                         android:id="@+id/viewGG"
                         android:layout_width="350dp"
-                        android:layout_height="2dp"
+                        android:layout_height="1dp"
                         android:layout_marginTop="20dp"
                         android:background="#dfdfdf"
                         android:layout_below="@+id/checkboxGG"/>
@@ -358,7 +386,7 @@
                     <View
                         android:id="@+id/viewFB"
                         android:layout_width="350dp"
-                        android:layout_height="2dp"
+                        android:layout_height="1dp"
                         android:layout_marginTop="20dp"
                         android:background="#dfdfdf"
                         android:layout_below="@+id/checkboxFB"/>
@@ -379,7 +407,7 @@
                     <View
                         android:id="@+id/viewTW"
                         android:layout_width="350dp"
-                        android:layout_height="2dp"
+                        android:layout_height="1dp"
                         android:layout_marginTop="20dp"
                         android:background="#dfdfdf"
                         android:layout_below="@+id/checkboxTW"/>
@@ -399,7 +427,7 @@
                     <View
                         android:id="@+id/viewIS"
                         android:layout_width="350dp"
-                        android:layout_height="2dp"
+                        android:layout_height="1dp"
                         android:layout_marginTop="20dp"
                         android:background="#dfdfdf"
                         android:layout_below="@+id/checkboxIS"/>
