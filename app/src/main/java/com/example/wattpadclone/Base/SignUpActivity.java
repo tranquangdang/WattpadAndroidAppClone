@@ -63,7 +63,6 @@ public class SignUpActivity extends AppCompatActivity {
                             hashMap.put("id", userid);
                             hashMap.put("email", email);
                             hashMap.put("username", username);
-                            hashMap.put("password", password);
                             hashMap.put("dob", dob);
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

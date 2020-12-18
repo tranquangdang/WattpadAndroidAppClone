@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +23,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -94,11 +99,11 @@ public class LogInActivity extends AppCompatActivity {
                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            int check = 0;
+                            int check = 0, checkUser = 0;
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 String username = dataSnapshot.child("username").getValue(String.class);
-                                String password = dataSnapshot.child("password").getValue(String.class);
-                                if(username.equals(txt_username) && password.equals(txt_password)) {
+                                if(username.equals(txt_username)) {
+                                    checkUser = 1;
                                     check = 1;
                                     String txt_email = dataSnapshot.child("email").getValue(String.class);
                                     auth.signInWithEmailAndPassword(txt_email,txt_password)
@@ -114,7 +119,7 @@ public class LogInActivity extends AppCompatActivity {
                                                         startActivity(intent);
                                                         finish();
                                                     } else {
-                                                        Toast.makeText(LogInActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(LogInActivity.this, "Sai mật khẩu!", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
                                             });
@@ -122,7 +127,7 @@ public class LogInActivity extends AppCompatActivity {
                                     check = 0;
                                 }
                             }
-                            if (check == 0) {
+                            if (check == 0 && checkUser != 1) {
                                 Toast.makeText(LogInActivity.this, "Sai tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
                             }
                             loadingDialog.Dismiss();
@@ -134,6 +139,59 @@ public class LogInActivity extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        });
+
+        findViewById(R.id.forgetPass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextInputLayout textInputLayout = new TextInputLayout(LogInActivity.this);
+                EditText input = new EditText(LogInActivity.this);
+                textInputLayout.addView(input);
+                input.setBackground(null);
+                textInputLayout.setPadding(getResources().getDimensionPixelOffset(R.dimen.dp19),0, getResources().getDimensionPixelOffset(R.dimen.dp19), 0);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
+                builder.setTitle("Đặt lại mật khẩu");
+                builder.setMessage("Gõ email của bạn vào bên dưới và chúng tôi sẽ gửi bạn hướng dẫn cách đặt lại");
+                builder.setView(textInputLayout);
+                builder.setPositiveButton("GỬI HƯỚNG DẪN", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(!input.getText().toString().isEmpty()) {
+                            loadingDialog.Loading();
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(input.getText().toString())
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(LogInActivity.this, "Đã gửi yêu cầu, vui lòng kiểm tra email!", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(LogInActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                                        }
+                                        loadingDialog.Dismiss();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(LogInActivity.this, "Sai email, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                        loadingDialog.Dismiss();
+                                    }
+                                });
+                        } else {
+                            Toast.makeText(LogInActivity.this, "Không được để trống!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("HỦY", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
             }
         });
     }

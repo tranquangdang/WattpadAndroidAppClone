@@ -107,7 +107,7 @@
 
                 <View
                     android:layout_gravity="center"
-                    android:layout_width="113dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:background="#696969"/>
 
@@ -115,14 +115,14 @@
                     android:paddingStart="7dp"
                     android:paddingEnd="7dp"
                     android:layout_gravity="center"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="hoặc"
                     android:textSize="15sp"/>
 
                 <View
                     android:layout_gravity="center"
-                    android:layout_width="113dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:background="#696969"/>
 
@@ -202,6 +202,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/forgetPass"
                 android:clickable="true"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
