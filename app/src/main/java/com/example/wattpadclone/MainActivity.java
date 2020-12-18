@@ -1,19 +1,30 @@
 package com.example.wattpadclone;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.MenuItem;
 
+import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Home.HomeFragment;
-import com.example.wattpadclone.NewLibary.Main.LibaryFragement;
+import com.example.wattpadclone.Libary.Main.LibaryFragement;
 import com.example.wattpadclone.Search.SearchFragment;
 import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.util.HashMap;
 import java.util.Stack;
@@ -27,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String NEW_LIBRARY_FRAGMENT = "NEW_LIBRARY_FRAGMENT";
     public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
     public static BottomNavigationViewEx bottomNavigationViewEx;
-    FirebaseUser firebaseUser;
     private String mCurrentTab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,47 +136,43 @@ public class MainActivity extends AppCompatActivity {
         popFragments();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-//        if(!isInternetAvailable()) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//            builder.setMessage("Please connect to the internet")
-//                    .setCancelable(false)
-//                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-//                        }
-//                    })
-//                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            onStart();
-//                        }
-//                    });
-//            AlertDialog alert = builder.create();
-//            alert.show();
-//        }
-//        if(firebaseUser != null) {
-//            bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(!isInternetAvailable()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Please connect to the internet")
+                    .setCancelable(false)
+                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            onStart();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+    }
 
+    public boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if ((connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+                || (connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+                .getState() == NetworkInfo.State.CONNECTED)) {
+            return true;
+      } else {
+            return false;
+      }
+    }
 
-//    public boolean isInternetAvailable() {
-//        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
-//                .getSystemService(Context.CONNECTIVITY_SERVICE);
-//        if ((connectivityManager
-//                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
-//                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
-//                || (connectivityManager
-//                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
-//                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-//                .getState() == NetworkInfo.State.CONNECTED)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 }

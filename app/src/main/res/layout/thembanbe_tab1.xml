@@ -17,14 +17,14 @@
         android:text="Đọc những chuyện được giới thiệu \nhay nhất  bằng cách thoe dõi người dùng"
         android:textStyle="bold" />
     <TextView
-        android:layout_gravity="left"
-        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hồ sơ chúng tôi nghĩ bạn sẽ thích"
         android:fontFamily="arial"
         android:layout_marginTop="50dp"/>
     <TextView
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,9 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Base.Login">
+    tools:context=".Base.LogInActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp">
+
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="130dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/wp_logo_orange"/>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="Đăng nhập để đọc và viết truyện - miễn phí"
+                android:textSize="18sp"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:paddingRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/login_facebook_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:drawableLeft="@drawable/ic_facebook_app_logo"
+                        android:background="@color/com_facebook_blue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fb_login"
+                        android:textAllCaps="false"
+                        android:text="Facebook"
+                        android:clickable="true"
+                        android:drawablePadding="5dp"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:focusable="true" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.gms.common.SignInButton
+                        android:id="@+id/login_google_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:background="@drawable/google_border_button"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:drawableStart="@drawable/ic_google__g__logo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gg_login"
+                        android:clickable="true"
+                        android:textAllCaps="false"
+                        android:text="Google"
+                        android:textSize="13sp"
+                        android:drawablePadding="5dp"
+                        android:textStyle="bold"
+                        android:textColor="#696969"
+                        android:focusable="true" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="113dp"
+                    android:layout_height="1dp"
+                    android:background="#696969"/>
+
+                <TextView
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hoặc"
+                    android:textSize="15sp"/>
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="113dp"
+                    android:layout_height="1dp"
+                    android:background="#696969"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:background="@drawable/group_user_and_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#696969"
+                    android:foregroundTint="@color/white"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/username_login"
+                        android:hint="Tên đăng nhập"
+                        android:background="#ffffff"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#696969"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleDrawable="@color/show_password_selector"
+                        app:passwordToggleEnabled="true"
+                        android:textColorHint="#696969"
+                        app:passwordToggleTint="@color/cam"
+                        android:foregroundTint="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/password_login"
+                            android:hint="Mật khẩu"
+                            android:background="#ffffff"
+                            android:inputType="textPassword"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="Đăng nhập"
+                android:textColor="#ffffff"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:clickable="true"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Quên Mật Khẩu?"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:focusable="true" />
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/txt_goto_signup"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Bạn không có tài khoản? Hãy đăng ký"
+                android:textColor="@color/cam"
+                android:textStyle="bold"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+</ScrollView>

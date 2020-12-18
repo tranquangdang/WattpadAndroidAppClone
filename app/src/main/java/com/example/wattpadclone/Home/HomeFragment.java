@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
 import com.example.wattpadclone.Home.Account.AccountActivity;
 //import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
@@ -49,7 +50,8 @@ public class HomeFragment extends BaseFragment {
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.toolbar_home_setting)
                 {
-                    // do something
+                    Intent intent = new Intent(getActivity(), IntroActivity.class);
+                    startActivity(intent);
                 }
                 else if(item.getItemId()== R.id.toolbar_home_account)
                 {

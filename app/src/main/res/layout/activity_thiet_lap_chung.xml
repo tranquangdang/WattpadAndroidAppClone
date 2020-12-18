@@ -32,9 +32,10 @@
             android:fillViewport="true">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:layout_marginStart="20dp">
+
                 <TextView
                     android:id="@+id/txtThietLapUD"
                     android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/den"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
                 <TextView
                     android:clickable="true"
                     android:id="@+id/txtThietLapTK"
@@ -52,73 +53,69 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Thiết Lập Tài Khoản"
-                    android:layout_below="@+id/txtThietLapUD"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewThietLap"
-                    android:layout_width="350dp"
                     android:layout_height="1dp"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtThietLap"/>
+                    android:background="#dfdfdf"/>
                 <TextView
                     android:id="@+id/txtThongBao"
                     android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/viewThietLap"
                     android:layout_marginTop="20dp"
                     android:text="Thông Báo"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewThongBao"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtThongBao"/>
+                    android:background="#dfdfdf"/>
 
                 <TextView
                     android:id="@+id/txtThietLapDoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/viewThongBao"
                     android:clickable="true"
                     android:layout_marginTop="20dp"
                     android:text="Thiết Lập Đọc"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewThietLapDoc"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtThietLapDoc"/>
+                    android:background="#dfdfdf"/>
 
                 <TextView
                     android:id="@+id/txtDangKi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:layout_below="@id/viewThietLapDoc"
                     android:layout_marginTop="20dp"
                     android:text="Đăng Kí"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewDangKi"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtDangKi"/>
+                    android:background="#dfdfdf"/>
 
 
                 <TextView
@@ -127,18 +124,17 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:layout_marginTop="20dp"
-                    android:layout_below="@+id/viewDangKi"
                     android:text="Tùy Chỉnh Chủ Đề"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewTuyChinh"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtTuyChinh"/>
+                    android:background="#dfdfdf"/>
 
 
                 <TextView
@@ -146,29 +142,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:layout_below="@id/viewTuyChinh"
                     android:layout_marginTop="20dp"
                     android:text="Chế Độ Ban Đêm"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Tắt"
-                    android:layout_below="@+id/txtBanDem"/>
+                    android:text="Tắt"/>
 
                 <TextView
                     android:id="@+id/txtRTBM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtBanDem"
                     android:layout_marginTop="50dp"
                     android:text="Riêng Tư Và Bảo Mật"
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/den"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
                 <TextView
                     android:clickable="true"
                     android:id="@+id/txtTKBiChan"
@@ -176,58 +170,54 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Các Tài Khoản Đã Bị Chặn"
-                    android:layout_below="@+id/txtRTBM"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewTKBiChan"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtTKBiChan"/>
+                    android:background="#dfdfdf"/>
 
                 <TextView
                     android:id="@+id/txtUuTien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/viewTKBiChan"
                     android:layout_marginTop="30dp"
                     android:text="Truyện Được Ưu Tiên"
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/den"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtNgonNgu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:layout_below="@id/txtUuTien"
                     android:layout_marginTop="20dp"
                     android:text="Ngôn Ngữ"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Tiếng Việt"
-                    android:layout_below="@+id/txtNgonNgu"/>
+                    android:text="Tiếng Việt"/>
 
                 <TextView
                     android:id="@+id/txtKhac"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtNgonNgu"
                     android:layout_marginTop="50dp"
                     android:text="Khác"
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/den"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
                 <TextView
                     android:clickable="true"
                     android:id="@+id/txtWattpad"
@@ -235,17 +225,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Về Wattpad"
-                    android:layout_below="@+id/txtKhac"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewWattpad"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtWattpad"/>
+                    android:background="#dfdfdf"/>
                 <TextView
                     android:clickable="true"
                     android:id="@+id/txtTroGiup"
@@ -253,32 +242,31 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Trợ Giúp và Hỗ Trợ"
-                    android:layout_below="@+id/viewWattpad"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewTroGiup"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="#dfdfdf"
-                    android:layout_below="@+id/txtTroGiup"/>
+                    android:background="#dfdfdf"/>
 
                 <TextView
                     android:clickable="true"
-                    android:id="@+id/txtDangXuat"
+                    android:id="@+id/txtLogOut"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Đăng Xuất"
-                    android:layout_below="@+id/txtTroGiup"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:focusable="true" />
                 <View
                     android:id="@+id/viewDangXuat"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#dfdfdf"

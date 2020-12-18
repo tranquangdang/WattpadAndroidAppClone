@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wattpadclone.NewLibary.Main.ReadingListFragment">
+    tools:context="com.example.wattpadclone.Libary.Main.ReadingListFragment">
     <ListView
         android:background="#fff"
         android:id="@+id/lv_reading"

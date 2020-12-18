@@ -28,6 +28,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.wattpadclone.Bell.Adapter.viewpaperAdapter;
 import com.example.wattpadclone.Bell.Tabs.Bell_tab1;
 import com.example.wattpadclone.Bell.Tabs.Bell_tab2;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
@@ -35,7 +36,10 @@ import com.example.wattpadclone.Home.Account.AccountActivity;
 import com.example.wattpadclone.Home.Account.Account_intro;
 import com.example.wattpadclone.Home.Account.Account_message;
 import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
-import com.example.wattpadclone.Library.LibraryFragment;
+import com.example.wattpadclone.Libary.Adapter.ViewPagerAdapter;
+import com.example.wattpadclone.Libary.Main.ArchiveFragment;
+import com.example.wattpadclone.Libary.Main.CurrentReadFragment;
+import com.example.wattpadclone.Libary.Main.ReadingListFragment;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Search.SearchFragment;
@@ -46,18 +50,9 @@ import com.google.android.material.tabs.TabLayout;
 
 
 public class BellFragment extends BaseFragment {
-    ImageButton btn1,btn2;
-    private BottomSheetBehavior mBottomSheetBehavior;
-    private SectionsPageAdapter mSectionsPageAdapter;
-    private ViewPager mViewPager;
-    private RelativeLayout hasReadLayout, followersLayout;
-    Context context;
-
-    public BellFragment(){
-
-    }
-
-
+    View myFragment;
+    TabLayout tabLayout;
+    ViewPager viewPager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +62,12 @@ public class BellFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bell, container, false);
+        myFragment = inflater.inflate(R.layout.fragment_bell, container, false);
+        viewPager = (ViewPager) myFragment.findViewById(R.id.bell_viewpaper);
+        tabLayout = (TabLayout) myFragment.findViewById(R.id.bell_tabs);
 
-        Toolbar toolbar = view.findViewById(R.id.toolbar_bell);
+
+        Toolbar toolbar = myFragment.findViewById(R.id.toolbar_bell);
         toolbar.inflateMenu(R.menu.menu_toolbar_noti);
         toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
         View logoView = toolbar.getChildAt(1);
@@ -84,8 +82,7 @@ public class BellFragment extends BaseFragment {
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.toolbar_noti_add)
                 {
-
-                   Intent intent = new Intent(getActivity(), thembanbe.class);
+                    Intent intent = new Intent(getActivity(), thembanbe.class);
                     startActivity(intent);
                 }
                 return false;
@@ -93,26 +90,37 @@ public class BellFragment extends BaseFragment {
         });
 
 
-        mSectionsPageAdapter = new SectionsPageAdapter(getFragmentManager());
+        return myFragment;
 
-        mViewPager = view.findViewById(R.id.bell_viewpaper);
-        setupViewPager(mViewPager);
-
-        TabLayout tabLayout = view.findViewById(R.id.bell_tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
-        tabLayout.setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#000000"));
-
-
-        return view;
     }
 
-    private void setupViewPager(ViewPager viewPager){
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getFragmentManager());
-        adapter.addFragment(new Bell_tab1(), "Tìm Bạn Bè");
-        adapter.addFragment(new Bell_tab2(), "Thêm Bạn Bè");
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(new Bell_tab1(), "Tin Nhắn");
+        adapter.addFragment(new Bell_tab2(), "Thông Báo");
         viewPager.setAdapter(adapter);
+
     }
 
 

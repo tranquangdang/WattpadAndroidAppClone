@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.wattpadclone">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -18,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
 
+
         <activity android:name=".NewLibary.Main.LibaryFragement"></activity>
         <activity android:name=".NewLibary.Main.ReadingListFragment" />
         <activity android:name=".NewLibary.Main.CurrentReadFragment" />
@@ -26,7 +28,10 @@
 
         <activity android:name=".thembanbe.thembanbe"></activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+
+        <activity android:name=".Base.IntroActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,6 +42,7 @@
         <activity android:name=".Chung.ActivityBookDetails" />
         <activity android:name=".Search.SearchListActivity" />
 
+
         <activity android:name=".Base.Login"/>
         <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
         <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
@@ -44,6 +50,15 @@
         <activity android:name=".Base.Login"/>
         <activity android:name=".Home.Account.Thietlap.thiet_lap_chung"/>
         <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan"/>
+
+
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".Base.LogInActivity" />
+        <activity android:name=".Base.SignUpActivity"/>
+        <activity android:name=".Home.Account.Thietlap.thiet_lap_chung" />
+        <activity android:name=".Home.Account.Thietlap.ThietLapTaiKhoan" />
+        <activity android:name=".Home.Account.Thietlap.ThietLapThongBao"/>
+        <activity android:name=".thembanbe.thembanbe"/>
 
     </application>
 

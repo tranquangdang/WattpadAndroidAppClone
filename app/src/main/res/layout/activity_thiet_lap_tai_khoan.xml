@@ -30,7 +30,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp">
+                android:padding="20dp">
                 <TextView
                     android:id="@+id/txtHoSo"
                     android:layout_width="match_parent"
@@ -71,8 +71,8 @@
                     android:layout_marginTop="10dp"/>
                 <View
                     android:id="@+id/viewAnh"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="50dp"
                     android:layout_below="@id/txtAnhDD"
                     android:background="#dfdfdf"/>
@@ -106,8 +106,8 @@
                     android:layout_marginTop="10dp"/>
                 <View
                     android:id="@+id/viewNen"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_below="@id/txtAnhNen"
                     android:layout_marginTop="50dp"
                     android:background="#dfdfdf"/>
@@ -144,17 +144,42 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/txtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="user25110200"
                     android:layout_below="@+id/txtUser"/>
                 <View
-                    android:id="@+id/viewUser"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="40dp"
+                    android:id="@+id/viewName"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
                     android:background="#dfdfdf"
-                    android:layout_below="@+id/txtUser"/>
+                    android:layout_below="@+id/txtUsername"/>
+                <TextView
+                    android:id="@+id/txtNametitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_below="@id/viewName"
+                    android:layout_marginTop="20dp"
+                    android:text="Ngày Sinh"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="loading..."
+                    android:layout_below="@+id/txtNametitle"/>
+                <View
+                    android:id="@+id/viewUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#dfdfdf"
+                    android:layout_below="@+id/txtName"/>
                 <TextView
                     android:id="@+id/txtGioi"
                     android:layout_width="match_parent"
@@ -173,8 +198,8 @@
                     android:layout_below="@+id/txtGioi"/>
                 <View
                     android:id="@+id/viewGioi"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtGioi"/>
@@ -190,14 +215,15 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/txtDob"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="25/11/2000"
+                    android:text="loading..."
                     android:layout_below="@+id/txtDate"/>
                 <View
                     android:id="@+id/viewDate"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtDate"/>
@@ -219,8 +245,8 @@
                     android:layout_below="@+id/txtViTri"/>
                 <View
                     android:id="@+id/viewViTri"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtViTri"/>
@@ -242,8 +268,8 @@
                     android:layout_below="@+id/txtWeb"/>
                 <View
                     android:id="@+id/viewWeb"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtWeb"/>
@@ -259,14 +285,15 @@
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/emailProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="wattpad@gmail.com"
+                    android:text="loading.."
                     android:layout_below="@+id/txtEmail"/>
                 <View
                     android:id="@+id/viewEmail"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtEmail"/>
@@ -288,8 +315,8 @@
                     android:layout_below="@+id/txtPass"/>
                 <View
                     android:id="@+id/viewPass"
-                    android:layout_width="350dp"
-                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="40dp"
                     android:background="#dfdfdf"
                     android:layout_below="@+id/txtPass"/>
@@ -315,95 +342,101 @@
                     android:textAllCaps="false"
                     android:textColor="@color/den"
                     android:textSize="18dp" />
-                <RadioGroup
-                    android:layout_below="@+id/txtXaHoi"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="20dp">
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/txtXaHoi">
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
-                    <CheckBox
-                        android:id="@+id/checkboxGG"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Google"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="40dp"
-                        android:text="Kết nối tài khoản Google của bạn"
-                        android:layout_below="@+id/checkboxGG"/>
-                    <View
-                        android:id="@+id/viewGG"
-                        android:layout_width="350dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="20dp"
-                        android:background="#dfdfdf"
-                        android:layout_below="@+id/checkboxGG"/>
+                        <CheckedTextView
+                            android:id="@+id/checkviewGG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:text="Google"
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Ngừng kết nối"
+                            android:layout_below="@+id/checkviewGG"/>
+                        <View
+                            android:id="@+id/viewGG"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewGG"/>
 
-                    <CheckBox
-                        android:id="@+id/checkboxFB"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Facebook"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="40dp"
-                        android:text="Kết nối tài khoản Facebook của bạn"
-                        android:layout_below="@+id/checkboxFB"/>
-                    <View
-                        android:id="@+id/viewFB"
-                        android:layout_width="350dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="20dp"
-                        android:background="#dfdfdf"
-                        android:layout_below="@+id/checkboxFB"/>
+                        <CheckedTextView
+                            android:id="@+id/checkviewFB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="5dp"
+                            android:text="Facebook"
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Kết nối tài khoản Facebook của bạn"
+                            android:layout_below="@+id/checkviewFB"/>
+                        <View
+                            android:id="@+id/viewFB"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewFB"/>
 
-                    <CheckBox
-                        android:id="@+id/checkboxTW"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Twitter"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="40dp"
-                        android:text="Kết nối tài khoản Twitter của bạn"
-                        android:layout_below="@+id/checkboxTW"/>
-                    <View
-                        android:id="@+id/viewTW"
-                        android:layout_width="350dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="20dp"
-                        android:background="#dfdfdf"
-                        android:layout_below="@+id/checkboxTW"/>
-                    <CheckBox
-                        android:id="@+id/checkboxIS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Instagram"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="40dp"
-                        android:text="Kết nối tài khoản Instagram của bạn"
-                        android:layout_below="@+id/checkboxIS"/>
-                    <View
-                        android:id="@+id/viewIS"
-                        android:layout_width="350dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="20dp"
-                        android:background="#dfdfdf"
-                        android:layout_below="@+id/checkboxIS"/>
-                </RadioGroup>
+                        <CheckedTextView
+                            android:id="@+id/checkviewTW"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="5dp"
+                            android:text="Twitter"
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:text="Kết nối tài khoản Twitter của bạn"
+                            android:layout_below="@+id/checkviewTW"/>
+                        <View
+                            android:id="@+id/viewTW"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewTW"/>
+                        <CheckedTextView
+                            android:id="@+id/checkviewIS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                            android:layout_marginTop="5dp"
+                            android:text="Instagram"
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Kết nối tài khoản Instagram của bạn"
+                            android:layout_below="@+id/checkviewIS"/>
+                        <View
+                            android:id="@+id/viewIS"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#dfdfdf"
+                            android:layout_below="@+id/checkviewIS"/>
+                    </RadioGroup>
+                </RelativeLayout>
 
             </RelativeLayout>
         </ScrollView>
