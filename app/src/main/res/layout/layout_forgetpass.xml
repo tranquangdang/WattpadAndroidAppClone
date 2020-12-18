@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#CCFFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="14dp"
+    tools:context=".Base.LogInActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:text="Gõ email của bạn vào bên dưới và chúng tôi sẽ gửi bạn hướng dẫn cách đặt lại"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_forget_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email của bạn..."/>
+
+</LinearLayout>

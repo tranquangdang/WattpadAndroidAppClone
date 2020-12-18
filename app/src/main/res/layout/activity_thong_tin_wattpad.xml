@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.Account.Thietlap.thong_tin_wattpad">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_thiet_lap_doc"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Về Wattpad"
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtWattpad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wattpad"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© Wattpad 2020"/>
+        <View
+            android:id="@+id/viewWattpad"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtPhienBan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phiên Bản"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8.94.0"/>
+        <View
+            android:id="@+id/viewPhienBan"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtChinhSach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chính sách bảo mật"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <View
+            android:id="@+id/viewChinhSach"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtDieuKhoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Điều khoản sử dụng"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <View
+            android:id="@+id/viewDieuKhoan"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtQuiTac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Qui tắc ứng xử"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <View
+            android:id="@+id/viewQuiTac"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtHD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hướng dẫn nội dung"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <View
+            android:id="@+id/viewHD"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/txtGP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giấy phép"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:focusable="true" />
+        <View
+            android:id="@+id/viewGP"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#dfdfdf"/>
+    </LinearLayout>
+
+
+</LinearLayout>

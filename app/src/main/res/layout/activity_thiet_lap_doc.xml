@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Home.Account.Thietlap.ThietLapDoc">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_thiet_lap_doc"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Thiết Lập Đọc "
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/txtXoay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Điều chỉnh xoay màn hình"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tự Động"
+            android:layout_below="@+id/txtXoay"/>
+        <View
+            android:id="@+id/viewXoay"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/txtXoay"
+            android:background="#dfdfdf" />
+        <CheckedTextView
+            android:id="@+id/checkviewBL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:layout_below="@id/viewXoay"
+            android:layout_marginTop="10dp"
+            android:text="Bình Luận trong dòng"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Hiển thị bình luận trong dòng"
+            android:layout_below="@+id/checkviewBL"/>
+        <View
+            android:id="@+id/viewBL"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            android:layout_below="@+id/checkviewBL"/>
+        <CheckedTextView
+            android:id="@+id/checkviewTT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:layout_below="@id/viewBL"
+            android:layout_marginTop="10dp"
+            android:text="Thanh trạng thái"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Hiển thị thanh trạng thái"
+            android:layout_below="@+id/checkviewTT"/>
+        <View
+            android:id="@+id/viewTT"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            android:layout_below="@+id/checkviewTT"/>
+        <CheckedTextView
+            android:id="@+id/checkviewAmLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:layout_below="@id/viewTT"
+            android:layout_marginTop="10dp"
+            android:text="Dùng nút âm lượng để chuyển trang"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Lật trang và cuộn sử dụng nút âm lượng"
+            android:layout_below="@+id/checkviewAmLuong"/>
+        <View
+            android:id="@+id/viewAmLuong"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            android:layout_below="@+id/checkviewAmLuong"/>
+        <TextView
+            android:id="@+id/txtDoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Chế độ đọc"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:layout_below="@id/checkviewAmLuong"
+            android:layout_marginTop="50dp"
+            android:textSize="16dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cuộn trang"
+            android:layout_below="@+id/txtDoc"/>
+        <View
+            android:id="@+id/viewDoc"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/txtDoc"
+            android:background="#dfdfdf" />
+
+        <CheckedTextView
+            android:id="@+id/checkviewDoSang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:layout_below="@id/viewDoc"
+            android:layout_marginTop="10dp"
+            android:text="Dùng độ sáng của thiết bị"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bỏ chọn để sử dụng độ sáng bên trong ứng dụng đọc"
+            android:layout_below="@+id/checkviewDoSang"/>
+        <View
+            android:id="@+id/viewDoSang"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            android:layout_below="@+id/checkviewDoSang"/>
+    </RelativeLayout>
+
+</LinearLayout>
