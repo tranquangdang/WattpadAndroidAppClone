@@ -1,34 +1,21 @@
 package com.example.wattpadclone.Base;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.wattpadclone.Chung.Loading;
+import com.example.wattpadclone.Chung.LoadingDialog;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 import com.facebook.FacebookSdk;
@@ -50,13 +37,14 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
-    TextView fb, gg, txtBackPressed, dob_signup, policy;
+    TextView fb, gg, txtBackPressed, dob_signup;
     LoginButton sinUpButtonFb;
     SignInButton sinUpButtonGg;
     Button btn_signup;
     EditText emailSignUp, userSignUp, passSignUp;
     int year, month, day;
     String msg;
+    LoadingDialog loadingDialog;
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -75,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
                             hashMap.put("id", userid);
                             hashMap.put("email", email);
                             hashMap.put("username", username);
+                            hashMap.put("password", password);
                             hashMap.put("dob", dob);
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -91,6 +80,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 }
                             });
                         } else {
+                            loadingDialog.Dismiss();
                             Toast.makeText(SignUpActivity.this, "Email này đã được đăng kí trước đó!", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -102,6 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_sign_up);
+        loadingDialog = new LoadingDialog(SignUpActivity.this);
 
         GregorianCalendar calendar = new GregorianCalendar();
         year = calendar.get(Calendar.YEAR);
@@ -155,9 +146,6 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Loading().setProgressDialog(SignUpActivity.this);
-                getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 String txt_email = emailSignUp.getText().toString();
                 String txt_username = userSignUp.getText().toString();
                 String txt_pass = passSignUp.getText().toString();
@@ -168,6 +156,7 @@ public class SignUpActivity extends AppCompatActivity {
                 } else if (txt_pass.length() < 6) {
                     Toast.makeText(SignUpActivity.this, "Mật khẩu phải nhiều hơn 6 kí tự!", Toast.LENGTH_SHORT).show();
                 } else {
+                    loadingDialog.Loading();
                     reference = FirebaseDatabase.getInstance().getReference("Users");
                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -180,6 +169,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     Toast.makeText(SignUpActivity.this, "Username này đã được sử dụng bởi người khác!", Toast.LENGTH_SHORT).show();
                                 }
                             }
+                            loadingDialog.Dismiss();
                             if(check == 1){
                                 Register(txt_email, txt_username, txt_pass, txt_dob);
                             }
