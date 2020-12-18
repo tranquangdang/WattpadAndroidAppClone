@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Home.Account.Thietlap.ThietLapDangKi">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_thiet_lap_dk"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Đăng kí "
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#2b225c">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="50dp"
+            android:background="@drawable/border_title">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/wp_logo_orange"/>
+            <TextView
+                android:id="@+id/txtPremium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Premium"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="#635b9f"
+                android:text="Không bao giờ hiển thị \n quảng cáo nữa"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="Không quảng cáo, đọc truyện ngoại \n tuyến không giới hạn,nhận thêm xu \n cho lần đănhg kí và các màu chủ đề \n độc đáo để tùy chỉnh Wattpad theo \n gu của bạn."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="7 ngày dùng thử miễn phí,sau đó"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="#635b9f"
+                android:text="109.000đ/ Tháng"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:text="Hủy bỏ bất cứ lúc nào"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="14dp"
+                android:textAllCaps="false"
+                android:text="Bắt đầu tuần dùng thử miễn phí của tôi"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:text="Xem tất cả kế hoạch của Wattpad Premium"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

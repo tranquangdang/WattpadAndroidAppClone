@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.Account.Thietlap.thiet_lap_chan">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_thiet_lap_doc"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f5f5f5"
+            app:title="Các tài khoản đã bị chặn"
+            app:titleMarginStart="25dp">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:background="#dbdfdb">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Bạn đang không chặn ai cả."
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="12dp"
+                android:text="Khi bạn chặn một ai đó,bạn sẽ không nhận được bất kì tin nhắn \n     bình luận truyện hoặc bài đăng nào từ người đó nữa."/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tìm hiểu thêm..."
+                android:layout_gravity="center"
+                android:textColor="@color/cam"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
