@@ -52,8 +52,9 @@ public class LibaryFragement extends BaseFragment {
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }
+
     private void setupViewPager() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(mActivity.getSupportFragmentManager());
         adapter.addFragment(new CurrentReadFragment(), "Đọc gần đây");
         adapter.addFragment(new ArchiveFragment(), "Lưu trữ");
         adapter.addFragment(new ReadingListFragment(), "Danh sách ");
