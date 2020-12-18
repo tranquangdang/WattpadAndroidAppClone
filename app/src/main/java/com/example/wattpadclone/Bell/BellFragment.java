@@ -53,7 +53,10 @@ public class BellFragment extends BaseFragment {
     private RelativeLayout hasReadLayout, followersLayout;
     Context context;
 
-    public BellFragment(){}
+    public BellFragment(){
+
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,8 +93,6 @@ public class BellFragment extends BaseFragment {
         });
 
 
-
-
         mSectionsPageAdapter = new SectionsPageAdapter(getFragmentManager());
 
         mViewPager = view.findViewById(R.id.bell_viewpaper);
@@ -102,8 +103,6 @@ public class BellFragment extends BaseFragment {
 
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#000000"));
-
-
 
 
         return view;
