@@ -9,7 +9,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
+
+import com.bumptech.glide.Glide;
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
@@ -19,9 +21,9 @@ import java.util.ArrayList;
 public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<HorizontalRecyclerViewHomeAdapter2.HorizontalRVViewHolder2> {
 
     Context context;
-    ArrayList<HorizontalRecyclerViewHomeBean2> arrayList;
+    ArrayList<Book> arrayList;
 
-    public HorizontalRecyclerViewHomeAdapter2(Context context, ArrayList<HorizontalRecyclerViewHomeBean2> arrayList) {
+    public HorizontalRecyclerViewHomeAdapter2(Context context, ArrayList<Book> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -35,8 +37,12 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
 
     @Override
     public void onBindViewHolder(@NonNull HorizontalRVViewHolder2 holder, int position) {
-        HorizontalRecyclerViewHomeBean2 horizontalRecyclerViewHomeBean2 = arrayList.get(position);
-        holder.imgCover2.setImageResource(horizontalRecyclerViewHomeBean2.getImg());
+        Book book = arrayList.get(position);
+        if(holder.imgCover2.equals("default"))
+            holder.imgCover2.setImageResource(R.mipmap.book1);
+        else {
+            Glide.with(context).load(book.getBookImg()).into(holder.imgCover2);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -17,12 +17,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
+import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Home.Account.AccountActivity;
-//import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
-import com.example.wattpadclone.Home.Adapters.HorizontalViewPagerHomeAdapter1;
 import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
@@ -35,7 +32,7 @@ public class HomeFragment extends BaseFragment {
     RecyclerView verticalRecyclerView;
     VerticalRecyclerViewHomeAdapter vAdapter;
     ArrayList<VerticalRecyclerViewHomeBean> arrayListVertical;
-
+    String urlGetData = "http://tranquangdang.000webhostapp.com/index.php";
     public HomeFragment(){}
 
     @Nullable
@@ -70,89 +67,12 @@ public class HomeFragment extends BaseFragment {
         vAdapter = new VerticalRecyclerViewHomeAdapter(getContext(),arrayListVertical);
         verticalRecyclerView.setAdapter(vAdapter);
 
-
-        completedBookAdd();
-        test2();
-        test3();
+        WebServices webServices = new WebServices(getActivity());
+        webServices.GetDataHome(urlGetData,arrayListVertical,vAdapter);
 
         return view;
     }
 
 
-    private void completedBookAdd() {
-       ArrayList<HorizontalViewPagerHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-         arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hayccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book4, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book5, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hayccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book8, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book9));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book1));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Truyện đã Hoàn Thành", "Đọc say sưa từ đầu đến cuối",
-                "Truyện được thảo luận nhiều", "Các truyện có nhiều bình luận nhất", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
-    }
-
-    private void test2() {
-        ArrayList<HorizontalViewPagerHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book5, "aaaaaaaaaaaaaaa", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book8, "bbbbbbbbbbbbbbbb", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book9, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book1));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book2));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Truyện đã Hoàn Thành", "Đọc say sưa từ đầu đến cuối",
-                "Truyện được thảo luận nhiều", "Các truyện có nhiều bình luận nhất", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
-    }
-
-
-    private void test3() {
-        ArrayList<HorizontalViewPagerHomeBean1> arrayListHorizontal1 = new ArrayList<>();
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book2, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book5, "aaaaaaaaaaaaaaa", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book8, "bbbbbbbbbbbbbbbb", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book7, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book3, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book1, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-        arrayListHorizontal1.add(new HorizontalViewPagerHomeBean1(R.mipmap.book9, "Guns, germs and steel", "Súng vi trùng và thép là một quyển sách hay", "Jared Diamond"));
-
-        ArrayList<HorizontalRecyclerViewHomeBean2> arrayListHorizontal2 = new ArrayList<>();
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book7));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book4));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book3));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book2));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book1));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book10));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book5));
-        arrayListHorizontal2.add(new HorizontalRecyclerViewHomeBean2(R.mipmap.book2));
-        VerticalRecyclerViewHomeBean mVerticalRecyclerViewHomeBean = new VerticalRecyclerViewHomeBean("Xu huớng", "Xu hướng trong tuần qua",
-                "Có thể bạn cũng thích", "Có thể bạn sẽ thích truyện này", arrayListHorizontal1, arrayListHorizontal2);
-        arrayListVertical.add(mVerticalRecyclerViewHomeBean);
-        vAdapter.notifyDataSetChanged();
-    }
 
 }

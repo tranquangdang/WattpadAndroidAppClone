@@ -15,9 +15,8 @@ import androidx.recyclerview.widget.SnapHelper;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.wattpadclone.Chung.ActivityBookDetails;
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.R;
 import com.example.wattpadclone.Chung.Bean.StartSnapHelper;
@@ -48,8 +47,8 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         String content1 = verticalRecyclerViewHomeBean.getContent1();
         String title2 = verticalRecyclerViewHomeBean.getTitle2();
         String content2 = verticalRecyclerViewHomeBean.getContent2();
-        ArrayList<HorizontalViewPagerHomeBean1> singleItem1 = verticalRecyclerViewHomeBean.getArrayList1();
-        ArrayList<HorizontalRecyclerViewHomeBean2> singleItem2 = verticalRecyclerViewHomeBean.getArrayList2();
+        ArrayList<Book> singleItem1 = verticalRecyclerViewHomeBean.getArrayList1();
+        ArrayList<Book> singleItem2 = verticalRecyclerViewHomeBean.getArrayList2();
 
         holder.categoryTitle.setText(title1);
         holder.categoryContent.setText(content1);
@@ -82,7 +81,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
 
     public class VerticalRVHomeViewHolder extends RecyclerView.ViewHolder {
 
-        RecyclerView  recyclerView, recyclerView2;
+        RecyclerView recyclerView2;
         ViewPager viewPager1;
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
         TextView home_more_rv2;

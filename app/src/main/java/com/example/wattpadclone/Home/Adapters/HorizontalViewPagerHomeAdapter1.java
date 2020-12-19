@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.wattpadclone.Home.Adapters.Beans.HorizontalViewPagerHomeBean1;
+import com.bumptech.glide.Glide;
+import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -19,10 +21,10 @@ import java.util.List;
 
 public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
 
-    private ArrayList<HorizontalViewPagerHomeBean1> arrayList;
+    private ArrayList<Book> arrayList;
     private Context context;
 
-    public HorizontalViewPagerHomeAdapter1(ArrayList<HorizontalViewPagerHomeBean1> arrayList, Context context) {
+    public HorizontalViewPagerHomeAdapter1(ArrayList<Book> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -49,11 +51,14 @@ public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
         content1 = (TextView)view.findViewById(R.id.home_content1);
         tag1 = (TextView)view.findViewById(R.id.home_tag1);
 
-        imgCover1.setImageResource(arrayList.get(position).getImg());
-        title1.setText(arrayList.get(position).getTitle());
-        content1.setText(arrayList.get(position).getContent());
-        tag1.setText(arrayList.get(position).getTag());
-
+        if(imgCover1.equals("default"))
+            imgCover1.setImageResource(R.mipmap.book1);
+        else {
+            Glide.with(context).load(arrayList.get(position).getBookImg()).into(imgCover1);
+        }
+        title1.setText(arrayList.get(position).getBookName());
+        content1.setText(arrayList.get(position).getIntro());
+        tag1.setText("Tag");
 
         container.addView(view, 0);
         return view;

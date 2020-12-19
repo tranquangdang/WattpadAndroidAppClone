@@ -1,13 +1,15 @@
 package com.example.wattpadclone.Home.Adapters.Beans;
 
+import com.example.wattpadclone.Chung.Bean.Book;
+
 import java.util.ArrayList;
 
 public class VerticalRecyclerViewHomeBean {
     String title1, content1, title2,content2;
-    ArrayList<HorizontalViewPagerHomeBean1> arrayList1;
-    ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2;
+    ArrayList<Book> arrayList1;
+    ArrayList<Book> arrayList2;
 
-    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<HorizontalViewPagerHomeBean1> arrayList1, ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2) {
+    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<Book> arrayList1, ArrayList<Book> arrayList2) {
         this.title1 = title1;
         this.content1 = content1;
         this.title2 = title2;
@@ -48,19 +50,19 @@ public class VerticalRecyclerViewHomeBean {
         this.content2 = content2;
     }
 
-    public ArrayList<HorizontalViewPagerHomeBean1> getArrayList1() {
+    public ArrayList<Book> getArrayList1() {
         return arrayList1;
     }
 
-    public void setArrayList1(ArrayList<HorizontalViewPagerHomeBean1> arrayList1) {
+    public void setArrayList1(ArrayList<Book> arrayList1) {
         this.arrayList1 = arrayList1;
     }
 
-    public ArrayList<HorizontalRecyclerViewHomeBean2> getArrayList2() {
+    public ArrayList<Book> getArrayList2() {
         return arrayList2;
     }
 
-    public void setArrayList2(ArrayList<HorizontalRecyclerViewHomeBean2> arrayList2) {
+    public void setArrayList2(ArrayList<Book> arrayList2) {
         this.arrayList2 = arrayList2;
     }
 }
