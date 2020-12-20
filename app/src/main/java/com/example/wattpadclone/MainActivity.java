@@ -15,17 +15,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.MenuItem;
 
-import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Home.HomeFragment;
 import com.example.wattpadclone.Libary.Main.LibaryFragement;
 import com.example.wattpadclone.Search.SearchFragment;
 import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.util.HashMap;
 import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
@@ -35,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String HOME_FRAGMENT = "HOME_FRAGMENT";
     public static final String SEARCH_FRAGMENT = "SEARCH_FRAGMENT";
     public static final String LIBRARY_FRAGMENT = "LIBRARY_FRAGMENT";
-    public static final String NEW_LIBRARY_FRAGMENT = "NEW_LIBRARY_FRAGMENT";
     public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
-    public static BottomNavigationViewEx bottomNavigationViewEx;
+    public static BottomNavigationView bottomNavigationViewEx;
+
     private String mCurrentTab;
 
     @Override
@@ -45,20 +39,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottom_navigation_main);
-        bottomNavigationViewEx.setTextVisibility(false);
-        bottomNavigationViewEx.enableAnimation(false);
-        bottomNavigationViewEx.enableShiftingMode(false);
-        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx = findViewById(R.id.bottom_navigation_main);
         bottomNavigationViewEx.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mStacks = new HashMap<String, Stack<Fragment>>();
-        mStacks.put(STACK, new Stack<Fragment>());
         mStacks.put(HOME_FRAGMENT, new Stack<Fragment>());
         mStacks.put(SEARCH_FRAGMENT, new Stack<Fragment>());
-        //mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
-        mStacks.put(NEW_LIBRARY_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
         mStacks.put(BELL_FRAGMENT, new Stack<Fragment>());
+
         bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
     }
 
@@ -74,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedTab(SEARCH_FRAGMENT);
                     return true;
                 case R.id.action_library:
-                    selectedTab(NEW_LIBRARY_FRAGMENT);
+                    selectedTab(LIBRARY_FRAGMENT);
                     return true;
                 case R.id.action_bell:
                     selectedTab(BELL_FRAGMENT);
@@ -88,31 +77,32 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.main_container, selectedFragment);
         fragmentTransaction.commit();
     }
+
     private void selectedTab(String tabId) {
-        mCurrentTab = STACK;
+        mCurrentTab = tabId;
+
         if (mStacks.get(tabId).size() == 0) {
             if (tabId.equals(HOME_FRAGMENT)) {
                 pushFragments(tabId, new HomeFragment(), true);
             } else if (tabId.equals(SEARCH_FRAGMENT)) {
                 pushFragments(tabId, new SearchFragment(), true);
-            } else if (tabId.equals(NEW_LIBRARY_FRAGMENT)) {
+            } else if (tabId.equals(LIBRARY_FRAGMENT)) {
                 pushFragments(tabId, new LibaryFragement(), true);
             } else if (tabId.equals(BELL_FRAGMENT)) {
                 pushFragments(tabId, new BellFragment(), true);
             }
         } else {
-            pushFragments(STACK, mStacks.get(STACK).lastElement(), false);
+            pushFragments(tabId, mStacks.get(tabId).lastElement(), false);
         }
     }
 
     public void pushFragments(String tag, Fragment fragment, boolean shouldAdd) {
         if (shouldAdd)
-            mStacks.get(STACK).push(fragment);
+            mStacks.get(tag).push(fragment);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         ft.replace(R.id.main_container, fragment);
         ft.commit();
-
     }
 
     public void popFragments() {
@@ -129,50 +119,49 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (mStacks.get(mCurrentTab).size() == 1) {
-            bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
-            gotoFragment(new HomeFragment());
             return;
         }
+
         popFragments();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(!isInternetAvailable()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setMessage("Please connect to the internet")
-                    .setCancelable(false)
-                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            onStart();
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
-    }
-
-    public boolean isInternetAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        if ((connectivityManager
-                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
-                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
-                || (connectivityManager
-                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
-                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-                .getState() == NetworkInfo.State.CONNECTED)) {
-            return true;
-      } else {
-            return false;
-      }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if(!isInternetAvailable()) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//            builder.setMessage("Please connect to the internet")
+//                    .setCancelable(false)
+//                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//                        }
+//                    })
+//                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            onStart();
+//                        }
+//                    });
+//            AlertDialog alert = builder.create();
+//            alert.show();
+//        }
+//    }
+//
+//    public boolean isInternetAvailable() {
+//        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
+//                .getSystemService(Context.CONNECTIVITY_SERVICE);
+//        if ((connectivityManager
+//                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+//                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+//                || (connectivityManager
+//                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+//                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+//                .getState() == NetworkInfo.State.CONNECTED)) {
+//            return true;
+//      } else {
+//            return false;
+//      }
+//    }
 
 }

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.wattpadclone.Base.IntroActivity;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
+import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Home.Account.AccountActivity;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
@@ -32,6 +35,7 @@ public class HomeFragment extends BaseFragment {
     RecyclerView verticalRecyclerView;
     VerticalRecyclerViewHomeAdapter vAdapter;
     ArrayList<VerticalRecyclerViewHomeBean> arrayListVertical;
+    RecyclerView recyclerView2;
     String urlGetData = "http://tranquangdang.000webhostapp.com/index.php";
     public HomeFragment(){}
 
@@ -45,12 +49,7 @@ public class HomeFragment extends BaseFragment {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.toolbar_home_setting)
-                {
-                    Intent intent = new Intent(getActivity(), IntroActivity.class);
-                    startActivity(intent);
-                }
-                else if(item.getItemId()== R.id.toolbar_home_account)
+                if(item.getItemId()== R.id.toolbar_home_account)
                 {
                     Intent intent = new Intent(getActivity(), AccountActivity.class);
                     startActivity(intent);
@@ -68,7 +67,8 @@ public class HomeFragment extends BaseFragment {
         verticalRecyclerView.setAdapter(vAdapter);
 
         WebServices webServices = new WebServices(getActivity());
-        webServices.GetDataHome(urlGetData,arrayListVertical,vAdapter);
+        webServices.GetData(urlGetData,arrayListVertical,vAdapter);
+        recyclerView2 = view.findViewById(R.id.home_recyclerView2);
 
         return view;
     }
