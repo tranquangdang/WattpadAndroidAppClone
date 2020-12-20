@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -15,12 +16,12 @@ import java.util.List;
 
 public class watpadAdapter extends BaseAdapter {
  Context mContext;
-    public ArrayList<watpad> arraylistListener;
-    private List<watpad> mListenerList;
-    public watpadAdapter( List<watpad> mListenerList,Context context) {
+    public ArrayList<Book> arraylistListener;
+    private List<Book> mListenerList;
+    public watpadAdapter( List<Book> mListenerList,Context context) {
         mContext = context;
         this.mListenerList = mListenerList;
-        this.arraylistListener = new ArrayList<watpad>();
+        this.arraylistListener = new ArrayList<Book>();
         this.arraylistListener.addAll(mListenerList);
     }
     public class ViewHolder {
@@ -55,10 +56,10 @@ public class watpadAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         try {
-            int image = mListenerList.get(i).getAnh();
-            holder.mImage.setImageResource(mListenerList.get(i).getAnh());
-            holder.mTitle.setText(mListenerList.get(i).getTittle());
-            holder.mName.setText(mListenerList.get(i).getName());
+            String image = mListenerList.get(i).getBookImg();
+            holder.mImage.setImageResource(Integer.parseInt(mListenerList.get(i).getBookImg()));
+            holder.mTitle.setText(mListenerList.get(i).getBookName());
+            holder.mName.setText(mListenerList.get(i).getAuthor());
         }catch (Exception ex){
 
         }

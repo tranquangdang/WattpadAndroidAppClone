@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.wattpadclone.Libary.Main.LibaryFragement">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_libary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            app:titleTextColor="@color/black"
+            app:title="Thư viện"
+            app:titleMarginStart="15dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"

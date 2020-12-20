@@ -2,29 +2,17 @@ package com.example.wattpadclone.Libary.Main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListView;
-
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
-import com.example.wattpadclone.Libary.Adapter.ReadingList;
-import com.example.wattpadclone.Libary.Adapter.ReadingListAdapter;
 import com.example.wattpadclone.Libary.Adapter.ViewPagerAdapter;
-import com.example.wattpadclone.Libary.Adapter.offline;
-import com.example.wattpadclone.Libary.Adapter.offlineAdapter;
-import com.example.wattpadclone.Libary.Adapter.offline_2;
-import com.example.wattpadclone.Libary.Adapter.watpad;
-import com.example.wattpadclone.Libary.Adapter.watpadAdapter;
 import com.example.wattpadclone.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-
 public class LibaryFragement extends BaseFragment {
     View myFragment;
     TabLayout tabLayout;
@@ -39,6 +27,15 @@ public class LibaryFragement extends BaseFragment {
         myFragment = inflater.inflate(R.layout.libary_fragement, container, false);
         viewPager = (ViewPager) myFragment.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) myFragment.findViewById(R.id.tabs);
+        Toolbar toolbar = myFragment.findViewById(R.id.toolbar_libary);
+        toolbar.inflateMenu(R.menu.menu_toolbar_lib);
+        toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
+        View logoView = toolbar.getChildAt(1);
+        logoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
         return myFragment;
     }
     @Override
@@ -68,7 +65,5 @@ public class LibaryFragement extends BaseFragment {
         adapter.addFragment(new ArchiveFragment(), "Kho lưu trữ");
         adapter.addFragment(new ReadingListFragment(), "Danh sách");
         viewPager.setAdapter(adapter);
-
     }
-
 }
