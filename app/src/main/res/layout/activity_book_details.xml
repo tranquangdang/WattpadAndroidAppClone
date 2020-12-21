@@ -14,98 +14,126 @@
         android:background="#ffffff">
 
         <androidx.appcompat.widget.Toolbar
+            android:backgroundTint="#00FFFFFF"
             android:id="@+id/toolbar_book_details"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/black"
-            app:title="Tiêu đề sách"
+            app:title=""
             app:titleMarginStart="25dp">
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_book_details_background"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/grey_test"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#80FFFFFF"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <androidx.viewpager.widget.ViewPager
-                    android:layout_gravity="center"
+                    android:layout_marginTop="?attr/actionBarSize"
                     android:id="@+id/viewPager_detail"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:clipToPadding="false"
                     android:layout_width="match_parent"
                     android:layout_height="250dp" />
 
                 <TextView
+                    android:id="@+id/book_details_bookName"
+                    android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
-                    android:text="@string/cauchuyen"
-                    android:layout_gravity="center"/>
-                <TextView
+                    android:text="Loading..."
+                    android:layout_gravity="center_horizontal"/>
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tacgia"
-                    android:drawableStart="@drawable/person"
-                    android:drawableLeft="@drawable/person"
-                    android:layout_gravity="center"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
                     android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginLeft="50dp"
-                    android:weightSum="3"
-                    >
+                    android:layout_gravity="center">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/grey_test"
+                        app:riv_corner_radius="30dp"/>
+
+                    <TextView
+                        android:id="@+id/book_details_username"
+                        android:layout_marginStart="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginBottom="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal">
                     <TextView
                         android:drawableStart="@drawable/ic_baseline_remove_red_eye_24"
-                        android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
                         android:drawablePadding="8dp"
-                        android:id="@+id/luotdoc"
-                        android:text="@string/doc"
+                        android:id="@+id/book_details_seen"
+                        android:text="Loading..."
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:id="@+id/binhchon"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/book_details_fav"
                         android:drawableStart="@drawable/vote"
-                        android:drawableLeft="@drawable/vote"
                         android:drawablePadding="8dp"
                         android:layout_weight="1"
-                        android:text="@string/xem"
+                        android:text="Loading..."
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:layout_marginStart="20dp"
                         android:drawableStart="@drawable/phan"
-                        android:drawableLeft="@drawable/phan"
                         android:drawablePadding="8dp"
                         android:layout_weight="1"
-                        android:text="@string/sophan"
-                        android:id="@+id/phan"
+                        android:text="Loading..."
+                        android:id="@+id/book_details_chapter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:gravity="center">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
                     <Button
                         android:id="@+id/tieptuc"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:text="Tiếp Tục"
                         android:textColor="#fff"
                         android:background="@drawable/btntieptuc"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"/>
-                     <ImageButton
+                        android:backgroundTint="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageButton
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/dau_cong"
                         android:id="@+id/cong"
@@ -116,56 +144,74 @@
                         android:layout_height="50dp"/>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/taolao"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginHorizontal="30dp">
-
-                    <TextView
-                        android:maxLines="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/mota" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:padding="8dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
+                <View
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/border"
-                    >
-                    <TextView
-                        android:drawableLeft="@drawable/ic_baseline_local_florist_24"
-                        android:drawableStart="@drawable/ic_baseline_local_florist_24"
-                        android:drawablePadding="5dp"
-                        android:text="@string/bangxephang"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:paddingLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/hoanthanh"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
+                <TextView
+                    android:id="@+id/book_details_intro"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textSize="14sp"
+                    android:text="Loading..." />
+
+                <View
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="#dfdfdf"/>
+
+                <TextView
+                    android:id="@+id/book_details_createTime"
+                    android:drawableStart="@mipmap/ranking_medal"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textSize="13sp"
+                    android:text="# Tag" />
+
+                <TextView
+                    android:textColor="@color/cam"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textSize="13sp"
+                    android:text="Đã cập nhật hôm qua" />
+
+                <View
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="#dfdfdf"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:text="Các truyện tương tự" />
 
                 <androidx.recyclerview.widget.RecyclerView
-
-                    android:elevation="@dimen/cardview_default_elevation"
-                    android:layout_marginTop="15dp"
                     android:id="@+id/recycler"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+        </RelativeLayout>
 
+
+    </ScrollView>
 </LinearLayout>

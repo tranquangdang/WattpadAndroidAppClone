@@ -1,13 +1,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">WattpadClone</string>
-    <string name="tacgia">Tên Tác Giả</string>
-    <string name="cauchuyen">Tên Câu Chuyện</string>
-    <string name="doc">   test</string>
-    <string name="xem">   test</string>
-    <string name="sophan">   test</string>
-    <string name="mota">  \"nếu chẳng phải là anh, em sẽ không bao giờ biết yêu là gì\" </string>
-    <string name="bangxephang">#1 - vrene</string>
-    <string name="hoanthanh">45 Phần</string>
     <string name="login">Nếu bạn có tài khoản, <b><u><font color='black'>Đăng Nhập</font></u></b></string>
 
 </resources>

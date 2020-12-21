@@ -18,4 +18,5 @@
     <color name="den">#000</color>
     <color name="trongsuot">#00000000</color>
     <color name="colorRipple">#A9A9F5</color>
+    <color name="black_alpha_40">#66000000</color>
 </resources>

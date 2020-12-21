@@ -1,4 +1,4 @@
-package com.example.wattpadclone.Bell.Adapter;
+package com.example.wattpadclone.Chung.Detalts;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,13 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 
-public class storyAdapter extends RecyclerView.Adapter<storyAdapter.ViewHolder> {
+public class RecyclerViewBookDetailsAdapter extends RecyclerView.Adapter<RecyclerViewBookDetailsAdapter.ViewHolder> {
     public Context context;
-    private ArrayList<story> arrayList;
+    private ArrayList<Book> arrayList;
 
     //Tạo ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -34,14 +35,14 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.ViewHolder> 
     //Hoàn thiện Adapter
 
 
-    public storyAdapter(Context context, ArrayList<story> arrayList) {
+    public RecyclerViewBookDetailsAdapter(Context context, ArrayList<Book> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public storyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewBookDetailsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View heroView = inflater.inflate(R.layout.customlistview, parent, false);
         ViewHolder viewHolder = new ViewHolder(heroView);
@@ -49,12 +50,12 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull storyAdapter.ViewHolder holder, int position) {
-        story story = arrayList.get(position);
+    public void onBindViewHolder(@NonNull RecyclerViewBookDetailsAdapter.ViewHolder holder, int position) {
+        Book book = arrayList.get(position);
         Glide.with(context)
-                .load(story.getImage())
+                .load(book.getBookImg())
                 .into(holder.img1);
-        holder.tv1.setText(story.getName());
+        holder.tv1.setText(book.getBookName());
 
     }
 

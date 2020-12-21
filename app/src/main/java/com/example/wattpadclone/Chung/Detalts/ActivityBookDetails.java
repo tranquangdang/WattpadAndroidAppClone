@@ -1,30 +1,37 @@
 package com.example.wattpadclone.Chung.Detalts;
 
 import android.content.Intent;
+import android.graphics.BlurMaskFilter;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.wattpadclone.Base.Adapter.Bean.IntroBean;
-import com.example.wattpadclone.Base.Adapter.vpIntroAdapter;
-import com.example.wattpadclone.Base.IntroActivity;
-import com.example.wattpadclone.Base.SignUpActivity;
-import com.example.wattpadclone.Libary.Adapter.ViewPagerAdapter;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.WebServices;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Bell.Adapter.story;
-import com.example.wattpadclone.Bell.Adapter.storyAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,21 +39,33 @@ import java.util.List;
 
 public class ActivityBookDetails extends AppCompatActivity {
     ViewPager viewPager;
-    detailts_headAdapter adapter;
-    List<IntroBean> ImgList;
-
-    ArrayList<story> arrayList;
+    vpBookDetailsAdapter adapter;
+    ArrayList<Book> arrayList;
     RecyclerView recyclerView;
-    storyAdapter adapter1;
-
+    RecyclerViewBookDetailsAdapter adapter1;
+    TextView name, username, seen, fav, chapter, intro;
+    ImageView background;
+    Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
+        WebServices webServices = new WebServices(this);
+
+        intent = getIntent();
+        String BookID = intent.getStringExtra("BookID");
+
+        name = findViewById(R.id.book_details_bookName);
+        username = findViewById(R.id.book_details_username);
+        seen = findViewById(R.id.book_details_seen);
+        fav = findViewById(R.id.book_details_fav);
+        chapter = findViewById(R.id.book_details_chapter);
+        intro = findViewById(R.id.book_details_intro);
+        background = findViewById(R.id.img_book_details_background);
 
         Toolbar toolbar = findViewById(R.id.toolbar_book_details);
         toolbar.setLogo(ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_24));
-        View logoView = toolbar.getChildAt(1);
+        View logoView = toolbar.getChildAt(0);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,44 +73,99 @@ public class ActivityBookDetails extends AppCompatActivity {
             }
 
         });
-
-
-
         recyclerView = findViewById(R.id.recycler);
-        arrayList = new ArrayList<>();
-        arrayList.add(new story("Yêu Thương Và Friendzone",R.mipmap.truyen2));
-        arrayList.add(new story("Nếu Như Yêu",R.mipmap.tr3));
-        arrayList.add(new story("Buông Tay Ra Là Ăn Đấm Đấy",R.mipmap.tr4));
-        arrayList.add(new story("Phượng Hoàng",R.mipmap.tr5));
-        arrayList.add(new story("Con Rồng Cháu Tiên",R.mipmap.tr6));
-        arrayList.add(new story("SaberTooth Là Nơi Tôi Thuộc Về",R.mipmap.truyen1));
-        adapter1 = new storyAdapter(this,arrayList);
-        recyclerView.setAdapter(adapter1);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
+        arrayList = new ArrayList<>();
+        adapter1 = new RecyclerViewBookDetailsAdapter(this,arrayList);
+        recyclerView.setAdapter(adapter1);
+        webServices.GetDataRecyclerView("http://tranquangdang.000webhostapp.com/index.php",arrayList,adapter1);
 
-        //animator
-        //decoration recyclerview
-      DividerItemDecoration dividerHorizontal = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.setHasFixedSize(true);
-
-        //viewpager head
         viewPager   = (ViewPager) findViewById(R.id.viewPager_detail);
 
-        ImgList   = new ArrayList<>();
-        ImgList  .add(new   IntroBean(R.mipmap.tr3));
-        ImgList  .add(new   IntroBean(R.mipmap.truyen2));
-        ImgList  .add(new   IntroBean(R.mipmap.tr4));
-        ImgList  .add(new   IntroBean(R.mipmap.tr5));
+        arrayList   = new ArrayList<>();
+        adapter  = new vpBookDetailsAdapter(arrayList, ActivityBookDetails.this);
+        viewPager.setAdapter(adapter);
+        webServices.GetDataViewPagerImg("http://tranquangdang.000webhostapp.com/index.php",arrayList,adapter);
+        RequestQueue requestQueue = Volley.newRequestQueue(ActivityBookDetails.this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=" + BookID, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            JSONObject jsonObject = response.getJSONObject(0);
+                            String bookname = jsonObject.getString("BookName");
+                            name.setText(bookname);
+                            toolbar.setTitle(bookname);
+                            Glide.with(ActivityBookDetails.this).load(jsonObject.getString("BookImg")).into(background);
+                            username.setText(jsonObject.getString("Author"));
+                            seen.setText(String.valueOf(jsonObject.getInt("Written")));
+                            fav.setText(String.valueOf(jsonObject.getInt("Favorite")));
+                            chapter.setText(jsonObject.getInt("Chapter") + " phần");
+                            intro.setText(jsonObject.getString("Intro"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-        ImgList  .add(new   IntroBean(R.mipmap.tr6));
-        ImgList  .add(new   IntroBean(R.mipmap.truyen1));
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
 
-        adapter   = new detailts_headAdapter(ImgList, ActivityBookDetails.this);
-        viewPager .setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if(state == ViewPager.SCROLL_STATE_IDLE){
+                    TextView txt =  findViewById(R.id.details_book_id);
+                    RequestQueue requestQueue = Volley.newRequestQueue(ActivityBookDetails.this);
+                    JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=" + txt.getText().toString(), null,
+                            new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+                                    try {
+                                        JSONObject jsonObject = response.getJSONObject(0);
+                                        String bookname = jsonObject.getString("BookName");
+                                        name.setText(bookname);
+                                        toolbar.setTitle(bookname);
+                                        Glide.with(ActivityBookDetails.this).load(jsonObject.getString("BookImg")).into(background);
+                                        username.setText(jsonObject.getString("Author"));
+                                        seen.setText(String.valueOf(jsonObject.getInt("Written")));
+                                        fav.setText(String.valueOf(jsonObject.getInt("Favorite")));
+                                        chapter.setText(jsonObject.getInt("Chapter") + " phần");
+                                        intro.setText(jsonObject.getString("Intro"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+
+                                }
+                            }
+                    );
+                    requestQueue.add(jsonArrayRequest);
+                }
+            }
+        });
     }
 
 
