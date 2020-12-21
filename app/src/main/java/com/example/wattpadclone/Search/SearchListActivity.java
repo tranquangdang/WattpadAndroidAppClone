@@ -2,20 +2,16 @@ package com.example.wattpadclone.Search;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
-import com.example.wattpadclone.Chung.ActivityBookDetails;
-import com.example.wattpadclone.MainActivity;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;

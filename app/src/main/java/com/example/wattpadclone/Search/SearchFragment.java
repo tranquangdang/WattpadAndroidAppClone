@@ -13,10 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
-import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
-import com.example.wattpadclone.Home.HomeFragment;
-import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
 public class SearchFragment extends BaseFragment {

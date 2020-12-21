@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.ActivityBookDetails;
-import com.example.wattpadclone.MainActivity;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;

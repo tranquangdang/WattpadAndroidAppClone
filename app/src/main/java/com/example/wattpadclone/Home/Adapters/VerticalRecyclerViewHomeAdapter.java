@@ -2,11 +2,9 @@ package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.wattpadclone.Chung.ActivityBookDetails;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;

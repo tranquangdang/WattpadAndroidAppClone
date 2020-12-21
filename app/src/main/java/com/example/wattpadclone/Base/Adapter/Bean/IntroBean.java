@@ -5,10 +5,12 @@ public class IntroBean {
 
     public IntroBean(int img) {
         Img = img;
+
     }
 
     public int getImg() {
         return Img;
+
     }
 
     public void setImg(int img) {

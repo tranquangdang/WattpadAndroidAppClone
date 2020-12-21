@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Chung.ActivityBookDetails"
+    tools:context=".Chung.Detalts.ActivityBookDetails"
     >
 
     <com.google.android.material.appbar.AppBarLayout
@@ -37,23 +37,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_gravity="center"
+                    android:id="@+id/viewPager_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp">
+                    android:layout_height="250dp" />
 
-                    <ImageView
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/tr3"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"/>
-                    <ImageView
-                        android:src="@mipmap/tr3"
-                        android:layout_width="150dp"
-                        android:layout_height="200dp"
-                        android:layout_centerInParent="true"
-                        android:outlineAmbientShadowColor="@android:color/darker_gray"
-                        />
-                </RelativeLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,11 +105,11 @@
                         android:background="@drawable/btntieptuc"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"/>
-                    <Button
+                     <ImageButton
                         android:layout_marginLeft="15dp"
+                        android:src="@drawable/dau_cong"
                         android:id="@+id/cong"
                         android:gravity="center"
-                        android:text="+"
                         android:textSize="30dp"
                         android:background="@drawable/btncong"
                         android:layout_width="50dp"
@@ -136,6 +125,7 @@
                     android:layout_marginHorizontal="30dp">
 
                     <TextView
+                        android:maxLines="3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
