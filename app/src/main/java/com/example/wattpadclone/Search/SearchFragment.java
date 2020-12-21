@@ -24,7 +24,6 @@ public class SearchFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-
         Toolbar toolbar = view.findViewById(R.id.toolbar_search);
         toolbar.setLogo(ContextCompat.getDrawable(getContext(), R.drawable.ic_logo));
         View logoView = toolbar.getChildAt(2);

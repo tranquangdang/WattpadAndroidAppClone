@@ -46,7 +46,6 @@ public class SearchListActivity extends AppCompatActivity {
         WebServices webServices = new WebServices(this);
         webServices.GetDataList("http://tranquangdang.000webhostapp.com/index.php", arr_bean,adapter);
 
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

@@ -44,8 +44,6 @@ public class ActivityBookDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
-
-
         Toolbar toolbar = findViewById(R.id.toolbar_book_details);
         toolbar.setLogo(ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_24));
         View logoView = toolbar.getChildAt(1);

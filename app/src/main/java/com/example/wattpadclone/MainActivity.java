@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.main_container, fragment);
         ft.commit();
     }
-
     @Override
     public void onBackPressed() {
         if (mStacks.get(mCurrentTab).size() == 1) {

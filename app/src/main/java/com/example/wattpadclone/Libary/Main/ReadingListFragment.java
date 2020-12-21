@@ -1,13 +1,14 @@
 package com.example.wattpadclone.Libary.Main;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -17,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Libary.Adapter.ReadingListAdapter;
 import com.example.wattpadclone.R;
@@ -26,7 +28,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
 public class ReadingListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class ReadingListFragment extends Fragment {
         ArrayList<Book> readingArrayList=new ArrayList<Book>();
         ReadingListAdapter readingadapter = new ReadingListAdapter(readingArrayList,getContext());
         lv_readinglist.setAdapter(readingadapter);
+        lv_readinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent myIntent = new Intent(getActivity(), ActivityBookDetails.class);
+                getActivity().startActivity(myIntent);
+            }
+        });
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=1", null,
                 new Response.Listener<JSONArray>() {
