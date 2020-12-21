@@ -1,51 +1,25 @@
 
 package com.example.wattpadclone.Bell;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.wattpadclone.Bell.Adapter.viewpaperAdapter;
 import com.example.wattpadclone.Bell.Tabs.Bell_tab1;
 import com.example.wattpadclone.Bell.Tabs.Bell_tab2;
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
-import com.example.wattpadclone.Home.Account.AccountActivity;
-import com.example.wattpadclone.Home.Account.Account_intro;
-import com.example.wattpadclone.Home.Account.Account_message;
-import com.example.wattpadclone.Home.Adapters.SectionsPageAdapter;
 import com.example.wattpadclone.Libary.Adapter.ViewPagerAdapter;
-import com.example.wattpadclone.Libary.Main.ArchiveFragment;
-import com.example.wattpadclone.Libary.Main.CurrentReadFragment;
-import com.example.wattpadclone.Libary.Main.ReadingListFragment;
-import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Search.SearchFragment;
-import com.example.wattpadclone.thembanbe.thembanbe;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.example.wattpadclone.Bell.Tabs.thembanbe.thembanbe;
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -65,7 +39,6 @@ public class BellFragment extends BaseFragment {
         myFragment = inflater.inflate(R.layout.fragment_bell, container, false);
         viewPager = (ViewPager) myFragment.findViewById(R.id.bell_viewpaper);
         tabLayout = (TabLayout) myFragment.findViewById(R.id.bell_tabs);
-
 
         Toolbar toolbar = myFragment.findViewById(R.id.toolbar_bell);
         toolbar.inflateMenu(R.menu.menu_toolbar_noti);
@@ -117,12 +90,8 @@ public class BellFragment extends BaseFragment {
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new Bell_tab1(), "Tin Nhắn");
-        adapter.addFragment(new Bell_tab2(), "Thông Báo");
+        adapter.addFragment(new Bell_tab1(), "Thông báo");
+        adapter.addFragment(new Bell_tab2(), "Tin nhắn");
         viewPager.setAdapter(adapter);
-
     }
-
-
-
 }

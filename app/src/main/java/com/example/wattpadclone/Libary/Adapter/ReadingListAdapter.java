@@ -11,8 +11,19 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.bumptech.glide.Glide;
+import com.example.wattpadclone.Base.Adapter.Bean.UserBean;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +34,8 @@ public class ReadingListAdapter extends BaseAdapter {
     Context mContext;
     public ArrayList<Book> arraylistListener3;
     private List<Book> mListenerList3;
+    FirebaseUser firebaseUser;
+    DatabaseReference databaseReference;
 
     public ReadingListAdapter(ArrayList<Book> mListenerList3, Context context) {
         mContext = context;
@@ -67,18 +80,30 @@ public class ReadingListAdapter extends BaseAdapter {
             holder = (ReadingListAdapter.ViewHolder) view.getTag();
         }
         try {
-            String image1 = mListenerList3.get(i).getBookImg();
-            String image2 = mListenerList3.get(i).getBookImg();
-            String image3 = mListenerList3.get(i).getBookImg();
-            holder.anh1.setImageResource(Integer.parseInt(mListenerList3.get(i).getBookImg()));
-            holder.anh2.setImageResource(Integer.parseInt(mListenerList3.get(i).getBookImg()));
-            holder.anh3.setImageResource(Integer.parseInt(mListenerList3.get(i).getBookImg()));
-            holder.title.setText(mListenerList3.get(i).getBookName());
-            holder.stories.setText(mListenerList3.get(i).getAuthor());
+            Glide.with(mContext).load(mListenerList3.get(i).getBookImg()).into(holder.anh1);
+            Glide.with(mContext).load(mListenerList3.get(i).getBookImg()).into(holder.anh2);
+            Glide.with(mContext).load(mListenerList3.get(i).getBookImg()).into(holder.anh3);
+            holder.title.setText(String.valueOf(mListenerList3.get(i).getBookName()));
+
+            firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    UserBean user = snapshot.getValue(UserBean.class);
+                    holder.stories.setText("@" + user.getUsername());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
         } catch (Exception ex) {
 
         }
-//
+
         return view;
     }
 }

@@ -48,13 +48,13 @@ public class IntroActivity extends AppCompatActivity {
         indicator_vp   = (DotsIndicator) findViewById(R.id.indicator_vp);
         viewPager   = (ViewPager) findViewById(R.id.viewPager_intro);
 
-        ImgList   = new ArrayList<>();
-        ImgList  .add(new   IntroBean(R.mipmap.intro_login_1));
-        ImgList  .add(new   IntroBean(R.mipmap.intro_login_2));
-        ImgList  .add(new   IntroBean(R.mipmap.intro_login_3));
+        ImgList  = new ArrayList<>();
+        ImgList.add(new  IntroBean(R.mipmap.intro_login_1));
+        ImgList.add(new  IntroBean(R.mipmap.intro_login_2));
+        ImgList.add(new  IntroBean(R.mipmap.intro_login_3));
 
-        adapter   = new vpIntroAdapter(ImgList,IntroActivity.this);
-        viewPager .setAdapter(adapter);
+        adapter  = new vpIntroAdapter(ImgList,IntroActivity.this);
+        viewPager.setAdapter(adapter);
         indicator_vp .setViewPager(viewPager);
 
         btnLogIn = findViewById(R.id.btn_intro_login);

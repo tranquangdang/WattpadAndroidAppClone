@@ -52,7 +52,7 @@ public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
         tag1 = (TextView)view.findViewById(R.id.home_tag1);
 
         if(imgCover1.equals("default"))
-            imgCover1.setImageResource(R.mipmap.book1);
+            imgCover1.setImageResource(R.mipmap.grey_test);
         else {
             Glide.with(context).load(arrayList.get(position).getBookImg()).into(imgCover1);
         }

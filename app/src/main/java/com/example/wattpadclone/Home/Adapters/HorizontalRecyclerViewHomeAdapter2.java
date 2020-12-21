@@ -15,13 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
-<<<<<<< HEAD
 import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
-=======
-import com.example.wattpadclone.Chung.ActivityBookDetails;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.MainActivity;
->>>>>>> e98765b530ccb72321011667bc5d948f0602b2cb
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -48,7 +44,7 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
         RecyclerView recyclerView2 =  ((MainActivity)context).findViewById(R.id.home_recyclerView2);
         Book book = arrayList.get(position);
         if(holder.imgCover2.equals("default"))
-            holder.imgCover2.setImageResource(R.mipmap.book1);
+            holder.imgCover2.setImageResource(R.mipmap.grey_test);
         else {
             Glide.with(context).load(book.getBookImg()).into(holder.imgCover2);
         }

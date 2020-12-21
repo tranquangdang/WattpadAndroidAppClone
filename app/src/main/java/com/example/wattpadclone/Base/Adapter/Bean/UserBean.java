@@ -1,7 +1,7 @@
 package com.example.wattpadclone.Base.Adapter.Bean;
 
 public class UserBean {
-    String email, username, dob;
+    String email, username, dob, id;
 
     public UserBean() {
     }
@@ -28,5 +28,13 @@ public class UserBean {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

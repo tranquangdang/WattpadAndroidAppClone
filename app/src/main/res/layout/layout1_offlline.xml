@@ -9,6 +9,7 @@
         android:id="@+id/lv_anh_offline"
         android:layout_width="135dp"
         android:layout_height="138dp"
+        android:scaleType="fitXY"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"

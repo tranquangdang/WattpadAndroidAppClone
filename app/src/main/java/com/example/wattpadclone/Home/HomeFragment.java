@@ -36,7 +36,6 @@ public class HomeFragment extends BaseFragment {
     VerticalRecyclerViewHomeAdapter vAdapter;
     ArrayList<VerticalRecyclerViewHomeBean> arrayListVertical;
     RecyclerView recyclerView2;
-    String urlGetData = "http://tranquangdang.000webhostapp.com/index.php";
     public HomeFragment(){}
 
     @Nullable
@@ -67,7 +66,7 @@ public class HomeFragment extends BaseFragment {
         verticalRecyclerView.setAdapter(vAdapter);
 
         WebServices webServices = new WebServices(getActivity());
-        webServices.GetData(urlGetData,arrayListVertical,vAdapter);
+        webServices.GetDataHome("http://tranquangdang.000webhostapp.com/index.php",arrayListVertical,vAdapter);
         recyclerView2 = view.findViewById(R.id.home_recyclerView2);
 
         return view;

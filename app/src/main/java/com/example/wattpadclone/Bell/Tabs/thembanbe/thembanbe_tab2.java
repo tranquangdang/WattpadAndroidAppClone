@@ -1,4 +1,4 @@
-package com.example.wattpadclone.thembanbe;
+package com.example.wattpadclone.Bell.Tabs.thembanbe;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

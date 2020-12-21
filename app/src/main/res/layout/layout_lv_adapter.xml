@@ -17,8 +17,7 @@
             android:scaleType="fitCenter"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/mystery" />
+            app:layout_constraintTop_toTopOf="parent" />
     </RelativeLayout>
 
     <LinearLayout
@@ -31,6 +30,9 @@
 
         <TextView
             android:id="@+id/lv_topic_title"
+            android:lines="1"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
@@ -78,10 +80,11 @@
         </LinearLayout>
 
         <TextView
+            android:lines="2"
             android:id="@+id/lv_topic_contentt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+            android:text=""
             android:maxLines="2"
             android:ellipsize="end"/>
 
@@ -94,7 +97,7 @@
             android:textSize="13sp"
             android:text="tag"
             android:textStyle="bold"
-            android:maxLines="2"
+            android:maxLines="1"
             android:ellipsize="end"/>
 
         <TextView

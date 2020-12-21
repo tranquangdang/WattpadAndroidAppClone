@@ -5,11 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-=======
-import android.widget.Button;
 import android.widget.ImageButton;
->>>>>>> e98765b530ccb72321011667bc5d948f0602b2cb
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,19 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 import androidx.viewpager.widget.ViewPager;
-
-<<<<<<< HEAD
 import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
-=======
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.wattpadclone.Base.LogInActivity;
-import com.example.wattpadclone.Chung.ActivityBookDetails;
->>>>>>> e98765b530ccb72321011667bc5d948f0602b2cb
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.Chung.WebServices;

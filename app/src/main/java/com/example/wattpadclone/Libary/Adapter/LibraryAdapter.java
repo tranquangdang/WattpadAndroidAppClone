@@ -8,62 +8,61 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class offlineAdapter extends BaseAdapter {
+public class LibraryAdapter extends BaseAdapter {
+ Context mContext;
     public ArrayList<Book> arraylistListener;
     private List<Book> mListenerList;
-    Context mContext;
-    public offlineAdapter(List<Book> mListenerList, Context context) {
+    public LibraryAdapter( List<Book> mListenerList,Context context) {
         mContext = context;
         this.mListenerList = mListenerList;
         this.arraylistListener = new ArrayList<Book>();
         this.arraylistListener.addAll(mListenerList);
     }
     public class ViewHolder {
-        ImageView gr_anh_off;
-        TextView gr_name_off;
-        TextView gr_title_off;
+        ImageView mImage;
+        TextView mTitle;
+        TextView mName;
     }
     @Override
     public int getCount() {
         return mListenerList.size();
     }
+
     @Override
     public Object getItem(int i) {
         return mListenerList.get(i);
     }
-
     @Override
     public long getItemId(int i) {
         return i;
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final offlineAdapter.ViewHolder holder;
+        final ViewHolder holder;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.layout1_offlline, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.layout2_watpad, null);
             holder = new ViewHolder();
-            holder.gr_anh_off =  view.findViewById(R.id.lv_anh_offline);
-            holder.gr_name_off=view.findViewById(R.id.lv_name_offline);
-            holder.gr_title_off=view.findViewById(R.id.lv_title_offline);
+            holder.mImage = (ImageView) view.findViewById(R.id.gr_anh);
+            holder.mTitle=(TextView)view.findViewById(R.id.gr_title);
+            holder.mName=view.findViewById(R.id.gr_name);
             view.setTag(holder);
         } else {
-            holder = (offlineAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
         try {
-            String image = mListenerList.get(i).getBookImg();
-            holder.gr_anh_off.setImageResource(Integer.parseInt(mListenerList.get(i).getBookImg()));
-            holder.gr_name_off.setText(mListenerList.get(i).getAuthor());
-            holder.gr_title_off.setText(mListenerList.get(i).getBookName());
+            Glide.with(mContext).load(mListenerList.get(i).getBookImg()).into(holder.mImage);
+            holder.mTitle.setText(String.valueOf(mListenerList.get(i).getBookName()));
+            holder.mName.setText(String.valueOf(mListenerList.get(i).getAuthor()));
         }catch (Exception ex){
 
         }
         return view;
     }
-    }
-
+}

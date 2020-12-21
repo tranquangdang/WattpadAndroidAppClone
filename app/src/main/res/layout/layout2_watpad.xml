@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
+        android:scaleType="fitXY"
         android:alpha="0.5"
         android:id="@+id/gr_anh"
         android:layout_width="124dp"

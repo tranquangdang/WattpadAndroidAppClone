@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".thembanbe"
+    tools:context=".Bell.Tabs.thembanbe.thembanbe"
     android:orientation="vertical"
     >
     <com.google.android.material.appbar.AppBarLayout
@@ -13,16 +13,15 @@
         android:background="#ffffff">
 
         <androidx.appcompat.widget.Toolbar
-            app:title="Thêm Bạn Bè"
             android:id="@+id/toolbar_thembanbe"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="16dp"
-            >
+            app:titleTextColor="@color/black"
+            app:title="Thêm bạn bè"
+            app:titleMarginStart="25dp">
+
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-
 
         <LinearLayout
             android:id="@+id/linear"
@@ -41,10 +40,5 @@
                 android:id="@+id/addfr_viewpaper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-
         </LinearLayout>
-
-
-
-
 </LinearLayout>
