@@ -9,23 +9,25 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Base.Adapter.Bean.IntroBean;
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
 
 import java.util.List;
 
 public class detailts_headAdapter extends PagerAdapter {
-    private List<IntroBean> img ;
+    private List<Book> book ;
     private Context context ;
 
-    public detailts_headAdapter(List<IntroBean> img, Context context) {
-        this.img = img;
+    public detailts_headAdapter(List<Book> book, Context context) {
+        this.book = book;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return img.size();
+        return book.size();
     }
 
     @Override
@@ -38,14 +40,10 @@ public class detailts_headAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view  = LayoutInflater.from(context ).inflate(R.layout.details_adapter, container,false);
 
-        ImageView image1,image2 ;
-        image2  = view .findViewById(R.id.img2);
-        image1  = view .findViewById(R.id.img1);
+        ImageView image ;
+        image  = view .findViewById(R.id.img_book_details);
 
-        image2.setImageResource(img.get(position).getImg());
-        image1.setImageResource(img.get(position).getImg());
-
-
+        Glide.with(context).load(book.get(position).getBookImg()).into(image);
         container.addView(view , 0);
         return view ;
     }
