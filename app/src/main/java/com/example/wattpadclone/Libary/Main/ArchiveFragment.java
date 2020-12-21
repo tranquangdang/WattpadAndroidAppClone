@@ -1,24 +1,26 @@
 package com.example.wattpadclone.Libary.Main;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Libary.Adapter.LibraryAdapter;
 import com.example.wattpadclone.R;
+import com.example.wattpadclone.Search.SearchListActivity;
 
 import java.util.ArrayList;
-
 public class ArchiveFragment extends Fragment {
     GridView gr_watpad;
     @Override
@@ -30,14 +32,21 @@ public class ArchiveFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.archive_fragment, container, false);
         addArchive(view);
+        registerForContextMenu(gr_watpad);
+        gr_watpad.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent myIntent = new Intent(getActivity(), ActivityBookDetails.class);
+                getActivity().startActivity(myIntent);
+            }
+        });
         return view;
-
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         MenuInflater inflater=getActivity().getMenuInflater();
         inflater.inflate(R.menu.context_menu_archive,menu);
-        menu.setHeaderTitle("Shawn Mendes Imagines");
+        menu.setHeaderTitle("Book Imagines");
     }
     private void addArchive(View view) {
         gr_watpad= view.findViewById(R.id.gr_watpad);
@@ -54,8 +63,5 @@ public class ArchiveFragment extends Fragment {
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=10", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=3", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=5", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=10", watpadArrayList,adapter);
     }
 }

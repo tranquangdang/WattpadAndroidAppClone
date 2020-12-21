@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.wattpadclone.Libary.Main.CurrentReadFragment">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,63 +14,45 @@
             android:background="#FDFDFA"
             android:orientation="vertical"
             android:weightSum="10">
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_weight="1">
+                android:layout_height="40dp"
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="141dp"
+                    android:layout_width="172dp"
                     android:layout_height="25dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
                     android:layout_marginStart="23dp"
-                    android:layout_marginLeft="23dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="16dp"
                     android:text="Có sẵn"
                     android:textColor="#131313"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.04"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="135dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_marginStart="93dp"
-                    android:layout_marginLeft="93dp"
+                    android:layout_marginLeft="150dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="14dp"
-                    android:layout_marginRight="14dp"
-                    android:layout_toEndOf="@+id/textView"
-                    android:layout_toRightOf="@+id/textView"
-                    android:gravity="right"
-                    android:text="3 of 25 stories"
-                    android:textColor="#605F5F"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.985"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </RelativeLayout>
+                    android:text="5 of 25 stories"
+                    android:textColor="#605F5F" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="558dp"
+                android:layout_height="947dp"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
                 <GridView
                     android:id="@+id/gr_current_off"
                     android:layout_width="match_parent"
-                    android:layout_height="248dp"
-                    android:numColumns="3" />
+                    android:layout_height="wrap_content"
+                    android:numColumns="3"
+                    android:padding="@dimen/dp19" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -84,13 +65,12 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="23dp"
-                        android:layout_marginLeft="23dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="0dp"
                         android:text="Truyện trả phí"
                         android:textColor="#0B0B0B"
                         android:textSize="16sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -98,97 +78,19 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="220sp"
-                        android:layout_marginEnd="14dp"
-                        android:layout_marginRight="14dp"
-                        android:layout_marginBottom="7dp"
-                        android:text="1 Story"
+                        android:layout_marginEnd="31dp"
+                        android:layout_marginRight="31dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="3 stories"
                         android:textColor="#605F5F" />
                 </RelativeLayout>
-
                 <GridView
                     android:id="@+id/gr_current_off_2"
                     android:layout_width="match_parent"
-                    android:layout_height="279dp"
-                    android:numColumns="3" />
+                    android:layout_height="494dp"
+                    android:numColumns="3"
+                    android:padding="@dimen/dp15" />
             </LinearLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="219dp"
-                android:layout_weight="3">
-                <TextView
-                    android:id="@+id/topic3"
-                    android:layout_width="109dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="246dp"
-                    android:layout_marginLeft="246dp"
-                    android:layout_marginEnd="56dp"
-                    android:layout_marginRight="56dp"
-                    android:layout_marginBottom="121dp"
-                    android:background="@drawable/border_title"
-                    android:gravity="center"
-                    android:text="romance"
-                    android:textColor="#0B0A0A" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="266dp"
-                    android:layout_height="34dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="124dp"
-                    android:layout_marginRight="124dp"
-                    android:layout_marginBottom="182dp"
-                    android:gravity="left"
-                    android:text="Tìm thêm nhiều truyện về"
-                    android:textColor="#0E0E0E"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/topic2"
-                    android:layout_width="92dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginLeft="130dp"
-                    android:layout_marginEnd="187dp"
-                    android:layout_marginRight="187dp"
-                    android:layout_marginBottom="122dp"
-                    android:background="@drawable/border_title"
-                    android:gravity="center"
-                    android:text="love"
-                    android:textColor="#0B0A0A" />
-
-                <TextView
-                    android:id="@+id/topic1"
-                    android:layout_width="98dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginEnd="304dp"
-                    android:layout_marginRight="304dp"
-                    android:layout_marginBottom="121dp"
-                    android:background="@drawable/border_title"
-                    android:gravity="center"
-                    android:text="M-TP"
-                    android:textColor="#0B0A0A" />
-            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

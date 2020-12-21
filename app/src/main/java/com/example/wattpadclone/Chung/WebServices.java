@@ -16,6 +16,7 @@ import com.example.wattpadclone.Chung.Detalts.RecyclerViewBookDetailsAdapter;
 import com.example.wattpadclone.Chung.Detalts.vpBookDetailsAdapter;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
+import com.example.wattpadclone.Libary.Adapter.CurrentReadAdapter;
 import com.example.wattpadclone.Libary.Adapter.LibraryAdapter;
 import com.example.wattpadclone.Search.Adapter;
 
@@ -153,7 +154,44 @@ public class WebServices {
         );
         requestQueue.add(jsonArrayRequest);
     }
+    public void GetDataCurrentReadAdapter (String url, ArrayList<Book> arrayList, CurrentReadAdapter adapter){
+        RequestQueue requestQueue = Volley.newRequestQueue(activity);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i <= response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                arrayList.add(new Book(
+                                        jsonObject.getInt("BookID"),
+                                        jsonObject.getInt("CategoryNo"),
+                                        jsonObject.getString("BookName"),
+                                        jsonObject.getString("Intro"),
+                                        jsonObject.getString("BookImg"),
+                                        jsonObject.getString("Author"),
+                                        jsonObject.getString("TimeCreate"),
+                                        jsonObject.getInt("Status"),
+                                        jsonObject.getInt("Chapter"),
+                                        jsonObject.getInt("Written"),
+                                        jsonObject.getInt("Favorite")
+                                ));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
 
     public void GetDataViewPagerImg (String url, ArrayList<Book> arrayList, vpBookDetailsAdapter adapter){
         RequestQueue requestQueue = Volley.newRequestQueue(activity);
