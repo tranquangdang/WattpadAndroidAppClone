@@ -3,6 +3,8 @@ package com.example.wattpadclone.Chung;
 import android.app.Activity;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -10,6 +12,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.Detalts.RecyclerViewBookDetailsAdapter;
+import com.example.wattpadclone.Chung.Detalts.vpBookDetailsAdapter;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
 import com.example.wattpadclone.Libary.Adapter.LibraryAdapter;
@@ -150,4 +154,65 @@ public class WebServices {
         requestQueue.add(jsonArrayRequest);
     }
 
+
+    public void GetDataViewPagerImg (String url, ArrayList<Book> arrayList, vpBookDetailsAdapter adapter){
+        RequestQueue requestQueue = Volley.newRequestQueue(activity);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i <= response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                arrayList.add(new Book(
+                                        jsonObject.getInt("BookID"),
+                                        jsonObject.getString("BookImg")
+                                ));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    public void GetDataRecyclerView(String url, ArrayList<Book> arrayList, RecyclerViewBookDetailsAdapter adapter){
+        RequestQueue requestQueue = Volley.newRequestQueue(activity);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i <= response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                arrayList.add(new Book(
+                                        jsonObject.getInt("BookID"),
+                                        jsonObject.getString("BookName"),
+                                        jsonObject.getString("BookImg")
+                                ));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
 }

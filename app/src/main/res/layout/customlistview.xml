@@ -4,23 +4,26 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:gravity="center">
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_gravity="center">
 
-    <com.makeramen.roundedimageview.RoundedImageView
+    <ImageView
+        android:scaleType="fitXY"
         android:id="@+id/hinh"
-        app:riv_corner_radius="15dp"
         android:layout_width="100dp"
-        android:layout_height="150dp"
-        />
+        android:layout_height="150dp"/>
 
     <TextView
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
         android:id="@+id/chu"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:fontFamily="monospace"
-        android:gravity="center_horizontal"
-        android:padding="5dp"
-        android:text="ádfasdfasdfsadfsadf"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="Loading"
         android:textColor="#231" />
 </LinearLayout>

@@ -26,6 +26,17 @@ public class Book {
         Chapter = chapter;
     }
 
+    public Book(int bookID, String bookImg) {
+        BookImg = bookImg;
+        BookID = bookID;
+    }
+
+    public Book(int bookID, String bookName, String bookImg) {
+        BookName = bookName;
+        BookImg = bookImg;
+        BookID = bookID;
+    }
+
     public String getBookName() {
         return BookName;
     }

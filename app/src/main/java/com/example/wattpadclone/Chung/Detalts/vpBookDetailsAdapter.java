@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -16,11 +17,11 @@ import com.example.wattpadclone.R;
 
 import java.util.List;
 
-public class detailts_headAdapter extends PagerAdapter {
+public class vpBookDetailsAdapter extends PagerAdapter {
     private List<Book> book ;
     private Context context ;
 
-    public detailts_headAdapter(List<Book> book, Context context) {
+    public vpBookDetailsAdapter(List<Book> book, Context context) {
         this.book = book;
         this.context = context;
     }
@@ -40,10 +41,12 @@ public class detailts_headAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view  = LayoutInflater.from(context ).inflate(R.layout.details_adapter, container,false);
 
-        ImageView image ;
-        image  = view .findViewById(R.id.img_book_details);
+        ImageView image = view.findViewById(R.id.img_book_details);
+        TextView bookid = view.findViewById(R.id.details_book_id);
+        bookid.setVisibility(View.GONE);
 
         Glide.with(context).load(book.get(position).getBookImg()).into(image);
+        bookid.setText(String.valueOf(Integer.valueOf(book.get(position).getBookID())));
         container.addView(view , 0);
         return view ;
     }

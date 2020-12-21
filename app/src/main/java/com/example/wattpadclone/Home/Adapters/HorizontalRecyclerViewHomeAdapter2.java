@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.wattpadclone.Bell.Message.Chat;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
@@ -57,6 +58,7 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
                 int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
                 if(firstVisiblePosition == position) {
                     Intent intent = new Intent(context, ActivityBookDetails.class);
+                    intent.putExtra("BookID", holder.bookID.getText());
                     context.startActivity(intent);
                 } else {
                     recyclerView2.smoothScrollToPosition(position);
