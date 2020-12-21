@@ -8,19 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class offlineAdapter extends BaseAdapter {
-    public ArrayList<offline> arraylistListener;
-    private List<offline> mListenerList;
+    public ArrayList<Book> arraylistListener;
+    private List<Book> mListenerList;
     Context mContext;
-    public offlineAdapter(List<offline> mListenerList, Context context) {
+    public offlineAdapter(List<Book> mListenerList, Context context) {
         mContext = context;
         this.mListenerList = mListenerList;
-        this.arraylistListener = new ArrayList<offline>();
+        this.arraylistListener = new ArrayList<Book>();
         this.arraylistListener.addAll(mListenerList);
     }
     public class ViewHolder {
@@ -55,10 +56,10 @@ public class offlineAdapter extends BaseAdapter {
             holder = (offlineAdapter.ViewHolder) view.getTag();
         }
         try {
-            int image = mListenerList.get(i).getGr_anh_off();
-            holder.gr_anh_off.setImageResource(mListenerList.get(i).getGr_anh_off());
-            holder.gr_name_off.setText(mListenerList.get(i).getGr_name_off());
-            holder.gr_title_off.setText(mListenerList.get(i).getGr_title_off());
+            String image = mListenerList.get(i).getBookImg();
+            holder.gr_anh_off.setImageResource(Integer.parseInt(mListenerList.get(i).getBookImg()));
+            holder.gr_name_off.setText(mListenerList.get(i).getAuthor());
+            holder.gr_title_off.setText(mListenerList.get(i).getBookName());
         }catch (Exception ex){
 
         }

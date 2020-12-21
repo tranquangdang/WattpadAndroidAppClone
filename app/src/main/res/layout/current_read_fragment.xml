@@ -8,8 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="746dp">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_weight="1">
-
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="141dp"
@@ -65,7 +63,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="551dp"
+                android:layout_height="558dp"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -80,18 +78,19 @@
                     android:layout_height="32dp">
 
                     <TextView
-                        android:layout_width="97dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="126dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Paid stories"
+                        android:layout_marginBottom="0dp"
+                        android:text="Truyện trả phí"
                         android:textColor="#0B0B0B"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -105,17 +104,35 @@
                         android:text="1 Story"
                         android:textColor="#605F5F" />
                 </RelativeLayout>
+
                 <GridView
                     android:id="@+id/gr_current_off_2"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="279dp"
                     android:numColumns="3" />
             </LinearLayout>
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="219dp"
                 android:layout_weight="3">
+                <TextView
+                    android:id="@+id/topic3"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="246dp"
+                    android:layout_marginLeft="246dp"
+                    android:layout_marginEnd="56dp"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginBottom="121dp"
+                    android:background="@drawable/border_title"
+                    android:gravity="center"
+                    android:text="romance"
+                    android:textColor="#0B0A0A" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -125,18 +142,17 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="117dp"
-                    android:layout_marginRight="117dp"
-                    android:layout_marginBottom="160dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="124dp"
+                    android:layout_marginRight="124dp"
+                    android:layout_marginBottom="182dp"
                     android:gravity="left"
                     android:text="Tìm thêm nhiều truyện về"
                     android:textColor="#0E0E0E"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/topic2"
                     android:layout_width="92dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -144,38 +160,18 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="138dp"
-                    android:layout_marginLeft="138dp"
-                    android:layout_marginEnd="179dp"
-                    android:layout_marginRight="179dp"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginEnd="187dp"
+                    android:layout_marginRight="187dp"
+                    android:layout_marginBottom="122dp"
                     android:background="@drawable/border_title"
                     android:gravity="center"
                     android:text="love"
                     android:textColor="#0B0A0A" />
 
                 <TextView
-
-                    android:id="@+id/textView6"
-                    android:layout_width="109dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="254dp"
-                    android:layout_marginLeft="254dp"
-                    android:layout_marginEnd="48dp"
-                    android:layout_marginRight="48dp"
-                    android:layout_marginBottom="99dp"
-                    android:background="@drawable/border_title"
-                    android:gravity="center"
-                    android:text="romance"
-                    android:textColor="#0B0A0A" />
-
-                <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/topic1"
                     android:layout_width="98dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -183,16 +179,15 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginEnd="296dp"
-                    android:layout_marginRight="296dp"
-                    android:layout_marginBottom="99dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginEnd="304dp"
+                    android:layout_marginRight="304dp"
+                    android:layout_marginBottom="121dp"
                     android:background="@drawable/border_title"
                     android:gravity="center"
                     android:text="M-TP"
                     android:textColor="#0B0A0A" />
-
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

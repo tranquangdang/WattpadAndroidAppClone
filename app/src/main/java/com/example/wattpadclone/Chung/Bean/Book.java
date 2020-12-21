@@ -1,10 +1,10 @@
 package com.example.wattpadclone.Chung.Bean;
 
 public class Book {
-    String BookName, Intro, BookImg, Author, TimeCreate, Status;
-    int  BookID,CategoryNo, Chapter, Written, Favorite;
+    String BookName, Intro, BookImg, Author, TimeCreate;
+    int  BookID,CategoryNo, Chapter, Written, Status, Favorite;
 
-    public Book(int bookID, int categoryNo,String bookName, String intro, String bookImg, String author, String timeCreate, String status, int chapter, int written, int favorite) {
+    public Book(int bookID, int categoryNo,String bookName, String intro, String bookImg, String author, String timeCreate, int status, int chapter, int written, int favorite) {
         BookName = bookName;
         Intro = intro;
         BookImg = bookImg;
@@ -18,9 +18,13 @@ public class Book {
         Favorite = favorite;
     }
 
-    //    public Book() {
-//    }
-
+    public Book(int bookID, String bookName, String intro, int status,  int chapter) {
+        BookName = bookName;
+        Intro = intro;
+        Status = status;
+        BookID = bookID;
+        Chapter = chapter;
+    }
 
     public String getBookName() {
         return BookName;
@@ -62,11 +66,11 @@ public class Book {
         TimeCreate = timeCreate;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return Status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         Status = status;
     }
 

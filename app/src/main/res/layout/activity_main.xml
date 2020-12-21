@@ -19,7 +19,7 @@
             android:background="#dfdfdf"
             android:layout_above="@+id/bottom_navigation_main"/>
 
-        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_main"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -29,7 +29,7 @@
             app:menu="@menu/bottom_nav_menu"
             app:itemIconTint="@color/icon_selected_color"
             app:itemTextColor="@color/icon_selected_color"
-            app:labelVisibilityMode="selected"
+            app:labelVisibilityMode="unlabeled"
             app:itemBackground="@color/bottom_nav_tab_background"/>
     </RelativeLayout>
 

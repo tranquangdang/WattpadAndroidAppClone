@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Read"
+        android:id="@+id/read"/>
+    <item android:title="Story Info"
+        android:id="@+id/storyinfo"/>
+    <item android:title="Share Story"
+        android:id="@+id/share"/>
+    <item android:title="Remove from libary"
+        android:id="@+id/add"/>
+    <item android:title="Archive story"
+        android:id="@+id/un"/>
+    <item android:title="Add to Reading list"
+        android:id="@+id/remove"/>
+</menu>

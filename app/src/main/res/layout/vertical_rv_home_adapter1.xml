@@ -73,7 +73,6 @@
         android:layout_height="180dp"
         android:id="@+id/home_recyclerView2"
         android:orientation="horizontal"
-        android:paddingRight="300dp"
         android:clipToPadding="false"/>
 
     <LinearLayout
@@ -120,27 +119,22 @@
 
            <TextView
                android:gravity="center"
-               android:id="@+id/home_chapter"
+               android:id="@+id/home_chapter_rv2"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="103 phần"
                android:textSize="12sp"
                android:textColor="#808080"
+               android:layout_marginEnd="10dp"
                android:drawableStart="@drawable/ic_baseline_list_24"/>
 
            <TextView
+               android:id="@+id/home_status_rv2"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:textColor="#ffffff"
                android:textSize="12sp"
-               android:textStyle="bold"
-               android:background="@drawable/home_complete_rounded"
-               android:text="Hoàn thành"
-               android:layout_marginStart="5dp"
-               android:paddingTop="3dp"
-               android:paddingBottom="3dp"
-               android:paddingLeft="10dp"
-               android:paddingRight="10dp"/>
+               android:textStyle="bold"/>
        </LinearLayout>
         <TextView
             android:paddingTop="5dp"
@@ -149,6 +143,7 @@
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
             android:maxLines="4"
+            android:lines="4"
             android:ellipsize="end"/>
         <TextView
             android:layout_marginTop="8dp"

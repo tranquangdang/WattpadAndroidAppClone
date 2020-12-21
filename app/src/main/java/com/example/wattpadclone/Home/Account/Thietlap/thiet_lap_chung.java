@@ -55,5 +55,70 @@ public class thiet_lap_chung extends AppCompatActivity {
                 finish();
             }
         });
+
+        findViewById(R.id.txtThongBao).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, ThietLapThongBao.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtThietLapDoc).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, ThietLapDoc.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtTuyChinh).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, tuy_chinh_chu_de.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtBanDem).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, che_do_ban_dem.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtTKBiChan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, thiet_lap_chan.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtNgonNgu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, thiet_lap_ngon_ngu.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtTroGiup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, thiet_lap_tro_giup.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.txtWattpad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, thong_tin_wattpad.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.txtDangKi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(thiet_lap_chung.this, ThietLapDangKi.class);
+                startActivity(intent);
+            }
+        });
     }
 }

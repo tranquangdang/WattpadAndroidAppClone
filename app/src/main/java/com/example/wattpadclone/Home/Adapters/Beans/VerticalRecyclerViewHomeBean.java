@@ -6,16 +6,18 @@ import java.util.ArrayList;
 
 public class VerticalRecyclerViewHomeBean {
     String title1, content1, title2,content2;
-    ArrayList<Book> arrayList1;
-    ArrayList<Book> arrayList2;
+    ArrayList<Book> arrayList;
 
-    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<Book> arrayList1, ArrayList<Book> arrayList2) {
+    public VerticalRecyclerViewHomeBean(String title1, String content1, String title2, String content2, ArrayList<Book> arrayList) {
         this.title1 = title1;
         this.content1 = content1;
         this.title2 = title2;
         this.content2 = content2;
-        this.arrayList1 = arrayList1;
-        this.arrayList2 = arrayList2;
+        this.arrayList = arrayList;
+    }
+
+    public VerticalRecyclerViewHomeBean(ArrayList<Book> arrayList) {
+        this.arrayList = arrayList;
     }
 
     public String getTitle1() {
@@ -50,19 +52,11 @@ public class VerticalRecyclerViewHomeBean {
         this.content2 = content2;
     }
 
-    public ArrayList<Book> getArrayList1() {
-        return arrayList1;
+    public ArrayList<Book> getArrayList() {
+        return arrayList;
     }
 
-    public void setArrayList1(ArrayList<Book> arrayList1) {
-        this.arrayList1 = arrayList1;
-    }
-
-    public ArrayList<Book> getArrayList2() {
-        return arrayList2;
-    }
-
-    public void setArrayList2(ArrayList<Book> arrayList2) {
-        this.arrayList2 = arrayList2;
+    public void setArrayList(ArrayList<Book> arrayList) {
+        this.arrayList = arrayList;
     }
 }
