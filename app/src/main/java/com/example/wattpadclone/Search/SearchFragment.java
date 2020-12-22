@@ -45,13 +45,6 @@ public class SearchFragment extends BaseFragment {
         gridView = view.findViewById(R.id.grid);
         Adapter.MainAdapter adapter = new Adapter.MainAdapter(getActivity(), name, img);
         gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(getContext(), SearchListActivity.class);
-                startActivity(intent);
-            }
-        });
 
         return view;
     }

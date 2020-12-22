@@ -4,19 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wattpadclone.Libary.Main.ArchiveFragment">
-    <ScrollView
+    tools:context="com.example.wattpadclone.Libary.Main.ArchiveFragment"
+    android:paddingBottom="?attr/actionBarSize">
+    <GridView
+        android:id="@+id/gr_watpad"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <GridView
-                android:id="@+id/gr_watpad"
-                android:layout_width="match_parent"
-                android:layout_height="824dp"
-                android:background="#fff"
-                android:numColumns="3" />
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"
+        android:numColumns="3" />
 </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.wattpadclone.Chung.Detalts;
 import android.content.Intent;
 import android.graphics.BlurMaskFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.wattpadclone.Base.LogInActivity;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.MainActivity;
@@ -35,6 +38,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 
 public class ActivityBookDetails extends AppCompatActivity {
@@ -84,7 +88,7 @@ public class ActivityBookDetails extends AppCompatActivity {
         webServices.GetDataRecyclerView("http://tranquangdang.000webhostapp.com/index.php",arrayList,adapter1);
 
         viewPager   = (ViewPager) findViewById(R.id.viewPager_detail);
-
+        viewPager.setPadding(getResources().getDimensionPixelOffset(R.dimen.dp65), 0, getResources().getDimensionPixelOffset(R.dimen.dp65),0);
         arrayList   = new ArrayList<>();
         adapter  = new vpBookDetailsAdapter(arrayList, ActivityBookDetails.this);
         viewPager.setAdapter(adapter);
@@ -117,8 +121,8 @@ public class ActivityBookDetails extends AppCompatActivity {
                     }
                 }
         );
-        requestQueue.add(jsonArrayRequest);
 
+        requestQueue.add(jsonArrayRequest);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -127,13 +131,13 @@ public class ActivityBookDetails extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                if(state == ViewPager.SCROLL_STATE_IDLE){
-                    TextView txt =  findViewById(R.id.details_book_id);
+                if(ViewPager.SCROLL_STATE_IDLE == state) {
+                    View view = (View) viewPager.findViewWithTag("myview" + viewPager.getCurrentItem());
+                    TextView txt =  view.findViewById(R.id.details_book_id);
                     RequestQueue requestQueue = Volley.newRequestQueue(ActivityBookDetails.this);
                     JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=" + txt.getText().toString(), null,
                             new Response.Listener<JSONArray>() {
@@ -166,7 +170,16 @@ public class ActivityBookDetails extends AppCompatActivity {
                 }
             }
         });
-    }
 
+
+        viewPager.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                viewPager.setCurrentItem(Integer.parseInt(BookID)-1, true);
+            }
+        }, 2000);
+    }
 
 }

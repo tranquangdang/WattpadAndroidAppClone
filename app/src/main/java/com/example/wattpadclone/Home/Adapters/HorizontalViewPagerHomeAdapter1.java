@@ -1,6 +1,7 @@
 package com.example.wattpadclone.Home.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
@@ -45,7 +47,9 @@ public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.horizontal_vp_home_adapter1, container,false);
 
         ImageView imgCover1;
-        TextView title1, content1, tag1;
+        TextView title1, content1, tag1, home_book_id;
+        home_book_id = view.findViewById(R.id.home_book_id_vp);
+        home_book_id.setVisibility(View.GONE);
         imgCover1 = (ImageView)view.findViewById(R.id.home_cover1);
         title1 = (TextView)view.findViewById(R.id.home_title1);
         content1 = (TextView)view.findViewById(R.id.home_content1);
@@ -56,10 +60,19 @@ public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
         else {
             Glide.with(context).load(arrayList.get(position).getBookImg()).into(imgCover1);
         }
+        home_book_id.setText(String.valueOf(arrayList.get(position).getBookID()));
         title1.setText(arrayList.get(position).getBookName());
         content1.setText(arrayList.get(position).getIntro());
         tag1.setText("Tag");
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ActivityBookDetails.class);
+                intent.putExtra("BookID", home_book_id.getText());
+                context.startActivity(intent);
+            }
+        });
         container.addView(view, 0);
         return view;
     }

@@ -28,7 +28,6 @@ public class LibraryAdapter extends BaseAdapter {
     public class ViewHolder {
         ImageView mImage;
         TextView mTitle;
-        TextView mName;
     }
     @Override
     public int getCount() {
@@ -51,7 +50,6 @@ public class LibraryAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.mImage = (ImageView) view.findViewById(R.id.gr_anh);
             holder.mTitle=(TextView)view.findViewById(R.id.gr_title);
-            holder.mName=view.findViewById(R.id.gr_name);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -59,7 +57,6 @@ public class LibraryAdapter extends BaseAdapter {
         try {
             Glide.with(mContext).load(mListenerList.get(i).getBookImg()).into(holder.mImage);
             holder.mTitle.setText(String.valueOf(mListenerList.get(i).getBookName()));
-            holder.mName.setText(String.valueOf(mListenerList.get(i).getAuthor()));
         }catch (Exception ex){
 
         }

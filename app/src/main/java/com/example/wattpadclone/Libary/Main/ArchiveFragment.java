@@ -33,13 +33,6 @@ public class ArchiveFragment extends Fragment {
         View view = inflater.inflate(R.layout.archive_fragment, container, false);
         addArchive(view);
         registerForContextMenu(gr_watpad);
-        gr_watpad.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent myIntent = new Intent(getActivity(), ActivityBookDetails.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
         return view;
     }
     @Override
@@ -50,6 +43,9 @@ public class ArchiveFragment extends Fragment {
     }
     private void addArchive(View view) {
         gr_watpad= view.findViewById(R.id.gr_watpad);
+        gr_watpad.setPadding(getResources().getDimensionPixelOffset(R.dimen.dp10),getResources().getDimensionPixelOffset(R.dimen.dp10),getResources().getDimensionPixelOffset(R.dimen.dp10),0);
+        gr_watpad.setVerticalSpacing(getResources().getDimensionPixelOffset(R.dimen.dp19));
+        gr_watpad.setHorizontalSpacing(getResources().getDimensionPixelOffset(R.dimen.dp10));
         ArrayList<Book> watpadArrayList=new ArrayList<>();
         LibraryAdapter adapter =new LibraryAdapter(watpadArrayList,getContext());
         gr_watpad.setAdapter(adapter);
@@ -63,5 +59,13 @@ public class ArchiveFragment extends Fragment {
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=10", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=3", watpadArrayList,adapter);
+        gr_watpad.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
+                intent.putExtra("BookID", "2");
+                getContext().startActivity(intent);
+            }
+        });
     }
 }

@@ -78,7 +78,7 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
         ImageView imgCover2;
         public HorizontalRVViewHolder2(@NonNull View itemView) {
             super(itemView);
-            bookID = itemView.findViewById(R.id.home_book_id);
+            bookID = itemView.findViewById(R.id.home_book_id_rv);
             bookID.setVisibility(View.GONE);
             imgCover2 = itemView.findViewById(R.id.home_cover2);
 

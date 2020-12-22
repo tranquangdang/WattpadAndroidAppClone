@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.wattpadclone.Base.LogInActivity;
 import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -69,6 +71,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         holder.recyclerView2.setAdapter(horizontalRecyclerViewHomeAdapter2);
         SnapHelper startSnapHelper2 = new StartSnapHelper();
         startSnapHelper2.attachToRecyclerView(holder.recyclerView2);
+        holder.home_book_id_main.setText(String.valueOf(arrayList.get(position).getBookID()));
         holder.title.setText(arrayList.get(position).getBookName());
         holder.intro.setText(arrayList.get(position).getIntro());
         holder.chapter.setText(arrayList.get(position).getChapter() + " phần");
@@ -85,7 +88,8 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE){
-                    TextView txt =  ((MainActivity)context).findViewById(R.id.home_book_id);
+                    TextView txt =  ((MainActivity)context).findViewById(R.id.home_book_id_rv);
+                    holder.home_book_id_main.setText(txt.getText().toString());
                     RequestQueue requestQueue = Volley.newRequestQueue(context);
                     JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=" + txt.getText().toString(), null,
                             new Response.Listener<JSONArray>() {
@@ -121,10 +125,11 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
                 }
             }
         });
-        holder.home_more_rv2.setOnClickListener(new View.OnClickListener() {
+        holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ActivityBookDetails.class);
+                intent.putExtra("BookID", holder.home_book_id_main.getText());
                 context.startActivity(intent);
             }
         });
@@ -142,7 +147,7 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
         TextView home_more_rv2;
 
-        TextView title, intro, chapter, status, more;
+        TextView title, intro, chapter, status, more, home_book_id_main;
         ImageButton menu;
         public VerticalRVHomeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -154,7 +159,8 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
             recyclerView2 = itemView.findViewById(R.id.home_recyclerView2);
             categoryTitle2 = itemView.findViewById(R.id.home_category_title2);
             categoryContent2 = itemView.findViewById(R.id.home_category_content2);
-            home_more_rv2 = itemView.findViewById(R.id.home_more_rv2);
+            home_book_id_main = itemView.findViewById(R.id.home_book_id_main);
+            home_book_id_main.setVisibility(View.GONE);
             title = itemView.findViewById(R.id.home_title_rv2);
             intro = itemView.findViewById(R.id.home_content_rv2);
             chapter = itemView.findViewById(R.id.home_chapter_rv2);

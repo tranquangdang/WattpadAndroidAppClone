@@ -41,13 +41,6 @@ public class ReadingListFragment extends Fragment {
         ArrayList<Book> readingArrayList=new ArrayList<Book>();
         ReadingListAdapter readingadapter = new ReadingListAdapter(readingArrayList,getContext());
         lv_readinglist.setAdapter(readingadapter);
-        lv_readinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent myIntent = new Intent(getActivity(), ActivityBookDetails.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/index.php?BookID=1", null,
                 new Response.Listener<JSONArray>() {
@@ -85,15 +78,14 @@ public class ReadingListFragment extends Fragment {
         );
         requestQueue.add(jsonArrayRequest);
 
-        //addRedingList(view);
+        lv_readinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
+                intent.putExtra("BookID", "2");
+                getContext().startActivity(intent);
+            }
+        });
         return view;
     }
-//    private void addRedingList(View view) {
-//
-//
-//        readingArrayList.add(new ReadingList(R.mipmap.mtp,R.mipmap.shawn,R.mipmap.badboy,"Thang's List","5 stories"));
-//        readingArrayList.add(new ReadingList(R.mipmap.bccmerlin,R.mipmap.shawn2,R.mipmap.thelove,"List for day","3 stories"));
-//        readingArrayList.add(new ReadingList(R.mipmap.thelove,R.mipmap.badboy,R.mipmap.mtp,"For Happy'List","6 stories"));
-//
-//    }
 }

@@ -1,63 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/offline_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:orientation="vertical"
-    android:layout_height="match_parent">
-    <ImageView
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/gr_anh_current_read"
-        android:layout_width="108dp"
-        android:layout_height="157dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="110dp"
+        android:layout_height="140dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:riv_corner_radius="6dp"
+        android:src="@mipmap/grey_test"/>
     <LinearLayout
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <androidx.cardview.widget.CardView
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_width="80dp"
-            android:layout_height="5dp"
-            app:cardBackgroundColor="#5C5C59"
-            />
-        <ImageView
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="7dp"
-            android:id="@+id/imageView2"
-            android:layout_width="24dp"
-            android:layout_height="17dp"
-            app:srcCompat="@drawable/ic_baseline_cloud_done_24"
-            tools:ignore="VectorDrawableCompat" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/gr_name_current_read"
+        android:layout_gravity="center_horizontal">
+
+        <ProgressBar
+            android:layout_gravity="center_vertical"
+            android:id="@+id/ProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="60dp"
+            android:layout_height="10dip"
+            android:maxHeight="10dip"
+            android:minHeight="10dip"
+            android:indeterminate="false"
+            android:progress="28" />
+
+        <ImageView
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/status_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:text="TextView"
-            android:textColor="#0B0B0B" />
-        <TextView
-            android:id="@+id/gr_tittle_current_read"
-            android:layout_width="wrap_content"
-            android:layout_height="21dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="7dp"
-            android:text="TextView"
-            android:textColor="#0B0B0B"
-           />
+            app:srcCompat="@drawable/ic_cloud_computing" />
     </LinearLayout>
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:id="@+id/gr_tittle_current_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="13sp"
+        android:lines="2"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#0B0B0B"/>
 </LinearLayout>

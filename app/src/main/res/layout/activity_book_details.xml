@@ -39,7 +39,7 @@
                 android:src="@mipmap/grey_test"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="#80FFFFFF"/>
+                android:alpha="0.2"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,6 +63,7 @@
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:text="Loading..."
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"/>
                 <LinearLayout
                     android:layout_marginTop="15dp"
@@ -79,6 +80,7 @@
                         app:riv_corner_radius="30dp"/>
 
                     <TextView
+                        android:textColor="@color/black"
                         android:id="@+id/book_details_username"
                         android:layout_marginStart="13dp"
                         android:layout_width="wrap_content"
@@ -94,6 +96,7 @@
                     android:orientation="horizontal"
                     android:layout_gravity="center_horizontal">
                     <TextView
+                        android:textColor="@color/black"
                         android:drawableStart="@drawable/ic_baseline_remove_red_eye_24"
                         android:drawablePadding="8dp"
                         android:id="@+id/book_details_seen"
@@ -102,6 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/black"
                         android:layout_marginStart="20dp"
                         android:id="@+id/book_details_fav"
                         android:drawableStart="@drawable/vote"
@@ -111,6 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/black"
                         android:layout_marginStart="20dp"
                         android:drawableStart="@drawable/phan"
                         android:drawablePadding="8dp"

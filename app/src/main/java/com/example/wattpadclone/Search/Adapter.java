@@ -1,15 +1,18 @@
 package com.example.wattpadclone.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
+import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
@@ -30,7 +33,7 @@ public class Adapter {
 
         public class ViewHolder {
             ImageView lv_topic_anh;
-            TextView lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt,lv_topic_more,lv_topic_sum_tag;
+            TextView lv_topic_title,lv_topic_eye,lv_topic_star,lv_topic_menu,lv_topic_contentt,lv_topic_more,lv_topic_sum_tag,search_book_id;
         }
 
         @Override
@@ -54,6 +57,8 @@ public class Adapter {
             if (view == null) {
                 view = LayoutInflater.from(mContext).inflate(R.layout.layout_lv_adapter, null);
                 holder = new ViewHolder();
+                holder.search_book_id = view.findViewById(R.id.search_book_id);
+                holder.search_book_id.setVisibility(View.GONE);
                 holder.lv_topic_anh = (ImageView) view.findViewById(R.id.lv_topic_anh);
                 holder.lv_topic_title=view.findViewById(R.id.lv_topic_title);
                 holder.lv_topic_eye=view.findViewById(R.id.lv_topic_eye);
@@ -68,16 +73,25 @@ public class Adapter {
             }
             try {
                 Glide.with(mContext).load(mListenerList.get(i).getBookImg()).into(holder.lv_topic_anh);
+                holder.search_book_id.setText(String.valueOf(Integer.valueOf(mListenerList.get(i).getBookID())));
                 holder.lv_topic_title.setText(String.valueOf(mListenerList.get(i).getBookName()));
                 holder.lv_topic_contentt.setText(String.valueOf(mListenerList.get(i).getIntro()));
                 holder.lv_topic_eye.setText(String.valueOf(Integer.valueOf(mListenerList.get(i).getWritten())));
                 holder.lv_topic_star.setText(String.valueOf(Integer.valueOf(mListenerList.get(i).getFavorite())));
-                holder.lv_topic_menu.setText(String.valueOf(Integer.valueOf(mListenerList.get(i).getChapter()) + " phần"));
+                holder.lv_topic_menu.setText(Integer.valueOf(mListenerList.get(i).getChapter()) + " phần");
                 holder.lv_topic_more=view.findViewById(R.id.lv_topic_more);
                 holder.lv_topic_sum_tag=view.findViewById(R.id.lv_topic_sum_tag);
             }catch (Exception ex){
 
             }
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, ActivityBookDetails.class);
+                    intent.putExtra("BookID", holder.search_book_id.getText());
+                    mContext.startActivity(intent);
+                }
+            });
             return view;
         }
     }
@@ -122,6 +136,15 @@ public class Adapter {
             ImageView imageView= view.findViewById(R.id.image);
             imageView.setImageResource(img[position]);
             textView.setText(name[position]);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, SearchListActivity.class);
+                    intent.putExtra("name", textView.getText().toString());
+                    context.startActivity(intent);
+                }
+            });
             return view;
         }
     }

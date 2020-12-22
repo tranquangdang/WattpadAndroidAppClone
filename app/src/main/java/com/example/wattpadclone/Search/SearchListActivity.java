@@ -22,13 +22,18 @@ public class SearchListActivity extends AppCompatActivity {
     ListView lv;
     Adapter.ListViewBaseAdapter adapter;
     ArrayList<Book> arr_bean;
+    Intent intent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_list);
 
+        intent = getIntent();
+        String name = intent.getStringExtra("name");
+
         Toolbar toolbar = findViewById(R.id.toolbar_search_list);
+        toolbar.setTitle(name);
         toolbar.setLogo(ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_24));
         View logoView = toolbar.getChildAt(1);
         logoView.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +51,6 @@ public class SearchListActivity extends AppCompatActivity {
         WebServices webServices = new WebServices(this);
         webServices.GetDataList("http://tranquangdang.000webhostapp.com/index.php", arr_bean,adapter);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(SearchListActivity.this, ActivityBookDetails.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }

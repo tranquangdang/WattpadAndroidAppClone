@@ -46,8 +46,10 @@ public class vpBookDetailsAdapter extends PagerAdapter {
         bookid.setVisibility(View.GONE);
 
         Glide.with(context).load(book.get(position).getBookImg()).into(image);
-        bookid.setText(String.valueOf(Integer.valueOf(book.get(position).getBookID())));
+        bookid.setText(String.valueOf(book.get(position).getBookID()));
+        view.setTag("myview" + position);
         container.addView(view , 0);
+
         return view ;
     }
 
@@ -55,5 +57,6 @@ public class vpBookDetailsAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
+
 }
 
