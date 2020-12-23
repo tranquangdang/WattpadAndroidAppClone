@@ -52,26 +52,26 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loadingDialog = new LoadingDialog(LogInActivity.this);
 
-        loginButtonFb = findViewById(R.id.login_facebook_button);
-        loginButtonGg = findViewById(R.id.login_google_button);
-        fb = findViewById(R.id.fb_login);
-        gg = findViewById(R.id.gg_login);
+//        loginButtonFb = findViewById(R.id.login_facebook_button);
+//        loginButtonGg = findViewById(R.id.login_google_button);
+//        fb = findViewById(R.id.fb_login);
+//        gg = findViewById(R.id.gg_login);
         txt_goto_signUp = findViewById(R.id.txt_goto_signup);
         btnLogin = findViewById(R.id.btn_login);
 
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginButtonFb.performClick();
-            }
-        });
-
-        gg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginButtonGg.performClick();
-            }
-        });
+//        fb.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                loginButtonFb.performClick();
+//            }
+//        });
+//
+//        gg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                loginButtonGg.performClick();
+//            }
+//        });
 
         txt_goto_signUp.setOnClickListener(new View.OnClickListener() {
             @Override

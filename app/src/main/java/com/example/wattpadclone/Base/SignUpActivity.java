@@ -102,27 +102,27 @@ public class SignUpActivity extends AppCompatActivity {
         passSignUp = findViewById(R.id.password_signup);
         dob_signup = findViewById(R.id.dob_signup);
 
-        sinUpButtonFb = findViewById(R.id.login_facebook_button);
-        sinUpButtonGg = findViewById(R.id.login_google_button);
-        fb = findViewById(R.id.fb_signup);
-        gg = findViewById(R.id.gg_signup);
+//        sinUpButtonFb = findViewById(R.id.login_facebook_button);
+//        sinUpButtonGg = findViewById(R.id.login_google_button);
+//        fb = findViewById(R.id.fb_signup);
+//        gg = findViewById(R.id.gg_signup);
         txtBackPressed = findViewById(R.id.txt_back_pressed_login);
         btn_signup = findViewById(R.id.btn_signup);
 
 
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sinUpButtonFb.performClick();
-            }
-        });
-
-        gg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sinUpButtonGg.performClick();
-            }
-        });
+//        fb.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sinUpButtonFb.performClick();
+//            }
+//        });
+//
+//        gg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sinUpButtonGg.performClick();
+//            }
+//        });
 
         txtBackPressed.setOnClickListener(new View.OnClickListener() {
             @Override
