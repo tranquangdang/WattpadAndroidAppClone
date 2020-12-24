@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Chung.BookDetails.ActivityBookDetails"
+    tools:context=".Chung.BookDetails.ActivityBookDetailsViewPager"
     >
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +15,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:backgroundTint="#00FFFFFF"
-            android:id="@+id/toolbar_book_details_page"
+            android:id="@+id/toolbar_book_details"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/black"
@@ -46,15 +46,14 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <androidx.viewpager.widget.ViewPager
                     android:layout_marginTop="?attr/actionBarSize"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/grey_test"
-                    android:scaleType="fitXY"
-                    android:id="@+id/img_book_details_main"
-                    android:layout_width="170dp"
-                    android:layout_height="250dp"
-                    />
+                    android:id="@+id/viewPager_detail"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:clipToPadding="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" />
 
                 <TextView
                     android:id="@+id/book_details_bookName"

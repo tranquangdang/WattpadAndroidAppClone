@@ -15,9 +15,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.wattpadclone.Base.Adapter.Bean.UserBean;
 import com.example.wattpadclone.Chung.LoadingDialog;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
+import com.example.wattpadclone.Write.NewBookActivity;
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.SignInButton;
@@ -35,6 +44,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     TextView fb, gg, txtBackPressed, dob_signup;
@@ -69,12 +79,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
+                                        CreateUser(username);
                                         Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                                                 Intent.FLAG_ACTIVITY_CLEAR_TASK |
                                                 Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
-                                        Toast.makeText(SignUpActivity.this, "Đăng kí thành công!", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -145,9 +155,9 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txt_email = emailSignUp.getText().toString();
-                String txt_username = userSignUp.getText().toString();
-                String txt_pass = passSignUp.getText().toString();
+                String txt_email = emailSignUp.getText().toString().trim();
+                String txt_username = userSignUp.getText().toString().trim();
+                String txt_pass = passSignUp.getText().toString().trim();
                 String txt_dob = dob_signup.getText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_pass) || TextUtils.isEmpty(txt_dob)) {
@@ -200,5 +210,34 @@ public class SignUpActivity extends AppCompatActivity {
             dob_signup.setText(msg);
         }
     };
+
+    private void CreateUser(String user) {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://tranquangdang.000webhostapp.com/createuser.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.trim().equals("insert success")) {
+                            Toast.makeText(SignUpActivity.this, "Đăng kí thành công!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(SignUpActivity.this, "Lỗi!" + response, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(SignUpActivity.this, "Lỗi" + error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("UserName", user);
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
 
 }

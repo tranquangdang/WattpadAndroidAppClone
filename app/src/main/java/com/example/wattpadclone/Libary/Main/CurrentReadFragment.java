@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -12,18 +13,17 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.TextView;
 
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Bean.MyGridView;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Libary.Adapter.CurrentReadAdapter;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class CurrentReadFragment extends Fragment {
     MyGridView gr_Current_off_2,gr_Current_off;
@@ -61,14 +61,6 @@ public class CurrentReadFragment extends Fragment {
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=11", offlineArrayList,offlineAdapterr);
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=4", offlineArrayList,offlineAdapterr);
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=8", offlineArrayList,offlineAdapterr);
-        gr_Current_off.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
-                intent.putExtra("BookID", "2");
-                getContext().startActivity(intent);
-            }
-        });
     }
     public void addCurrent_Read_2(View view) {
          gr_Current_off_2= view.findViewById(R.id.gr_current_off_2);
@@ -83,13 +75,6 @@ public class CurrentReadFragment extends Fragment {
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=5", offline_2ArrayList,offlineAdapter_2);
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", offline_2ArrayList,offlineAdapter_2);
         webServices.GetDataCurrentReadAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=9", offline_2ArrayList,offlineAdapter_2);
-        gr_Current_off_2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
-                intent.putExtra("BookID", "2");
-                getContext().startActivity(intent);
-            }
-        });
+
     }
 }

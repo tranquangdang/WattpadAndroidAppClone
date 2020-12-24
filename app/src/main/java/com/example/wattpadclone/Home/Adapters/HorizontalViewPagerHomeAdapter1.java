@@ -9,17 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
-import com.example.wattpadclone.MainActivity;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
 
@@ -68,8 +65,9 @@ public class HorizontalViewPagerHomeAdapter1 extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ActivityBookDetails.class);
+                Intent intent = new Intent(context, ActivityBookDetailsViewPager.class);
                 intent.putExtra("BookID", home_book_id.getText());
+                intent.putExtra("Position", position);
                 context.startActivity(intent);
             }
         });

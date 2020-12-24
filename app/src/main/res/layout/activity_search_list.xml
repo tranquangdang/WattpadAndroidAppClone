@@ -80,7 +80,7 @@
             android:layout_below="@+id/layout_search_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listview"
+            android:id="@+id/listview_search"
             android:divider="#f5f5f5"
             android:dividerHeight="1dp" />
     </RelativeLayout>

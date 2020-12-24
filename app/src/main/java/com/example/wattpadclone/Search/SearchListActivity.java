@@ -3,7 +3,6 @@ package com.example.wattpadclone.Search;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -12,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
 import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.R;
 
@@ -43,14 +41,13 @@ public class SearchListActivity extends AppCompatActivity {
             }
         });
 
-        lv = findViewById(R.id.listview);
+        lv = findViewById(R.id.listview_search);
         arr_bean = new ArrayList<>();
         adapter=new Adapter.ListViewBaseAdapter(arr_bean,this);
         lv.setAdapter(adapter);
 
         WebServices webServices = new WebServices(this);
         webServices.GetDataList("http://tranquangdang.000webhostapp.com/index.php", arr_bean,adapter);
-
     }
 
 }

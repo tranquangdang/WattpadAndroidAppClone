@@ -19,6 +19,11 @@
 
     <item
         android:title=""
+        android:id="@+id/action_write"
+        android:icon="@drawable/ic_baseline_edit_24"/>
+
+    <item
+        android:title=""
         android:id="@+id/action_bell"
         android:icon="@drawable/ic_baseline_notifications_none_24"/>
 </menu>

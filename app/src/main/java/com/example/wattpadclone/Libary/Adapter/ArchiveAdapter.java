@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,17 +12,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetails;
-import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CurrentReadAdapter  extends BaseAdapter {
-    Context mContext;
+public class ArchiveAdapter extends BaseAdapter {
+ Context mContext;
     public ArrayList<Book> arraylistListener;
     private List<Book> mListenerList;
-    public CurrentReadAdapter( List<Book> mListenerList,Context context) {
+    public ArchiveAdapter(List<Book> mListenerList, Context context) {
         mContext = context;
         this.mListenerList = mListenerList;
         this.arraylistListener = new ArrayList<Book>();
@@ -48,17 +46,17 @@ public class CurrentReadAdapter  extends BaseAdapter {
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final CurrentReadAdapter.ViewHolder holder;
+        final ViewHolder holder;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.layout1_offlline, null);
-            holder = new CurrentReadAdapter.ViewHolder();
-            holder.mImage = (ImageView) view.findViewById(R.id.gr_anh_current_read);
-            holder.mTitle=(TextView)view.findViewById(R.id.gr_tittle_current_read);
+            view = LayoutInflater.from(mContext).inflate(R.layout.layout2_watpad, null);
+            holder = new ViewHolder();
+            holder.mImage = (ImageView) view.findViewById(R.id.gr_anh);
+            holder.mTitle=(TextView)view.findViewById(R.id.gr_title);
             holder.bookID = view.findViewById(R.id.current_book_id);
             holder.bookID.setVisibility(View.GONE);
             view.setTag(holder);
         } else {
-            holder = (CurrentReadAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
         try {
             Glide.with(mContext).load(mListenerList.get(i).getBookImg()).into(holder.mImage);

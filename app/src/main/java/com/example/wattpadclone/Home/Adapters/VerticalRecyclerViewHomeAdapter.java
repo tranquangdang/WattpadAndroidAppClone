@@ -7,15 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.wattpadclone.Base.LogInActivity;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,7 +22,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wattpadclone.Chung.Bean.Book;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
-import com.example.wattpadclone.Chung.WebServices;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
@@ -128,8 +125,12 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ActivityBookDetails.class);
+                Intent intent = new Intent(context, ActivityBookDetailsViewPager.class);
                 intent.putExtra("BookID", holder.home_book_id_main.getText());
+                FirstZoomHorizontalLayoutManager layoutManager = (FirstZoomHorizontalLayoutManager)
+                        holder.recyclerView2.getLayoutManager();
+                int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
+                intent.putExtra("Position", firstVisiblePosition);
                 context.startActivity(intent);
             }
         });
@@ -145,7 +146,6 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
         RecyclerView recyclerView2;
         ViewPager viewPager1;
         TextView categoryTitle, categoryContent,categoryTitle2, categoryContent2;
-        TextView home_more_rv2;
 
         TextView title, intro, chapter, status, more, home_book_id_main;
         ImageButton menu;
@@ -167,8 +167,6 @@ public class VerticalRecyclerViewHomeAdapter extends RecyclerView.Adapter<Vertic
             status = itemView.findViewById(R.id.home_status_rv2);
             more = itemView.findViewById(R.id.home_more_rv2);
             menu = itemView.findViewById(R.id.home_menu_rv2);
-
-
         }
 
     }

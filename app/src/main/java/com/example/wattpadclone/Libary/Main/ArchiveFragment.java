@@ -14,11 +14,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.Chung.WebServices;
-import com.example.wattpadclone.Libary.Adapter.LibraryAdapter;
+import com.example.wattpadclone.Libary.Adapter.ArchiveAdapter;
 import com.example.wattpadclone.R;
-import com.example.wattpadclone.Search.SearchListActivity;
 
 import java.util.ArrayList;
 public class ArchiveFragment extends Fragment {
@@ -47,25 +46,17 @@ public class ArchiveFragment extends Fragment {
         gr_watpad.setVerticalSpacing(getResources().getDimensionPixelOffset(R.dimen.dp19));
         gr_watpad.setHorizontalSpacing(getResources().getDimensionPixelOffset(R.dimen.dp10));
         ArrayList<Book> watpadArrayList=new ArrayList<>();
-        LibraryAdapter adapter =new LibraryAdapter(watpadArrayList,getContext());
+        ArchiveAdapter adapter =new ArchiveAdapter(watpadArrayList,getContext());
         gr_watpad.setAdapter(adapter);
         WebServices webServices = new WebServices(getActivity());
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=3", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=5", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=10", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=3", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=5", watpadArrayList,adapter);
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=9", watpadArrayList,adapter);
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=8", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=7", watpadArrayList,adapter);
-        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=10", watpadArrayList,adapter);
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=6", watpadArrayList,adapter);
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=5", watpadArrayList,adapter);
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=4", watpadArrayList,adapter);
         webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=3", watpadArrayList,adapter);
-        gr_watpad.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
-                intent.putExtra("BookID", "2");
-                getContext().startActivity(intent);
-            }
-        });
+        webServices.GetDataLibraryAdapter("http://tranquangdang.000webhostapp.com/index.php?BookID=2", watpadArrayList,adapter);
     }
 }

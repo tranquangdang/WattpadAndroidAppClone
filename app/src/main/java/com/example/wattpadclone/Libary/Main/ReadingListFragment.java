@@ -18,8 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
-import com.example.wattpadclone.Chung.WebServices;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.Libary.Adapter.ReadingListAdapter;
 import com.example.wattpadclone.R;
 
@@ -77,15 +76,6 @@ public class ReadingListFragment extends Fragment {
                 }
         );
         requestQueue.add(jsonArrayRequest);
-
-        lv_readinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), ActivityBookDetails.class);
-                intent.putExtra("BookID", "2");
-                getContext().startActivity(intent);
-            }
-        });
         return view;
     }
 }

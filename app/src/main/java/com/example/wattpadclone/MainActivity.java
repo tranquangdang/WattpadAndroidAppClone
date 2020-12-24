@@ -1,34 +1,30 @@
 package com.example.wattpadclone;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.MenuItem;
 
 import com.example.wattpadclone.Home.HomeFragment;
 import com.example.wattpadclone.Libary.Main.LibaryFragement;
 import com.example.wattpadclone.Search.SearchFragment;
 import com.example.wattpadclone.Bell.BellFragment;
+import com.example.wattpadclone.Write.WriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.HashMap;
 import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
 
     public static HashMap<String, Stack<Fragment>> mStacks;
-    public static final String STACK = "STACK";
     public static final String HOME_FRAGMENT = "HOME_FRAGMENT";
     public static final String SEARCH_FRAGMENT = "SEARCH_FRAGMENT";
     public static final String LIBRARY_FRAGMENT = "LIBRARY_FRAGMENT";
+    public static final String WRITE_FRAGMENT = "WRITE_FRAGMENT";
     public static final String BELL_FRAGMENT = "BELL_FRAGMENT";
     public static BottomNavigationView bottomNavigationViewEx;
 
@@ -46,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mStacks.put(HOME_FRAGMENT, new Stack<Fragment>());
         mStacks.put(SEARCH_FRAGMENT, new Stack<Fragment>());
         mStacks.put(LIBRARY_FRAGMENT, new Stack<Fragment>());
+        mStacks.put(WRITE_FRAGMENT, new Stack<Fragment>());
         mStacks.put(BELL_FRAGMENT, new Stack<Fragment>());
 
         bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
@@ -64,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.action_library:
                     selectedTab(LIBRARY_FRAGMENT);
+                    return true;
+                case R.id.action_write:
+                    selectedTab(WRITE_FRAGMENT);
                     return true;
                 case R.id.action_bell:
                     selectedTab(BELL_FRAGMENT);
@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 pushFragments(tabId, new SearchFragment(), true);
             } else if (tabId.equals(LIBRARY_FRAGMENT)) {
                 pushFragments(tabId, new LibaryFragement(), true);
+            } else if (tabId.equals(WRITE_FRAGMENT)) {
+                pushFragments(tabId, new WriteFragment(), true);
             } else if (tabId.equals(BELL_FRAGMENT)) {
                 pushFragments(tabId, new BellFragment(), true);
             }

@@ -1,22 +1,38 @@
 package com.example.wattpadclone.Search;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
+import com.example.wattpadclone.Write.NewBookActivity;
+import com.example.wattpadclone.Write.WriteFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Adapter {
     public static class ListViewBaseAdapter extends BaseAdapter {
@@ -88,10 +104,71 @@ public class Adapter {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(mContext, ActivityBookDetails.class);
-                    intent.putExtra("BookID", holder.search_book_id.getText());
+                    intent.putExtra("BookID", holder.search_book_id.getText().toString());
                     mContext.startActivity(intent);
                 }
             });
+            if(mContext instanceof MainActivity){
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+                        dialog.setMessage("Bạn có muốn sửa hay xóa?").setCancelable(false)
+                                .setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+                                        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://tranquangdang.000webhostapp.com/deletebook.php",
+                                                new Response.Listener<String>() {
+                                                    @Override
+                                                    public void onResponse(String response) {
+                                                        if(response.trim().equals("success")){
+                                                            Toast.makeText(mContext, "Xóa thành công!", Toast.LENGTH_SHORT).show();
+                                                            ((MainActivity)mContext).gotoFragment(new WriteFragment());
+                                                        }else {
+                                                            Toast.makeText(mContext, "Lỗi!" +response, Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                },
+                                                new Response.ErrorListener() {
+                                                    @Override
+                                                    public void onErrorResponse(VolleyError error) {
+                                                        Toast.makeText(mContext, "Lỗi" + error.toString(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }){
+                                            @Override
+                                            protected Map<String, String> getParams() throws AuthFailureError {
+                                                Map<String, String> params = new HashMap<>();
+                                                TextView txt =  view.findViewById(R.id.details_book_id);
+                                                params.put("BookID", holder.search_book_id.getText().toString().trim());
+                                                return params;
+                                            }
+                                        };
+                                        requestQueue.add(stringRequest);
+                                    }
+                                })
+                                .setNegativeButton("Sửa", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(mContext, NewBookActivity.class);
+                                        intent.putExtra("Action", holder.search_book_id.getText().toString().trim());
+                                        mContext.startActivity(intent);
+                                    }
+                                }).setNeutralButton("Hủy", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert = dialog.create();
+                        alert.setTitle("Lựa chọn");
+                        alert.show();
+                        return false;
+                    }
+                });
+            }
+
             return view;
         }
     }

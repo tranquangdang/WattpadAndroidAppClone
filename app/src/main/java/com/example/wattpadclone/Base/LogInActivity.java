@@ -89,8 +89,8 @@ public class LogInActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txt_username = usernameLogin.getText().toString();
-                String txt_password = passwordLogin.getText().toString();
+                String txt_username = usernameLogin.getText().toString().trim();
+                String txt_password = passwordLogin.getText().toString().trim();
                 if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(LogInActivity.this, "Chưa điền đầy đủ cho các trường!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -160,7 +160,7 @@ public class LogInActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         if(!input.getText().toString().isEmpty()) {
                             loadingDialog.Loading();
-                            FirebaseAuth.getInstance().sendPasswordResetEmail(input.getText().toString())
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(input.getText().toString().trim())
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

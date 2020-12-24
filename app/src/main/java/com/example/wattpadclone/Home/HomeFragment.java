@@ -53,6 +53,11 @@ public class HomeFragment extends BaseFragment {
                     Intent intent = new Intent(getActivity(), AccountActivity.class);
                     startActivity(intent);
                 }
+                if(item.getItemId()== R.id.toolbar_home_setting)
+                {
+                    String cate = new WebServices(getActivity()).GetCategoryById(1);
+                    Toast.makeText(getContext(), "Lỗi" + cate, Toast.LENGTH_SHORT).show();
+                }
                 return false;
             }
         });

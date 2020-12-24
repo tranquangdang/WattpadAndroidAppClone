@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.wattpadclone.Bell.Message.Chat;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.ActivityBookDetails;
+import com.example.wattpadclone.Chung.BookDetails.ActivityBookDetailsViewPager;
 import com.example.wattpadclone.Chung.Bean.FirstZoomHorizontalLayoutManager;
 import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
@@ -57,14 +55,25 @@ public class HorizontalRecyclerViewHomeAdapter2 extends RecyclerView.Adapter<Hor
                         recyclerView2.getLayoutManager();
                 int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
                 if(firstVisiblePosition == position) {
-                    Intent intent = new Intent(context, ActivityBookDetails.class);
+                    Intent intent = new Intent(context, ActivityBookDetailsViewPager.class);
                     intent.putExtra("BookID", holder.bookID.getText());
+                    intent.putExtra("Position", position);
                     context.startActivity(intent);
                 } else {
                     recyclerView2.smoothScrollToPosition(position);
                 }
             }
         });
+//        ((MainActivity) context).findViewById(R.id.home_more_rv2).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Intent intent = new Intent(context, ActivityBookDetails.class);
+////                intent.putExtra("BookID", holder.bookID.getText());
+////                intent.putExtra("Position", position);
+////                context.startActivity(intent);
+//                Toast.makeText(context, "" + position , Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 

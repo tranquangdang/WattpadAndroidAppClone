@@ -22,6 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
+        <TextView
+            android:id="@+id/current_book_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <ProgressBar
             android:layout_gravity="center_vertical"
             android:id="@+id/ProgressBar"

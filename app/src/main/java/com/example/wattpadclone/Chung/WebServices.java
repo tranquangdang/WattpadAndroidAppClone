@@ -3,22 +3,22 @@ package com.example.wattpadclone.Chung;
 import android.app.Activity;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.wattpadclone.Chung.Bean.Book;
-import com.example.wattpadclone.Chung.Detalts.RecyclerViewBookDetailsAdapter;
-import com.example.wattpadclone.Chung.Detalts.vpBookDetailsAdapter;
+import com.example.wattpadclone.Chung.BookDetails.RecyclerViewBookDetailsAdapter;
+import com.example.wattpadclone.Chung.BookDetails.vpBookDetailsAdapter;
 import com.example.wattpadclone.Home.Adapters.Beans.VerticalRecyclerViewHomeBean;
 import com.example.wattpadclone.Home.Adapters.VerticalRecyclerViewHomeAdapter;
 import com.example.wattpadclone.Libary.Adapter.CurrentReadAdapter;
-import com.example.wattpadclone.Libary.Adapter.LibraryAdapter;
+import com.example.wattpadclone.Libary.Adapter.ArchiveAdapter;
 import com.example.wattpadclone.Search.Adapter;
+import com.example.wattpadclone.Write.NewBookActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class WebServices {
     private Activity activity;
+    String category;
 
     public WebServices(Activity activity) {
         this.activity = activity;
@@ -116,7 +117,7 @@ public class WebServices {
         requestQueue.add(jsonArrayRequest);
     }
 
-    public void GetDataLibraryAdapter (String url, ArrayList<Book> arrayList, LibraryAdapter adapter){
+    public void GetDataLibraryAdapter (String url, ArrayList<Book> arrayList, ArchiveAdapter adapter){
         RequestQueue requestQueue = Volley.newRequestQueue(activity);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -252,5 +253,29 @@ public class WebServices {
                 }
         );
         requestQueue.add(jsonArrayRequest);
+    }
+
+    public String GetCategoryById(int id){
+        RequestQueue requestQueue = Volley.newRequestQueue(activity);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://tranquangdang.000webhostapp.com/category.php?CategoryID=" + id, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            JSONObject jsonObject = response.getJSONObject(0);
+                            category = jsonObject.getString("CategoryName");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+        return category;
     }
 }

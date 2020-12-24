@@ -18,7 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WattpadClone">
-        <activity android:name=".Bell.Message.Chat"></activity>
+        <activity android:name=".Chung.BookDetails.ActivityBookDetails"></activity>
+        <activity android:name=".Write.RadioButtonCategoryActivity" />
+        <activity android:name=".Write.EditLayoutActivity" />
+        <activity android:name=".Write.NewBookActivity" />
+        <activity android:name=".Bell.Message.Chat" />
         <activity android:name=".Base.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Home.Account.AccountActivity" />
-        <activity android:name=".Chung.Detalts.ActivityBookDetails" />
+        <activity android:name=".Chung.BookDetails.ActivityBookDetailsViewPager" />
         <activity android:name=".Search.SearchListActivity" />
         <activity android:name=".Bell.Tabs.thembanbe.thembanbe" />
         <activity android:name=".MainActivity" />
