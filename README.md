@@ -1,10 +1,10 @@
 # Wattpad Clone
 
-Gồm các giao diện chính: Trang đăng nhập - đăng ký, Trang tài khoản - thiết lập, Trang chủ, Tìm kiếm, Thư viện, Viết và Các cập nhật
+An android app build with Java and Firebase (Javascript and MySQL for webservice)
 
 Các chức năng chính:
-  * Đăng ký, Đăng nhập, Đăng xuất và Quên mật khẩu.
-  * Xem các danh sách truyện và trang giới thiệu truyện.
-  * Nhắn tin.
-  * Thêm, xóa và sửa sách.
+  * Sign up, Log in, Forgot Password
+  * Reading stories
+  * Chatting.
+  * Edit, add, or remove stories.
   
