@@ -3,9 +3,9 @@
 An android app built with Java and Firebase (Javascript and MySQL for webservice)
 
 Features:
-  * Sign up, Log in, Forgot Password
-  * Reading stories
+  * Sign up, Log in, Forgot Password.
+  * Reading stories.
   * Chatting.
-  * Edit, add, or remove stories.
+  * Writing your own stories
   
 Demo here: https://tranquangdang.github.io/WattpadAndroidAppClone
